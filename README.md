@@ -11,6 +11,10 @@
 
 **Step 3:** Install the Application with `yarn install` or `npm install`
 
+## :arrow_up: Requirements
+
+  * React Native CLI: Follow the instructions below for your Development and Mobile OS
+  https://facebook.github.io/react-native/docs/getting-started.html#content
 
 ## :arrow_forward: How to Run App
 
