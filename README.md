@@ -26,15 +26,15 @@
         - Android SDK Build-tools 23.0.1
         - Android SDK Build-tools 23.0.3
 
-    On MacOS/Linux, define the path to your SDK directory.
-    ```
-    $ vim ~/.bash_profile
-    export ANDROID_HOME=/Users/<your-user>/Library/Android/sdk
-    export PATH=$ANDROID_HOME/tools:$PATH
-    export PATH=$ANDROID_HOME/platform-tools:$PATH
-    ```
+      On MacOS/Linux, define the path to your SDK directory.
+      ```
+      $ vim ~/.bash_profile
+      export ANDROID_HOME=/Users/<your-user>/Library/Android/sdk
+      export PATH=$ANDROID_HOME/tools:$PATH
+      export PATH=$ANDROID_HOME/platform-tools:$PATH
+      ```
 
-    Run `(cd android && ./gradlew clean)`
+      Run `(cd android && ./gradlew clean)`
 
 ## :arrow_forward: How to Run App
 
