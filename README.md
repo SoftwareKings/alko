@@ -3,14 +3,6 @@
 
 * Standard compliant React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
 
-## :arrow_up: How to Setup
-
-**Step 1:** git clone this repo:
-
-**Step 2:** cd to the cloned repo:
-
-**Step 3:** Install the Application with `yarn install` or `npm install`
-
 ## :arrow_up: Requirements
   * Node 6
   * React Native CLI: Follow the instructions below for your Development and Mobile OS
@@ -35,6 +27,15 @@
       ```
 
       Run `(cd android && ./gradlew clean)`
+
+
+## :arrow_up: How to Setup
+
+**Step 1:** git clone this repo:
+
+**Step 2:** cd to the cloned repo:
+
+**Step 3:** Install the Application with `yarn install` or `npm install`
 
 ## :arrow_forward: How to Run App
 
