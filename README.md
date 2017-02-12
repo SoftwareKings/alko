@@ -12,9 +12,29 @@
 **Step 3:** Install the Application with `yarn install` or `npm install`
 
 ## :arrow_up: Requirements
-
+  * Node 6
   * React Native CLI: Follow the instructions below for your Development and Mobile OS
   https://facebook.github.io/react-native/docs/getting-started.html#content
+  * Yarn: https://yarnpkg.com/en/docs/install
+
+  * for iOS
+    * Xcode 8
+
+  * for Android
+    * Android SDK
+        - SDK Platform API 23
+        - Android SDK Build-tools 23.0.1
+        - Android SDK Build-tools 23.0.3
+
+    On MacOS/Linux, define the path to your SDK directory.
+    ```
+    $ vim ~/.bash_profile
+    export ANDROID_HOME=/Users/<your-user>/Library/Android/sdk
+    export PATH=$ANDROID_HOME/tools:$PATH
+    export PATH=$ANDROID_HOME/platform-tools:$PATH
+    ```
+
+    Run `(cd android && ./gradlew clean)`
 
 ## :arrow_forward: How to Run App
 
@@ -23,7 +43,7 @@
   * for iOS
     * run `react-native run-ios`
   * for Android
-    * Run Genymotion
+    * Run Genymotion / Connect your real device
     * run `react-native run-android`
 
 ## :no_entry_sign: Standard Compliant
