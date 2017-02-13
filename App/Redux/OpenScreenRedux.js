@@ -1,10 +1,10 @@
-import { createActions } from 'reduxsauce'
+import { createActions } from 'reduxsauce';
 
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  openScreen: ['screen', 'options']
-})
+  openScreen: ['screen', 'options'],
+});
 
-export const OpenScreenTypes = Types
-export default Creators
+export const OpenScreenTypes = Types;
+export default Creators;

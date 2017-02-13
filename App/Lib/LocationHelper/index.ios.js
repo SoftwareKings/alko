@@ -1,27 +1,27 @@
-var { RNLocation: Location } = require('NativeModules')
+const { RNLocation: Location } = require('NativeModules');
 
-let instance = null
+let instance = null;
 export default class LocationHelper {
 
-  static getInstance () {
+  static getInstance() {
     if (!instance) {
-      instance = new LocationHelper()
+      instance = new LocationHelper();
     }
-    return instance
+    return instance;
   }
 
-  requestWhenInUsePermission () {
+  requestWhenInUsePermission() {
     this.checkPermission((authorization) => {
       if (authorization !== 'authorizedWhenInUse') {
-        Location.requestWhenInUseAuthorization()
+        Location.requestWhenInUseAuthorization();
       }
-    })
+    });
   }
 
-  checkPermission (cb) {
+  checkPermission(cb) {
     Location.getAuthorizationStatus((authorization) => {
-      cb(authorization)
-    })
+      cb(authorization);
+    });
   }
 
 }

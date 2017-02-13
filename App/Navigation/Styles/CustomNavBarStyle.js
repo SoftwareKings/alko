@@ -1,4 +1,4 @@
-import { Colors, Metrics, Fonts } from '../../Themes/'
+import { Colors, Metrics, Fonts } from '../../Themes/';
 
 export default {
   container: {
@@ -11,7 +11,7 @@ export default {
     paddingHorizontal: 5,
     backgroundColor: Colors.dune,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   title: {
     flex: 1,
@@ -20,22 +20,22 @@ export default {
     marginTop: Metrics.doubleBaseMargin,
     backgroundColor: Colors.transparent,
     fontWeight: 'bold',
-    fontSize: Fonts.size.input
+    fontSize: Fonts.size.input,
   },
   logo: {
     alignSelf: 'center',
     marginTop: Metrics.baseMargin,
     height: Metrics.icons.large,
-    width: Metrics.icons.large
+    width: Metrics.icons.large,
   },
   rightButtons: {
     flex: 1,
     justifyContent: 'flex-end',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   leftButtons: {
     flex: 1,
     justifyContent: 'flex-start',
-    flexDirection: 'row'
-  }
-}
+    flexDirection: 'row',
+  },
+};

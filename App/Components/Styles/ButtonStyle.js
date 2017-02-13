@@ -1,7 +1,7 @@
 // @flow
 
-import { StyleSheet } from 'react-native'
-import { Colors, Fonts } from '../../Themes/'
+import { StyleSheet } from 'react-native';
+import { Colors, Fonts } from '../../Themes/';
 
 export default StyleSheet.create({
   btn: {
@@ -11,11 +11,11 @@ export default StyleSheet.create({
     borderRadius: 3,
     alignSelf: 'stretch',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   btnText: {
     color: Colors.snow,
     fontFamily: Fonts.type.primary,
-    fontSize: 15
-  }
-})
+    fontSize: 15,
+  },
+});

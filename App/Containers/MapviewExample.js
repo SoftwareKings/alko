@@ -1,10 +1,10 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { View } from 'react-native'
-import MapView from 'react-native-maps'
-import { calculateRegion } from '../Lib/MapHelpers'
-import MapCallout from '../Components/MapCallout'
-import Styles from './Styles/MapviewExampleStyle'
+import React from 'react';
+import { connect } from 'react-redux';
+import { View } from 'react-native';
+import MapView from 'react-native-maps';
+import { calculateRegion } from '../Lib/MapHelpers';
+import MapCallout from '../Components/MapCallout';
+import Styles from './Styles/MapviewExampleStyle';
 
 /* ***********************************************************
 * IMPORTANT!!! Before you get started, if you are going to support Android,
@@ -23,8 +23,8 @@ class MapviewExample extends React.Component {
   * For full documentation, see https://github.com/lelandrichardson/react-native-maps
   *************************************************************/
 
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     /* ***********************************************************
     * STEP 1
     * Set the array of locations to be displayed on your map. You'll need to define at least
@@ -32,24 +32,24 @@ class MapviewExample extends React.Component {
     *************************************************************/
     const locations = [
       { title: 'Location A', latitude: 37.78825, longitude: -122.4324 },
-      { title: 'Location B', latitude: 37.75825, longitude: -122.4624 }
-    ]
+      { title: 'Location B', latitude: 37.75825, longitude: -122.4624 },
+    ];
     /* ***********************************************************
     * STEP 2
     * Set your initial region either by dynamically calculating from a list of locations (as below)
     * or as a fixed point, eg: { latitude: 123, longitude: 123, latitudeDelta: 0.1, longitudeDelta: 0.1}
     *************************************************************/
-    const region = calculateRegion(locations, { latPadding: 0.05, longPadding: 0.05 })
+    const region = calculateRegion(locations, { latPadding: 0.05, longPadding: 0.05 });
     this.state = {
       region,
       locations,
-      showUserLocation: true
-    }
-    this.renderMapMarkers = this.renderMapMarkers.bind(this)
-    this.onRegionChange = this.onRegionChange.bind(this)
+      showUserLocation: true,
+    };
+    this.renderMapMarkers = this.renderMapMarkers.bind(this);
+    this.onRegionChange = this.onRegionChange.bind(this);
   }
 
-  componentWillReceiveProps (newProps) {
+  componentWillReceiveProps(newProps) {
     /* ***********************************************************
     * STEP 3
     * If you wish to recenter the map on new locations any time the
@@ -60,7 +60,7 @@ class MapviewExample extends React.Component {
     // })
   }
 
-  onRegionChange (newRegion) {
+  onRegionChange(newRegion) {
     /* ***********************************************************
     * STEP 4
     * If you wish to fetch new locations when the user changes the
@@ -75,16 +75,16 @@ class MapviewExample extends React.Component {
     // Fetch new data...
   }
 
-  calloutPress (location) {
+  calloutPress(location) {
     /* ***********************************************************
     * STEP 5
     * Configure what will happen (if anything) when the user
     * presses your callout.
     *************************************************************/
-    console.tron.log(location)
+    console.tron.log(location);
   }
 
-  renderMapMarkers (location) {
+  renderMapMarkers(location) {
     /* ***********************************************************
     * STEP 6
     * Customize the appearance and location of the map marker.
@@ -92,13 +92,13 @@ class MapviewExample extends React.Component {
     *************************************************************/
 
     return (
-      <MapView.Marker key={location.title} coordinate={{latitude: location.latitude, longitude: location.longitude}}>
+      <MapView.Marker key={location.title} coordinate={{ latitude: location.latitude, longitude: location.longitude }}>
         <MapCallout location={location} onPress={this.calloutPress} />
       </MapView.Marker>
-    )
+    );
   }
 
-  render () {
+  render() {
     return (
       <View style={Styles.container}>
         <MapView
@@ -107,17 +107,15 @@ class MapviewExample extends React.Component {
           onRegionChangeComplete={this.onRegionChange}
           showsUserLocation={this.state.showUserLocation}
         >
-          {this.state.locations.map((location) => this.renderMapMarkers(location))}
+          {this.state.locations.map(location => this.renderMapMarkers(location))}
         </MapView>
       </View>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => ({
     // ...redux state to props here
-  }
-}
+});
 
-export default connect(mapStateToProps)(MapviewExample)
+export default connect(mapStateToProps)(MapviewExample);

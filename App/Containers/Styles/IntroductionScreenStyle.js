@@ -1,55 +1,55 @@
 // @flow
 
-import {StyleSheet, Platform} from 'react-native'
-import {Metrics, Colors, Fonts} from '../../Themes/'
+import { StyleSheet, Platform } from 'react-native';
+import { Metrics, Colors, Fonts } from '../../Themes/';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     padding: Metrics.largeMargin,
     paddingTop: (Platform.OS === 'ios') ? Metrics.largeMargin : 0,
-    backgroundColor: Colors.dune
+    backgroundColor: Colors.dune,
   },
   contentContainer: {
     paddingTop: Metrics.largeMargin,
     marginBottom: Metrics.largeMargin,
-    flex: 1
+    flex: 1,
   },
   centerContainer: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   section: {
-    marginBottom: 50
+    marginBottom: 50,
   },
   sectionTitle: {
     color: Colors.blazeOrange,
     fontSize: Fonts.size.h5,
     fontFamily: Fonts.type.primary,
-    marginBottom: Metrics.baseMargin
+    marginBottom: Metrics.baseMargin,
   },
   description: {
     color: Colors.snow,
     fontFamily: Fonts.type.primary,
-    fontSize: Fonts.size.regular
+    fontSize: Fonts.size.regular,
   },
   stepTitle: {
     textAlign: 'center',
-    fontSize: Fonts.size.h4
+    fontSize: Fonts.size.h4,
   },
   stepSubtitle: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   stepImage: {
-    marginBottom: 50
+    marginBottom: 50,
   },
   btnDisallow: {
     marginTop: Metrics.doubleBaseMargin,
-    backgroundColor: '#444444'
+    backgroundColor: '#444444',
   },
   btnDisallowText: {
     color: '#707070',
     textShadowColor: '#000000',
-    textShadowOffset: {width: 0, height: 2}
-  }
-})
+    textShadowOffset: { width: 0, height: 2 },
+  },
+});

@@ -11,7 +11,7 @@ const images = {
   logo: require('../Images/ir.png'),
   clearLogo: require('../Images/top_logo.png'),
   ignite: require('../Images/ignite_logo.png'),
-  background: require('../Images/BG.png')
-}
+  background: require('../Images/BG.png'),
+};
 
-export default images
+export default images;

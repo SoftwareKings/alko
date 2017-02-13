@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   View,
   Text,
   Image,
-  ScrollView
-} from 'react-native'
-import I18n from 'react-native-i18n'
-import Button from 'app/Components/Button'
-import styles from '../Styles/IntroductionScreenStyle'
-import {Images} from 'app/Themes'
-import { Actions as NavigationActions } from 'react-native-router-flux'
+  ScrollView,
+} from 'react-native';
+import I18n from 'react-native-i18n';
+import Button from 'app/Components/Button';
+import styles from '../Styles/IntroductionScreenStyle';
+import { Images } from 'app/Themes';
+import { Actions as NavigationActions } from 'react-native-router-flux';
 
 export default class Step1Screen extends Component {
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.contentContainer}>
@@ -30,7 +30,7 @@ export default class Step1Screen extends Component {
           <Button onPress={NavigationActions.introStep3Screen} text={I18n.t('Introduction_step2_btn')} />
         </View>
       </View>
-    )
+    );
   }
 
 }
