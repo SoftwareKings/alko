@@ -9,6 +9,7 @@ import ReduxPersist from '../Config/ReduxPersist'
 
 // Styles
 import styles from './Styles/RootContainerStyle'
+import { Colors } from '../Themes/'
 
 class RootContainer extends Component {
   componentDidMount () {
@@ -21,7 +22,10 @@ class RootContainer extends Component {
   render () {
     return (
       <View style={styles.applicationView}>
-        <StatusBar barStyle='light-content' />
+        <StatusBar
+          backgroundColor={Colors.dune}
+          barStyle='light-content'
+        />
         <NavigationRouter />
       </View>
     )

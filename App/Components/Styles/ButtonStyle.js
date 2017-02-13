@@ -5,7 +5,7 @@ import { Colors, Fonts } from '../../Themes/'
 
 export default StyleSheet.create({
   btn: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.blazeOrange,
     paddingHorizontal: 30,
     height: 40,
     borderRadius: 3,

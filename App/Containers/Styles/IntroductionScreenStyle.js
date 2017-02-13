@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flex: 1,
     padding: Metrics.largeMargin,
     paddingTop: (Platform.OS === 'ios') ? Metrics.largeMargin : 0,
-    backgroundColor: Colors.background
+    backgroundColor: Colors.dune
   },
   contentContainer: {
     paddingTop: Metrics.largeMargin,
@@ -23,7 +23,7 @@ export default StyleSheet.create({
     marginBottom: 50
   },
   sectionTitle: {
-    color: Colors.primary,
+    color: Colors.blazeOrange,
     fontSize: Fonts.size.h5,
     fontFamily: Fonts.type.primary,
     marginBottom: Metrics.baseMargin
