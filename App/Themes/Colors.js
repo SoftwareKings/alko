@@ -1,7 +1,10 @@
 // @flow
 
 const colors = {
-  background: '#1F0808',
+  // ALKO theme
+  background: '#2B2725',
+  textHighLight: '#FF7604',
+
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
   transparent: 'rgba(0,0,0,0)',
