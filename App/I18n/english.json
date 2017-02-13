@@ -28,5 +28,19 @@
   "Introduction_aboutAlko": "ALKO is about making new friends at your favorite bars. When you open ALKO, you’ll see which bars have Drink-Ups going on. Click on the bar, request an invitation, and share some drinks with new people.",
   "Introduction_why": "WHY NOT JUST GO TO THE BAR?",
   "Introduction_reason": "People go to the bar for different reasons, whether they’re on a date, happy hour with coworkers, drinks with friends, or use ALKO to find people who are looking to meet.\n\nYou can be fearless.",
-  "Introduction_next": "Next: The ALKO Special"
+  "Introduction_next": "Next: The ALKO Special",
+
+  "Introduction_step2_title": "2 FOR 1 @ DRINK-UPS",
+  "Introduction_step2_subtitle": "ALKO partners with bars to get you free drinks during drink-ups.",
+  "Introduction_step2_description": "Join a drink-up, show your\nphone to the bartender,\nget a free drink. Any drink.",
+  "Introduction_step2_btn": "Okay, free drinks are cool",
+
+  "Introduction_step3_title": "LOCATION DATA",
+  "Introduction_step3_description": "We use your phone’s location data so we can tell you about drink-ups starting nearby.\n\nALKO also uses location data to figure out your taste in bars. Whether you’re at home or traveling, ALKO can suggest great bars, personalized just for you.\n\nALKO won’t drain your battery because of how rarely it uses location data.",
+  "Introduction_step3_btn": "Turn on location",
+
+  "Introduction_step4_title": "PUSH NOTIFICATIONS",
+  "Introduction_step4_description": "We’ll only tell you about Drink-ups when you’d like us to.",
+  "Introduction_step4_btn": "Allow push notifications",
+  "Introduction_step4_disallow": "no, maybe later"
 }

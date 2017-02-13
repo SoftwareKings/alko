@@ -11,7 +11,12 @@ export default StyleSheet.create({
   },
   contentContainer: {
     paddingTop: Metrics.largeMargin,
-    marginBottom: Metrics.largeMargin
+    marginBottom: Metrics.largeMargin,
+    flex: 1
+  },
+  centerContainer: {
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   section: {
     marginBottom: 50
@@ -26,5 +31,24 @@ export default StyleSheet.create({
     color: Colors.snow,
     fontFamily: Fonts.type.primary,
     fontSize: Fonts.size.regular
+  },
+  stepTitle: {
+    textAlign: 'center',
+    fontSize: Fonts.size.h4
+  },
+  stepSubtitle: {
+    textAlign: 'center'
+  },
+  stepImage: {
+    marginBottom: 50
+  },
+  btnDisallow: {
+    marginTop: Metrics.doubleBaseMargin,
+    backgroundColor: '#444444'
+  },
+  btnDisallowText: {
+    color: '#707070',
+    textShadowColor: '#000000',
+    textShadowOffset: {width: 0, height: 2}
   }
 })
