@@ -1,12 +1,13 @@
 // @flow
 
-import {StyleSheet} from 'react-native'
+import {StyleSheet, Platform} from 'react-native'
 import {Metrics, Colors, Fonts} from '../../Themes/'
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     padding: Metrics.largeMargin,
+    paddingTop: (Platform.OS === 'ios') ? Metrics.largeMargin : 0,
     backgroundColor: Colors.background
   },
   contentContainer: {
