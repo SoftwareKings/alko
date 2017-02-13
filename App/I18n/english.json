@@ -22,5 +22,11 @@
    "themeSettings": "Theme Settings",
    "deviceDetails": "Device Details",
    "noItems": "No Items",
-   "search": "Search"
+   "search": "Search",
+
+  "Introduction_welcome": "MEET NEW FRIENDS ON ALKO",
+  "Introduction_aboutAlko": "ALKO is about making new friends at your favorite bars. When you open ALKO, you’ll see which bars have Drink-Ups going on. Click on the bar, request an invitation, and share some drinks with new people.",
+  "Introduction_why": "WHY NOT JUST GO TO THE BAR?",
+  "Introduction_reason": "People go to the bar for different reasons, whether they’re on a date, happy hour with coworkers, drinks with friends, or use ALKO to find people who are looking to meet.\n\nYou can be fearless.",
+  "Introduction_next": "Next: The ALKO Special"
 }

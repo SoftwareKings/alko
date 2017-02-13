@@ -3,7 +3,8 @@
 const type = {
   base: 'HelveticaNeue',
   bold: 'HelveticaNeue-Bold',
-  emphasis: 'HelveticaNeue-Italic'
+  emphasis: 'HelveticaNeue-Italic',
+  primary: 'Montserrat'
 }
 
 const size = {
@@ -60,4 +61,3 @@ export default {
   size,
   style
 }
-
