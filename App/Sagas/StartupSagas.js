@@ -1,11 +1,13 @@
 import { put, select } from 'redux-saga/effects';
-import TemperatureActions from '../Redux/TemperatureRedux';
 import { is } from 'ramda';
+
+import TemperatureActions from '../Redux/TemperatureRedux';
 
 // exported to make available for tests
 export const selectTemperature = state => state.temperature.temperature;
 
 // process STARTUP actions
+/* eslint no-unused-vars: 0 */
 export function* startup(action) {
   if (__DEV__ && console.tron) {
     // straight-up string logging

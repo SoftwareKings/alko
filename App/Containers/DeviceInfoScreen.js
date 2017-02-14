@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable */
 
 // An All Components Screen is a great way to dev and quick-test components
 import React from 'react';

@@ -6,7 +6,8 @@ import {
 } from 'react-native';
 
 import I18n from 'react-native-i18n';
-import Button from 'app/Components/Button';
+
+import Button from '../../Components/Button';
 import styles from '../Styles/IntroductionScreenStyle';
 
 export default class Step4Screen extends Component {

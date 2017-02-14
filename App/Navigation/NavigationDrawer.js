@@ -3,8 +3,9 @@
 import React, { PropTypes, Component } from 'react';
 import Drawer from 'react-native-drawer';
 import { DefaultRenderer, Actions as NavigationActions } from 'react-native-router-flux';
-import DrawerContent from '../Containers/DrawerContent';
 import { connect } from 'react-redux';
+
+import DrawerContent from '../Containers/DrawerContent';
 import Styles from './Styles/NavigationDrawerStyle';
 
 /* *******************
@@ -17,7 +18,7 @@ class NavigationDrawer extends Component {
     const children = state.children;
     return (
       <Drawer
-        ref="navigation"
+        ref={ref => this.drawer = ref}
         type="displace"
         open={state.open}
         onOpen={() => NavigationActions.refresh({ key: state.key, open: true })}
@@ -39,12 +40,17 @@ class NavigationDrawer extends Component {
 }
 
 NavigationDrawer.propTypes = {
-  navigationState: PropTypes.object,
+  navigationState: PropTypes.shape({
+    children: PropTypes.array,
+  }),
+  onNavigate: PropTypes.func,
 };
 
+/* eslint no-unused-vars: 0 */
 const mapStateToProps = state => ({
 });
 
+/* eslint no-unused-vars: 0 */
 const mapDispatchToProps = dispatch => ({
 });
 

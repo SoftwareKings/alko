@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable */
 
 import React from 'react';
 import { ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';

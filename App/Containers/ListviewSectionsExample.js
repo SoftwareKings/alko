@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable */
 
 import React from 'react';
 import { View, ListView, Text } from 'react-native';

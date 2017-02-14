@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable global-require */
 
 import I18n from 'react-native-i18n';
 
@@ -47,7 +48,7 @@ switch (languageCode) {
   case 'et':
     I18n.translations.et = require('./et.json');
     break;
-  case 'fi':
+  case 'fi': {
     const addCode = I18n.locale.substr(0, 3);
     if (addCode === 'fil') {
       I18n.translations.fil = require('./fil.json');
@@ -55,6 +56,7 @@ switch (languageCode) {
       I18n.translations.fi = require('./fi.json');
     }
     break;
+  }
   case 'fr':
     I18n.translations.fr = require('./fr.json');
     break;
@@ -148,4 +150,8 @@ switch (languageCode) {
   case 'zu':
     I18n.translations.zu = require('./zu.json');
     break;
+  default:
+    I18n.translations = {
+      en: require('./english.json'),
+    };
 }

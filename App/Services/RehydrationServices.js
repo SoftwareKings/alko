@@ -1,6 +1,7 @@
-import ReduxPersist from '../Config/ReduxPersist';
 import { AsyncStorage } from 'react-native';
 import { persistStore } from 'redux-persist';
+
+import ReduxPersist from '../Config/ReduxPersist';
 import StartupActions from '../Redux/StartupRedux';
 
 const updateReducers = (store: Object) => {

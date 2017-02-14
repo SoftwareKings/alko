@@ -3,11 +3,8 @@
 import React, { PropTypes } from 'react';
 import { View, ScrollView, Text, TouchableOpacity, Image } from 'react-native';
 import { connect } from 'react-redux';
-import LoginActions, { isLoggedIn } from '../Redux/LoginRedux';
-import TemperatureActions from '../Redux/TemperatureRedux';
 import { Actions as NavigationActions } from 'react-native-router-flux';
-import { Colors, Images, Metrics } from '../Themes';
-import RoundedButton from '../Components/RoundedButton';
+
 // external libs
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Animatable from 'react-native-animatable';
@@ -15,10 +12,31 @@ import * as Animatable from 'react-native-animatable';
 // import PushNotification from 'react-native-push-notification'
 import I18n from 'react-native-i18n';
 
+import LoginActions, { isLoggedIn } from '../Redux/LoginRedux';
+import TemperatureActions from '../Redux/TemperatureRedux';
+import { Colors, Images, Metrics } from '../Themes';
+import RoundedButton from '../Components/RoundedButton';
+
 // Styles
 import styles from './Styles/UsageExamplesScreenStyle';
 
 class UsageExamplesScreen extends React.Component {
+
+  static renderLoginButton() {
+    return (
+      <RoundedButton onPress={NavigationActions.login}>
+        {I18n.t('signIn')}
+      </RoundedButton>
+    );
+  }
+
+  static renderHeader(title) {
+    return (
+      <View style={styles.componentLabelContainer}>
+        <Text style={styles.componentLabel}>{title}</Text>
+      </View>
+    );
+  }
 
   componentWillReceiveProps(nextProps) {
     // Request push premissions only if the user has logged in.
@@ -48,27 +66,11 @@ class UsageExamplesScreen extends React.Component {
     this.props.requestTemperature('New Orleans');
   }
 
-  renderLoginButton() {
-    return (
-      <RoundedButton onPress={NavigationActions.login}>
-        {I18n.t('signIn')}
-      </RoundedButton>
-    );
-  }
-
   renderLogoutButton() {
     return (
       <RoundedButton onPress={this.props.logout}>
         {I18n.t('logOut')}
       </RoundedButton>
-    );
-  }
-
-  renderHeader(title) {
-    return (
-      <View style={styles.componentLabelContainer}>
-        <Text style={styles.componentLabel}>{title}</Text>
-      </View>
     );
   }
 

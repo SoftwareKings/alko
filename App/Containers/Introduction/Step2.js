@@ -6,10 +6,11 @@ import {
   ScrollView,
 } from 'react-native';
 import I18n from 'react-native-i18n';
-import Button from 'app/Components/Button';
-import styles from '../Styles/IntroductionScreenStyle';
-import { Images } from 'app/Themes';
 import { Actions as NavigationActions } from 'react-native-router-flux';
+
+import styles from '../Styles/IntroductionScreenStyle';
+import Button from '../../Components/Button';
+import { Images } from '../../Themes';
 
 export default class Step1Screen extends Component {
 

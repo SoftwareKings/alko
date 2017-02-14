@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import { View, Image, LayoutAnimation } from 'react-native';
+import { connect } from 'react-redux';
+
 import NavItems from './NavItems';
 import styles from './Styles/CustomNavBarStyle';
 import SearchBar from '../Components/SearchBar';
-import { connect } from 'react-redux';
 import { Metrics, Images } from '../Themes';
 import SearchActions from '../Redux/SearchRedux';
 
@@ -16,17 +17,12 @@ class CustomNavBar extends React.Component {
     };
   }
 
-  showSearchBar = () => {
-    this.setState({ showSearchBar: true });
-  }
-
-  cancelSearch = () => {
-    this.setState({ showSearchBar: false });
-    this.props.cancelSearch();
-  }
-
   onSearch = (searchTerm) => {
     this.props.performSearch(searchTerm);
+  }
+
+  showSearchBar = () => {
+    this.setState({ showSearchBar: true });
   }
 
   renderMiddle() {
@@ -67,7 +63,7 @@ class CustomNavBar extends React.Component {
   render() {
     let state = this.props.navigationState;
     let selected = state.children[state.index];
-    while (selected.hasOwnProperty('children')) {
+    while (Object.prototype.hasOwnProperty.call(selected, 'children')) {
       state = selected;
       selected = selected.children[selected.index];
     }

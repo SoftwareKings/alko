@@ -4,12 +4,12 @@ import {
   Text,
   ScrollView,
 } from 'react-native';
-
-import I18n from 'react-native-i18n';
-import Button from 'app/Components/Button';
-import styles from '../Styles/IntroductionScreenStyle';
 import { Actions as NavigationActions } from 'react-native-router-flux';
-import LocationHelper from 'app/Lib/LocationHelper';
+import I18n from 'react-native-i18n';
+
+import styles from '../Styles/IntroductionScreenStyle';
+import Button from '../../Components/Button';
+import LocationHelper from '../../Lib/LocationHelper';
 
 export default class Step3Screen extends Component {
 

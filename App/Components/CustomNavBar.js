@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Image, Animated, TouchableOpacity } from 'react-native';
-import { Images, Colors } from '../Themes';
-import Styles from './Styles/CustomNavBarStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions as NavigationActions } from 'react-native-router-flux';
+
+import { Images, Colors } from '../Themes';
+import Styles from './Styles/CustomNavBarStyle';
 
 export default class CustomNavBar extends React.Component {
   render() {
@@ -18,4 +19,3 @@ export default class CustomNavBar extends React.Component {
     );
   }
 }
-

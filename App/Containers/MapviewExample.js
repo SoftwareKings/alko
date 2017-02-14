@@ -49,6 +49,7 @@ class MapviewExample extends React.Component {
     this.onRegionChange = this.onRegionChange.bind(this);
   }
 
+  // eslint-disable-next-line class-methods-use-this, no-unused-vars
   componentWillReceiveProps(newProps) {
     /* ***********************************************************
     * STEP 3
@@ -60,6 +61,7 @@ class MapviewExample extends React.Component {
     // })
   }
 
+  // eslint-disable-next-line class-methods-use-this, no-unused-vars
   onRegionChange(newRegion) {
     /* ***********************************************************
     * STEP 4
@@ -75,7 +77,8 @@ class MapviewExample extends React.Component {
     // Fetch new data...
   }
 
-  calloutPress(location) {
+  // eslint-disable-next-line class-methods-use-this, no-unused-vars
+  scalloutPress(location) {
     /* ***********************************************************
     * STEP 5
     * Configure what will happen (if anything) when the user
@@ -114,6 +117,7 @@ class MapviewExample extends React.Component {
   }
 }
 
+/* eslint-disable no-unused-vars*/
 const mapStateToProps = state => ({
     // ...redux state to props here
 });

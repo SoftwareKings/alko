@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { View, ScrollView, Text, Image } from 'react-native';
-import { Colors, Fonts, Images } from '../Themes';
 import R from 'ramda';
+
+import { Colors, Fonts, Images } from '../Themes';
 
 // Styles
 import styles from './Styles/ThemeScreenStyle';
@@ -17,7 +18,7 @@ const fontStyles = R.keys(Fonts.style);
 
 export default class ThemeScreen extends React.Component {
 
-  renderColor(color: string) {
+  static renderColor(color: string) {
     return (
       <View style={styles.colorContainer} key={`${color}Container`}>
         <View style={styles.backgroundContainer} key={`${color}BackgroundContainer`}>
@@ -29,11 +30,7 @@ export default class ThemeScreen extends React.Component {
     );
   }
 
-  renderColors() {
-    return colors.map(color => this.renderColor(color));
-  }
-
-  renderFont(font: string) {
+  static renderFont(font: string) {
     return (
       <Text style={[styles.fontRow, { fontFamily: Fonts.type[font] }]} key={font}>{
         `${font}: ${Fonts.type[font]}`
@@ -41,12 +38,16 @@ export default class ThemeScreen extends React.Component {
     );
   }
 
-  renderFonts() {
-    return types.map(font => this.renderFont(font));
+  static renderStyle(fontStyle: string) {
+    return (<Text style={[styles.fontRow, { ...Fonts.style[fontStyle] }]} key={fontStyle}>{`This is ${fontStyle} style`}</Text>);
   }
 
-  renderStyle(fontStyle: string) {
-    return (<Text style={[styles.fontRow, { ...Fonts.style[fontStyle] }]} key={fontStyle}>{`This is ${fontStyle} style`}</Text>);
+  renderColors() {
+    return colors.map(color => this.renderColor(color));
+  }
+
+  renderFonts() {
+    return types.map(font => this.renderFont(font));
   }
 
   renderStyles() {

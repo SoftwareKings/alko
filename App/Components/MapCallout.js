@@ -20,12 +20,13 @@ type MapCalloutProps = {
 }
 
 export default class MapCallout extends React.Component {
-  props: MapCalloutProps
 
   constructor(props: MapCalloutProps) {
     super(props);
     this.onPress = this.props.onPress.bind(this, this.props.location);
   }
+
+  props: MapCalloutProps
 
   render() {
     /* ***********************************************************

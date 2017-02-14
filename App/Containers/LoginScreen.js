@@ -12,34 +12,22 @@ import {
   LayoutAnimation,
 } from 'react-native';
 import { connect } from 'react-redux';
-import Styles from './Styles/LoginScreenStyle';
-import { Images, Metrics } from '../Themes';
-import LoginActions from '../Redux/LoginRedux';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 import I18n from 'react-native-i18n';
 
+import Styles from './Styles/LoginScreenStyle';
+import { Images, Metrics } from '../Themes';
+import LoginActions from '../Redux/LoginRedux';
+
+
 type LoginScreenProps = {
+  // eslint-disable-next-line react/no-unused-prop-types
   dispatch: () => any,
   fetching: boolean,
   attemptLogin: () => void
 }
 
 class LoginScreen extends React.Component {
-
-  props: LoginScreenProps
-
-  state: {
-    username: string,
-    password: string,
-    visibleHeight: number,
-    topLogo: {
-      width: number
-    }
-  }
-
-  isAttempting: boolean
-  keyboardDidShowListener: Object
-  keyboardDidHideListener: Object
 
   constructor(props: LoginScreenProps) {
     super(props);
@@ -51,12 +39,12 @@ class LoginScreen extends React.Component {
     };
     this.isAttempting = false;
   }
-
-  componentWillReceiveProps(newProps) {
-    this.forceUpdate();
-    // Did the login attempt complete?
-    if (this.isAttempting && !newProps.fetching) {
-      NavigationActions.pop();
+  state: {
+    username: string,
+    password: string,
+    visibleHeight: number,
+    topLogo: {
+      width: number
     }
   }
 
@@ -67,10 +55,25 @@ class LoginScreen extends React.Component {
     this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.keyboardDidHide);
   }
 
+  componentWillReceiveProps(newProps) {
+    this.forceUpdate();
+    // Did the login attempt complete?
+    if (this.isAttempting && !newProps.fetching) {
+      NavigationActions.pop();
+    }
+  }
+
+
   componentWillUnmount() {
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
   }
+
+  props: LoginScreenProps
+
+  isAttempting: boolean
+  keyboardDidShowListener: Object
+  keyboardDidHideListener: Object
 
   keyboardDidShow = (e) => {
     // Animation types easeInEaseOut/linear/spring
@@ -82,6 +85,7 @@ class LoginScreen extends React.Component {
     });
   }
 
+  // eslint-disable-next-line no-unused-vars
   keyboardDidHide = (e) => {
     // Animation types easeInEaseOut/linear/spring
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -118,7 +122,7 @@ class LoginScreen extends React.Component {
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>{I18n.t('username')}</Text>
             <TextInput
-              ref="username"
+              ref={ref => this.username = ref}
               style={textInputStyle}
               value={username}
               editable={editable}
@@ -128,14 +132,14 @@ class LoginScreen extends React.Component {
               autoCorrect={false}
               onChangeText={this.handleChangeUsername}
               underlineColorAndroid="transparent"
-              onSubmitEditing={() => this.refs.password.focus()}
+              onSubmitEditing={() => this.password.focus()}
               placeholder={I18n.t('username')} />
           </View>
 
           <View style={Styles.row}>
             <Text style={Styles.rowLabel}>{I18n.t('password')}</Text>
             <TextInput
-              ref="password"
+              ref={ref => this.password = ref}
               style={textInputStyle}
               value={password}
               editable={editable}

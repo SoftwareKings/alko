@@ -1,6 +1,8 @@
+import Immutable from 'seamless-immutable';
+
 import { StartupTypes } from '../Redux/StartupRedux';
 import Config from '../Config/DebugSettings';
-import Immutable from 'seamless-immutable';
+
 const Reactotron = require('reactotron-react-native').default;
 const errorPlugin = require('reactotron-react-native').trackGlobalErrors;
 const apisaucePlugin = require('reactotron-apisauce');

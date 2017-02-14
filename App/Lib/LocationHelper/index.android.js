@@ -9,11 +9,11 @@ export default class LocationHelper {
     return instance;
   }
 
-  requestWhenInUsePermission() {
+  static requestWhenInUsePermission() {
     console.log('Not yet implemented');
   }
 
-  checkPermission(cb) {
+  static checkPermission(cb) {
     return cb('authorizedWhenInUse');
   }
 

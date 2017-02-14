@@ -1,5 +1,5 @@
 // @flow
-
+/* eslint-disable consistent-return, array-callback-return */
 import R from 'ramda';
 
 export const removeEmpty = (markers: Array<Object>) => {

@@ -42,6 +42,7 @@ export const performSearch = (state: Object, { searchTerm }: Object) => {
   return state.merge({ searching: true, searchTerm, results });
 };
 
+/* eslint no-unused-vars: 0 */
 export const cancelSearch = (state: Object) => INITIAL_STATE;
 
 /* ------------- Hookup Reducers To Types ------------- */

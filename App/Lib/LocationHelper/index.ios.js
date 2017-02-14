@@ -1,5 +1,6 @@
-const { RNLocation: Location } = require('NativeModules');
+import React from 'react-native';
 
+const Location = React.NativeModules.RNLocation;
 let instance = null;
 export default class LocationHelper {
 
@@ -18,7 +19,7 @@ export default class LocationHelper {
     });
   }
 
-  checkPermission(cb) {
+  static checkPermission(cb) {
     Location.getAuthorizationStatus((authorization) => {
       cb(authorization);
     });

@@ -17,7 +17,9 @@ const toImmutable = (raw: Object) => Immutable(raw);
 
 // the transform interface that redux-persist is expecting
 export default {
-  out: (state: Object) => {
+  out: (state: Object) => toImmutable(Object.assign({}, state, { mergeDeep: R.identity })),
+  // TODO: Make sure this didn't break.
+  // out: (state: Object) => {
     // console.log({ retrieving: state })
     // --- HACKZORZ ---
     // Attach a empty-ass function to the object called `mergeDeep`.
@@ -28,9 +30,9 @@ export default {
     // Another equal terrifying option would be to try to pass their other check
     // which is lodash isPlainObject.
     // --- END HACKZORZ ---
-    state.mergeDeep = R.identity;
-    return toImmutable(state);
-  },
+    // state.mergeDeep = R.identity;
+    // return toImmutable(state);
+  // },
   in: (raw: Object) =>
     // console.log({ storing: raw })
      fromImmutable(raw),

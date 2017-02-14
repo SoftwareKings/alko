@@ -17,16 +17,18 @@ type RoundedButtonProps = {
   onPress: () => void,
   text?: string,
   children?: string,
+  // eslint-disable-next-line react/no-unused-prop-types
   navigator?: Object
 }
 
 export default class RoundedButton extends React.Component {
-  props: RoundedButtonProps
 
   getText() {
     const buttonText = this.props.text || this.props.children || '';
     return buttonText.toUpperCase();
   }
+
+  props: RoundedButtonProps
 
   render() {
     return (

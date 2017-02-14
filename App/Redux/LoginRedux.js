@@ -37,6 +37,7 @@ export const failure = (state: Object, { error }: Object) =>
   state.merge({ fetching: false, error });
 
 // we've logged out
+/* eslint no-unused-vars: 0 */
 export const logout = (state: Object) => INITIAL_STATE;
 
 /* ------------- Hookup Reducers To Types ------------- */

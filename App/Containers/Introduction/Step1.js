@@ -6,9 +6,10 @@ import {
 } from 'react-native';
 
 import I18n from 'react-native-i18n';
-import Button from 'app/Components/Button';
-import styles from '../Styles/IntroductionScreenStyle';
 import { Actions as NavigationActions } from 'react-native-router-flux';
+
+import styles from '../Styles/IntroductionScreenStyle';
+import Button from '../../Components/Button';
 
 export default class Step1Screen extends Component {
 
