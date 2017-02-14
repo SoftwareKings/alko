@@ -9,13 +9,14 @@ import I18n from 'react-native-i18n';
 
 import styles from '../Styles/IntroductionScreenStyle';
 import Button from '../../Components/Button';
-import LocationHelper from '../../Lib/LocationHelper';
+import { requestPermission } from '../../Lib/LocationHelper';
 
 export default class Step3Screen extends Component {
 
   requestLocationPermission = () => {
-    NavigationActions.introStep4Screen();
-    LocationHelper.getInstance().requestWhenInUsePermission();
+    requestPermission().then(() => {
+      NavigationActions.introStep4Screen();
+    });
   }
 
   render() {

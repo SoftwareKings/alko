@@ -5464,10 +5464,6 @@ react-native-linear-gradient@^1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-1.6.2.tgz#1ea3e7a186b514661b927673aa9c427dd520999f"
 
-react-native-location@^0.27.0:
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/react-native-location/-/react-native-location-0.27.0.tgz#8e920a7bfbd4b55833028f2dad65edc12449d6f5"
-
 react-native-maps@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.11.0.tgz#8baa56eef83e9f2f04a70b192624b7bc9c56289d"
@@ -5488,6 +5484,10 @@ react-native-mock@^0.2.8:
     react-dom "^15.4.0"
     react-timer-mixin "^0.13.3"
     warning "^2.1.0"
+
+react-native-permissions@^0.2.5:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-0.2.7.tgz#92eae05894ed99235707e20ecb8fbf7d765752ae"
 
 react-native-router-flux@^3.37.0:
   version "3.37.0"
