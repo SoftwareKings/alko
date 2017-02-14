@@ -51,4 +51,29 @@ export default StyleSheet.create({
     textShadowColor: 'rgb(50,50,50)',
     textShadowOffset: { width: 0, height: 2 },
   },
+  settingContainer: {
+    marginBottom: (Platform.OS === 'android') ? 50 : 0, // fix for Android
+  },
+  settingRow: {
+    borderBottomColor: '#333333',
+    borderBottomWidth: 1,
+    paddingVertical: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  settingName: {
+    fontFamily: Fonts.type.primary,
+    fontSize: Fonts.size.regular,
+    color: '#aaaaaa',
+    flex: 1,
+  },
+  switcherStatus: {
+    marginHorizontal: 10,
+    fontFamily: Fonts.type.primary,
+    fontSize: Fonts.size.medium,
+    color: Colors.snow,
+  },
+  switcherStatusOff: {
+    color: '#999999',
+  },
 });
