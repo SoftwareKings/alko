@@ -7,8 +7,9 @@ import {
 
 import I18n from 'react-native-i18n';
 
-import Button from '../../Components/Button';
 import styles from '../Styles/IntroductionScreenStyle';
+import Button from '../../Components/Button';
+import { Colors } from '../../Themes/';
 
 export default class Step4Screen extends Component {
 
@@ -23,7 +24,12 @@ export default class Step4Screen extends Component {
         </ScrollView>
         <View styles={styles.footer}>
           <Button text={I18n.t('Introduction_step4_btn')} />
-          <Button style={styles.btnDisallow} textStyle={styles.btnDisallowText} text={I18n.t('Introduction_step4_disallow')} />
+          <Button
+            style={styles.btnDisallow}
+            textStyle={styles.btnDisallowText}
+            gradientColors={[Colors.tundora, Colors.tundora]}
+            text={I18n.t('Introduction_step4_disallow')}
+          />
         </View>
       </View>
     );

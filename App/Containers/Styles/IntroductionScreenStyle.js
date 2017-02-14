@@ -45,11 +45,10 @@ export default StyleSheet.create({
   },
   btnDisallow: {
     marginTop: Metrics.doubleBaseMargin,
-    backgroundColor: '#444444',
   },
   btnDisallowText: {
     color: '#707070',
-    textShadowColor: '#000000',
+    textShadowColor: 'rgb(50,50,50)',
     textShadowOffset: { width: 0, height: 2 },
   },
 });

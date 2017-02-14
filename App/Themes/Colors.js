@@ -4,6 +4,9 @@ const colors = {
   // ALKO theme
   dune: '#2B2725',
   blazeOrange: '#FF7604',
+  blazeOrangeShadow: 'rgba(186, 84, 0, 50)',
+  christine: '#e16204',
+  tundora: '#444444',
 
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
