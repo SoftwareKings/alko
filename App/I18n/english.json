@@ -42,5 +42,16 @@
   "Introduction_step4_title": "PUSH NOTIFICATIONS",
   "Introduction_step4_description": "We’ll only tell you about Drink-ups when you’d like us to.",
   "Introduction_step4_btn": "Allow push notifications",
-  "Introduction_step4_disallow": "no, maybe later"
+  "Introduction_step4_disallow": "no, maybe later",
+
+  "SUNDAY": "SUNDAY",
+  "MONDAY": "MONDAY",
+  "TUESDAY": "TUESDAY",
+  "WEDNESDAY": "WEDNESDAY",
+  "THURSDAY": "THURSDAY",
+  "FRIDAY": "FRIDAY",
+  "SATURDAY": "SATURDAY",
+
+  "ON": "ON",
+  "OFF": "OFF"
 }
