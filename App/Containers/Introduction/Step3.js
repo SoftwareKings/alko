@@ -6,15 +6,14 @@ import {
 } from 'react-native';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 import I18n from 'react-native-i18n';
-
+import { requestPermission } from 'app/Lib/LocationHelper';
 import styles from '../Styles/IntroductionScreenStyle';
 import Button from '../../Components/Button';
-import {requestPermission} from 'app/Lib/LocationHelper';
 
 export default class Step3Screen extends Component {
 
   requestLocationPermission = () => {
-    requestPermission().then((response) => {
+    requestPermission().then(() => {
       NavigationActions.introStep4Screen();
     });
   }
