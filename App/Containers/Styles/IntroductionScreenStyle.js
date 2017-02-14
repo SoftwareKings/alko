@@ -19,8 +19,15 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  scrollContainer: {
+    flex: 1,
+  },
   section: {
     marginBottom: 50,
+  },
+  topSection: {
+    paddingTop: Metrics.largeMargin,
+    marginBottom: 20,
   },
   sectionTitle: {
     color: Colors.blazeOrange,
@@ -52,7 +59,7 @@ export default StyleSheet.create({
     textShadowOffset: { width: 0, height: 2 },
   },
   settingContainer: {
-    marginBottom: (Platform.OS === 'android') ? 50 : 0, // fix for Android
+    marginBottom: 20, 
   },
   settingRow: {
     borderBottomColor: '#333333',

@@ -40,12 +40,11 @@ export default class Step4Screen extends Component {
 
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.contentContainer}>
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>{I18n.t('Introduction_step4_title')}</Text>
-            <Text style={styles.description}>{I18n.t('Introduction_step4_description')}</Text>
-          </View>
-          <View style={styles.settingContainer}>
+        <View style={styles.topSection}>
+          <Text style={styles.sectionTitle}>{I18n.t('Introduction_step4_title')}</Text>
+          <Text style={styles.description}>{I18n.t('Introduction_step4_description')}</Text>
+        </View>
+        <ScrollView style={[styles.scrollContainer, styles.settingContainer]}>
             {
               days.map((item, index) =>
                 <View key={item.name} style={styles.settingRow}>
@@ -59,7 +58,6 @@ export default class Step4Screen extends Component {
                 </View>
               )
             }
-          </View>
         </ScrollView>
         <View styles={styles.footer}>
           <Button text={I18n.t('Introduction_step4_btn')} />
