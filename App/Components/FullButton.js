@@ -1,17 +1,17 @@
 // @flow
 
-import React from 'react'
-import { TouchableOpacity, Text } from 'react-native'
-import styles from './Styles/FullButtonStyle'
-import ExamplesRegistry from '../Services/ExamplesRegistry'
+import React from 'react';
+import { TouchableOpacity, Text } from 'react-native';
+import styles from './Styles/FullButtonStyle';
+import ExamplesRegistry from '../Services/ExamplesRegistry';
 
 // Example
 ExamplesRegistry.add('Full Button', () =>
   <FullButton
-    text='Hey there'
+    text="Hey there"
     onPress={() => window.alert('Full Button Pressed!')}
   />
-)
+);
 
 type FullButtonProps = {
   text: string,
@@ -22,11 +22,11 @@ type FullButtonProps = {
 export default class FullButton extends React.Component {
   props: FullButtonProps
 
-  render () {
+  render() {
     return (
       <TouchableOpacity style={[styles.button, this.props.styles]} onPress={this.props.onPress}>
         <Text style={styles.buttonText}>{this.props.text && this.props.text.toUpperCase()}</Text>
       </TouchableOpacity>
-    )
+    );
   }
 }

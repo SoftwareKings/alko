@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   View,
   Text,
-  ScrollView
-} from 'react-native'
+  ScrollView,
+} from 'react-native';
+import { Actions as NavigationActions } from 'react-native-router-flux';
+import I18n from 'react-native-i18n';
 
-import I18n from 'react-native-i18n'
-import Button from 'app/Components/Button'
-import styles from '../Styles/IntroductionScreenStyle'
-import { Actions as NavigationActions } from 'react-native-router-flux'
-import LocationHelper from 'app/Lib/LocationHelper'
+import styles from '../Styles/IntroductionScreenStyle';
+import Button from '../../Components/Button';
+import LocationHelper from '../../Lib/LocationHelper';
 
 export default class Step3Screen extends Component {
 
   requestLocationPermission = () => {
-    NavigationActions.introStep4Screen()
-    LocationHelper.getInstance().requestWhenInUsePermission()
+    NavigationActions.introStep4Screen();
+    LocationHelper.getInstance().requestWhenInUsePermission();
   }
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.contentContainer}>
@@ -31,7 +31,7 @@ export default class Step3Screen extends Component {
           <Button onPress={this.requestLocationPermission} text={I18n.t('Introduction_step3_btn')} />
         </View>
       </View>
-    )
+    );
   }
 
 }

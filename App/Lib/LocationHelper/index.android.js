@@ -1,20 +1,20 @@
-let instance = null
+let instance = null;
 
 export default class LocationHelper {
 
-  static getInstance () {
+  static getInstance() {
     if (!instance) {
-      instance = new LocationHelper()
+      instance = new LocationHelper();
     }
-    return instance
+    return instance;
   }
 
-  requestWhenInUsePermission () {
-    console.log('Not yet implemented')
+  static requestWhenInUsePermission() {
+    console.log('Not yet implemented');
   }
 
-  checkPermission (cb) {
-    return cb('authorizedWhenInUse')
+  static checkPermission(cb) {
+    return cb('authorizedWhenInUse');
   }
 
 }

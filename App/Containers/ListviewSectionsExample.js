@@ -1,14 +1,15 @@
 // @flow
+/* eslint-disable */
 
-import React from 'react'
-import { View, ListView, Text } from 'react-native'
-import { connect } from 'react-redux'
+import React from 'react';
+import { View, ListView, Text } from 'react-native';
+import { connect } from 'react-redux';
 
 // For empty lists
-import AlertMessage from '../Components/AlertMessage'
+import AlertMessage from '../Components/AlertMessage';
 
 // Styles
-import styles from './Styles/ListviewExampleStyle'
+import styles from './Styles/ListviewExampleStyle';
 
 class ListviewSectionsExample extends React.Component {
 
@@ -16,8 +17,8 @@ class ListviewSectionsExample extends React.Component {
     dataSource: Object
   }
 
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
     /* ***********************************************************
     * STEP 1
@@ -26,31 +27,31 @@ class ListviewSectionsExample extends React.Component {
     *************************************************************/
     const dataObjects = {
       first: [
-        {title: 'First Title', description: 'First Description'},
-        {title: 'Second Title', description: 'Second Description'},
-        {title: 'Third Title', description: 'Third Description'},
-        {title: 'Fourth Title', description: 'Fourth Description'},
-        {title: 'Fifth Title', description: 'Fifth Description'},
-        {title: 'Sixth Title', description: 'Sixth Description'},
-        {title: 'Seventh Title', description: 'Seventh Description'},
-        {title: 'Eighth Title', description: 'Eighth Description'},
-        {title: 'Ninth Title', description: 'Ninth Description'},
-        {title: 'Tenth Title', description: 'Tenth Description'}
+        { title: 'First Title', description: 'First Description' },
+        { title: 'Second Title', description: 'Second Description' },
+        { title: 'Third Title', description: 'Third Description' },
+        { title: 'Fourth Title', description: 'Fourth Description' },
+        { title: 'Fifth Title', description: 'Fifth Description' },
+        { title: 'Sixth Title', description: 'Sixth Description' },
+        { title: 'Seventh Title', description: 'Seventh Description' },
+        { title: 'Eighth Title', description: 'Eighth Description' },
+        { title: 'Ninth Title', description: 'Ninth Description' },
+        { title: 'Tenth Title', description: 'Tenth Description' },
       ],
       second: [
-        {title: 'Eleventh Title', description: 'Eleventh Description'},
-        {title: '12th Title', description: '12th Description'},
-        {title: '13th Title', description: '13th Description'},
-        {title: '14th Title', description: '14th Description'},
-        {title: '15th Title', description: '15th Description'},
-        {title: '16th Title', description: '16th Description'},
-        {title: '17th Title', description: '17th Description'},
-        {title: '18th Title', description: '18th Description'},
-        {title: '19th Title', description: '19th Description'},
-        {title: '20th Title', description: '20th Description'},
-        {title: 'BLACKJACK!', description: 'BLACKJACK! Description'}
-      ]
-    }
+        { title: 'Eleventh Title', description: 'Eleventh Description' },
+        { title: '12th Title', description: '12th Description' },
+        { title: '13th Title', description: '13th Description' },
+        { title: '14th Title', description: '14th Description' },
+        { title: '15th Title', description: '15th Description' },
+        { title: '16th Title', description: '16th Description' },
+        { title: '17th Title', description: '17th Description' },
+        { title: '18th Title', description: '18th Description' },
+        { title: '19th Title', description: '19th Description' },
+        { title: '20th Title', description: '20th Description' },
+        { title: 'BLACKJACK!', description: 'BLACKJACK! Description' },
+      ],
+    };
     /* ***********************************************************
     * STEP 2
     * Teach datasource how to detect if rows are different
@@ -58,16 +59,16 @@ class ListviewSectionsExample extends React.Component {
     *   (r1, r2) => r1.id !== r2.id}
     *   The same goes for sectionHeaderHasChanged
     *************************************************************/
-    const rowHasChanged = (r1, r2) => r1 !== r2
-    const sectionHeaderHasChanged = (s1, s2) => s1 !== s2
+    const rowHasChanged = (r1, r2) => r1 !== r2;
+    const sectionHeaderHasChanged = (s1, s2) => s1 !== s2;
 
     // DataSource configured
-    const ds = new ListView.DataSource({rowHasChanged, sectionHeaderHasChanged})
+    const ds = new ListView.DataSource({ rowHasChanged, sectionHeaderHasChanged });
 
     // Datasource is always in state
     this.state = {
-      dataSource: ds.cloneWithRowsAndSections(dataObjects)
-    }
+      dataSource: ds.cloneWithRowsAndSections(dataObjects),
+    };
   }
 
   /* ***********************************************************
@@ -78,7 +79,7 @@ class ListviewSectionsExample extends React.Component {
   * e.g.
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
-  renderRow (rowData, sectionID) {
+  renderRow(rowData, sectionID) {
     // You can condition on sectionID (key as string), for different cells
     // in different sections
     return (
@@ -86,7 +87,7 @@ class ListviewSectionsExample extends React.Component {
         <Text style={styles.boldLabel}>Section {sectionID} - {rowData.title}</Text>
         <Text style={styles.label}>{rowData.description}</Text>
       </View>
-    )
+    );
   }
 
   /* ***********************************************************
@@ -109,23 +110,23 @@ class ListviewSectionsExample extends React.Component {
 
   // Used for friendly AlertMessage
   // returns true if the dataSource is empty
-  noRowData () {
-    return this.state.dataSource.getRowCount() === 0
+  noRowData() {
+    return this.state.dataSource.getRowCount() === 0;
   }
 
-  renderHeader (data, sectionID) {
+  renderHeader(data, sectionID) {
     switch (sectionID) {
       case 'first':
-        return <Text style={styles.boldLabel}>First Section</Text>
+        return <Text style={styles.boldLabel}>First Section</Text>;
       default:
-        return <Text style={styles.boldLabel}>Second Section</Text>
+        return <Text style={styles.boldLabel}>Second Section</Text>;
     }
   }
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
-        <AlertMessage title='Nothing to See Here, Move Along' show={this.noRowData()} />
+        <AlertMessage title="Nothing to See Here, Move Along" show={this.noRowData()} />
         <ListView
           renderSectionHeader={this.renderHeader}
           contentContainerStyle={styles.listContent}
@@ -134,19 +135,15 @@ class ListviewSectionsExample extends React.Component {
           enableEmptySections
         />
       </View>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = state => ({
     // ...redux state to props here
-  }
-}
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
+const mapDispatchToProps = dispatch => ({
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListviewSectionsExample)
+export default connect(mapStateToProps, mapDispatchToProps)(ListviewSectionsExample);

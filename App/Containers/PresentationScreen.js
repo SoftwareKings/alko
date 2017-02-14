@@ -1,19 +1,20 @@
 // @flow
 
-import React from 'react'
-import { ScrollView, Text, Image, View } from 'react-native'
-import { Images } from '../Themes'
-import RoundedButton from '../Components/RoundedButton'
-import { Actions as NavigationActions } from 'react-native-router-flux'
+import React from 'react';
+import { ScrollView, Text, Image, View } from 'react-native';
+import { Actions as NavigationActions } from 'react-native-router-flux';
+
+import { Images } from '../Themes';
+import RoundedButton from '../Components/RoundedButton';
 
 // Styles
-import styles from './Styles/PresentationScreenStyle'
+import styles from './Styles/PresentationScreenStyle';
 
 export default class PresentationScreen extends React.Component {
-  render () {
+  render() {
     return (
       <View style={styles.mainContainer}>
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
+        <Image source={Images.background} style={styles.backgroundImage} resizeMode="stretch" />
         <ScrollView style={styles.container}>
           <View style={styles.centered}>
             <Image source={Images.clearLogo} style={styles.logo} />
@@ -52,6 +53,6 @@ export default class PresentationScreen extends React.Component {
 
         </ScrollView>
       </View>
-    )
+    );
   }
 }

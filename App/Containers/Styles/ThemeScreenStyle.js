@@ -1,30 +1,30 @@
 // @flow
 
-import { StyleSheet } from 'react-native'
-import { Colors, Metrics, ApplicationStyles } from '../../Themes/'
+import { StyleSheet } from 'react-native';
+import { Colors, Metrics, ApplicationStyles } from '../../Themes/';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   groupContainer: {
-    ...ApplicationStyles.groupContainer
+    ...ApplicationStyles.groupContainer,
   },
   sectionHeaderContainer: {
-    ...ApplicationStyles.darkLabelContainer
+    ...ApplicationStyles.darkLabelContainer,
   },
   sectionHeader: {
-    ...ApplicationStyles.darkLabel
+    ...ApplicationStyles.darkLabel,
   },
   colorsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   backgroundContainer: {
     position: 'relative',
     width: 102,
     height: 102,
     borderWidth: 1,
-    borderColor: Colors.frost
+    borderColor: Colors.frost,
   },
   backerImage: {
     top: 0,
@@ -32,27 +32,27 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
     position: 'absolute',
-    resizeMode: 'stretch'
+    resizeMode: 'stretch',
   },
   colorContainer: {
     height: 130,
     padding: Metrics.smallMargin,
-    marginBottom: Metrics.smallMargin
+    marginBottom: Metrics.smallMargin,
   },
   colorSquare: {
     width: 100,
-    height: 100
+    height: 100,
   },
   colorName: {
     width: 100,
     height: Metrics.doubleBaseMargin,
     lineHeight: Metrics.doubleBaseMargin,
     color: Colors.charcoal,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   fontRow: {
     padding: Metrics.smallMargin,
     marginHorizontal: Metrics.smallMargin,
-    color: Colors.snow
-  }
-})
+    color: Colors.snow,
+  },
+});

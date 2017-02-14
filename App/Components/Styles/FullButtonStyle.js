@@ -1,7 +1,7 @@
 // @flow
 
-import { StyleSheet } from 'react-native'
-import { Fonts, Colors } from '../../Themes/'
+import { StyleSheet } from 'react-native';
+import { Fonts, Colors } from '../../Themes/';
 
 export default StyleSheet.create({
   button: {
@@ -10,13 +10,13 @@ export default StyleSheet.create({
     borderBottomColor: Colors.bloodOrange,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    backgroundColor: Colors.ember
+    backgroundColor: Colors.ember,
   },
   buttonText: {
     margin: 18,
     textAlign: 'center',
     color: Colors.snow,
     fontSize: Fonts.size.medium,
-    fontFamily: Fonts.type.bold
-  }
-})
+    fontFamily: Fonts.type.bold,
+  },
+});

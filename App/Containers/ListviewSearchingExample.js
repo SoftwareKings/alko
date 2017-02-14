@@ -1,34 +1,35 @@
 // @flow
+/* eslint-disable */
 
-import React from 'react'
-import { View, Text, ListView } from 'react-native'
-import { connect } from 'react-redux'
+import React from 'react';
+import { View, Text, ListView } from 'react-native';
+import { connect } from 'react-redux';
 // For empty lists
-import AlertMessage from '../Components/AlertMessage'
+import AlertMessage from '../Components/AlertMessage';
 // Styles
-import styles from './Styles/ListviewExampleStyle'
+import styles from './Styles/ListviewExampleStyle';
 
 class ListviewExample extends React.Component {
   state: {
     dataSource: Object
   }
 
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     /* ***********************************************************
     * Teach datasource how to detect if rows are different
     * Make this function fast!  Perhaps something like:
     *   (r1, r2) => r1.id !== r2.id}
     *************************************************************/
-    const rowHasChanged = (r1, r2) => r1 !== r2
+    const rowHasChanged = (r1, r2) => r1 !== r2;
 
     // DataSource configured
-    const ds = new ListView.DataSource({rowHasChanged})
+    const ds = new ListView.DataSource({ rowHasChanged });
 
     // Datasource is always in state
     this.state = {
-      dataSource: ds.cloneWithRows(props.results)
-    }
+      dataSource: ds.cloneWithRows(props.results),
+    };
   }
 
   /* ***********************************************************
@@ -38,12 +39,12 @@ class ListviewExample extends React.Component {
   * e.g.
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
-  renderRow (searchTerm) {
+  renderRow(searchTerm) {
     return (
       <View style={styles.row}>
         <Text style={styles.boldLabel}>{searchTerm}</Text>
       </View>
-    )
+    );
   }
 
   /* ***********************************************************
@@ -55,24 +56,24 @@ class ListviewExample extends React.Component {
   *
   * e.g.
   *************************************************************/
-  componentWillReceiveProps (newProps) {
+  componentWillReceiveProps(newProps) {
     if (newProps.results) {
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(newProps.results)
-      })
+        dataSource: this.state.dataSource.cloneWithRows(newProps.results),
+      });
     }
   }
 
   // Used for friendly AlertMessage
   // returns true if the dataSource is empty
-  noRowData () {
-    return this.state.dataSource.getRowCount() === 0
+  noRowData() {
+    return this.state.dataSource.getRowCount() === 0;
   }
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
-        <AlertMessage title='Nothing to See Here, Move Along' show={this.noRowData()} />
+        <AlertMessage title="Nothing to See Here, Move Along" show={this.noRowData()} />
         <ListView
           contentContainerStyle={styles.listContent}
           dataSource={this.state.dataSource}
@@ -81,15 +82,13 @@ class ListviewExample extends React.Component {
           enableEmptySections
         />
       </View>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    searchTerm: state.search.searchTerm,
-    results: state.search.results
-  }
-}
+const mapStateToProps = state => ({
+  searchTerm: state.search.searchTerm,
+  results: state.search.results,
+});
 
-export default connect(mapStateToProps)(ListviewExample)
+export default connect(mapStateToProps)(ListviewExample);

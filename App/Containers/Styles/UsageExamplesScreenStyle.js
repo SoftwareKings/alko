@@ -1,38 +1,38 @@
 // @flow
 
-import { StyleSheet } from 'react-native'
-import { Colors, Fonts, Metrics, ApplicationStyles } from '../../Themes/'
+import { StyleSheet } from 'react-native';
+import { Colors, Fonts, Metrics, ApplicationStyles } from '../../Themes/';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   loginBox: {
-    padding: Metrics.doubleBaseMargin
+    padding: Metrics.doubleBaseMargin,
   },
   loginButton: {
     borderWidth: 1,
     borderColor: Colors.charcoal,
     backgroundColor: Colors.panther,
-    padding: 6
+    padding: 6,
   },
   loginText: {
     textAlign: 'center',
-    color: Colors.silver
+    color: Colors.silver,
   },
   componentLabelContainer: {
-    ...ApplicationStyles.darkLabelContainer
+    ...ApplicationStyles.darkLabelContainer,
   },
   componentLabel: {
-    ...ApplicationStyles.darkLabel
+    ...ApplicationStyles.darkLabel,
   },
   temperature: {
     ...Fonts.style.h4,
-    color: Colors.snow
+    color: Colors.snow,
   },
   locale: {
     ...Fonts.style.h4,
-    color: Colors.snow
+    color: Colors.snow,
   },
   groupContainer: {
-    ...ApplicationStyles.groupContainer
-  }
-})
+    ...ApplicationStyles.groupContainer,
+  },
+});

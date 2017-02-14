@@ -1,27 +1,28 @@
-var { RNLocation: Location } = require('NativeModules')
+import React from 'react-native';
 
-let instance = null
+const Location = React.NativeModules.RNLocation;
+let instance = null;
 export default class LocationHelper {
 
-  static getInstance () {
+  static getInstance() {
     if (!instance) {
-      instance = new LocationHelper()
+      instance = new LocationHelper();
     }
-    return instance
+    return instance;
   }
 
-  requestWhenInUsePermission () {
+  requestWhenInUsePermission() {
     this.checkPermission((authorization) => {
       if (authorization !== 'authorizedWhenInUse') {
-        Location.requestWhenInUseAuthorization()
+        Location.requestWhenInUseAuthorization();
       }
-    })
+    });
   }
 
-  checkPermission (cb) {
+  static checkPermission(cb) {
     Location.getAuthorizationStatus((authorization) => {
-      cb(authorization)
-    })
+      cb(authorization);
+    });
   }
 
 }

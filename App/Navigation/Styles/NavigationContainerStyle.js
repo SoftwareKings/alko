@@ -1,21 +1,21 @@
 // @flow
 
-import {Colors} from '../../Themes/'
+import { Colors } from '../../Themes/';
 
 export default {
   container: {
-    flex: 1
+    flex: 1,
   },
   navBar: {
-    backgroundColor: Colors.dune
+    backgroundColor: Colors.dune,
   },
   title: {
-    color: Colors.snow
+    color: Colors.snow,
   },
   leftButton: {
-    tintColor: Colors.snow
+    tintColor: Colors.snow,
   },
   rightButton: {
-    color: Colors.snow
-  }
-}
+    color: Colors.snow,
+  },
+};

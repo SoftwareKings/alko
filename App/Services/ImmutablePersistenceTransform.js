@@ -1,23 +1,25 @@
 // @flow
 
-import R from 'ramda'
-import Immutable from 'seamless-immutable'
+import R from 'ramda';
+import Immutable from 'seamless-immutable';
 
 // is this object already Immutable?
-const isImmutable = R.has('asMutable')
+const isImmutable = R.has('asMutable');
 
 // change this Immutable object into a JS object
-const convertToJs = (state: Object) => state.asMutable({deep: true})
+const convertToJs = (state: Object) => state.asMutable({ deep: true });
 
 // optionally convert this object into a JS object if it is Immutable
-const fromImmutable = R.when(isImmutable, convertToJs)
+const fromImmutable = R.when(isImmutable, convertToJs);
 
 // convert this JS object into an Immutable object
-const toImmutable = (raw: Object) => Immutable(raw)
+const toImmutable = (raw: Object) => Immutable(raw);
 
 // the transform interface that redux-persist is expecting
 export default {
-  out: (state: Object) => {
+  out: (state: Object) => toImmutable(Object.assign({}, state, { mergeDeep: R.identity })),
+  // TODO: Make sure this didn't break.
+  // out: (state: Object) => {
     // console.log({ retrieving: state })
     // --- HACKZORZ ---
     // Attach a empty-ass function to the object called `mergeDeep`.
@@ -28,11 +30,10 @@ export default {
     // Another equal terrifying option would be to try to pass their other check
     // which is lodash isPlainObject.
     // --- END HACKZORZ ---
-    state.mergeDeep = R.identity
-    return toImmutable(state)
-  },
-  in: (raw: Object) => {
+    // state.mergeDeep = R.identity;
+    // return toImmutable(state);
+  // },
+  in: (raw: Object) =>
     // console.log({ storing: raw })
-    return fromImmutable(raw)
-  }
-}
+     fromImmutable(raw),
+};

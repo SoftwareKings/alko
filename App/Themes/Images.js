@@ -1,17 +1,23 @@
 // @flow
+import bg from '../Images/BG.png';
+import igniteLogo from '../Images/ignite_logo.png';
+import introStep2 from '../Images/intro_step_2.png';
+import ir from '../Images/ir.png';
+import tileBg from '../Images/tile_bg.png';
+import topLogo from '../Images/top_logo.png';
 
 // leave off @2x/@3x
 const images = {
-  bg: require('../Images/BG.png'),
-  igniteLogo: require('../Images/ignite_logo.png'),
-  introStep2: require('../Images/intro_step_2.png'),
-  ir: require('../Images/ir.png'),
-  tileBg: require('../Images/tile_bg.png'),
-  topLogo: require('../Images/top_logo.png'),
-  logo: require('../Images/ir.png'),
-  clearLogo: require('../Images/top_logo.png'),
-  ignite: require('../Images/ignite_logo.png'),
-  background: require('../Images/BG.png')
-}
+  bg,
+  igniteLogo,
+  introStep2,
+  ir,
+  tileBg,
+  topLogo,
+  logo: ir,
+  clearLogo: topLogo,
+  ignite: igniteLogo,
+  background: bg,
+};
 
-export default images
+export default images;
