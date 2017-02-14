@@ -3,6 +3,7 @@ import {
   View,
   Text,
   ScrollView,
+  Alert,
 } from 'react-native';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 import I18n from 'react-native-i18n';
@@ -16,6 +17,16 @@ export default class Step3Screen extends Component {
   requestLocationPermission = () => {
     requestPermission().then(() => {
       NavigationActions.introStep4Screen();
+    }).catch(() => {
+      // just for development, we will change this alert dialog later
+      Alert.alert(
+        'Location Permission',
+        'Your device is not support for requesting location permission.',
+        [
+          { text: 'Cancel', style: 'cancel' },
+          { text: 'Continue', onPress: () => NavigationActions.introStep4Screen() },
+        ]
+      );
     });
   }
 
