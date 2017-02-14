@@ -5485,9 +5485,9 @@ react-native-mock@^0.2.8:
     react-timer-mixin "^0.13.3"
     warning "^2.1.0"
 
-react-native-permissions@^0.2.5:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-0.2.7.tgz#92eae05894ed99235707e20ecb8fbf7d765752ae"
+react-native-permissions@0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-0.2.5.tgz#81c3adbb09d9edb6ae320d458ca9c021e03a5aba"
 
 react-native-router-flux@^3.37.0:
   version "3.37.0"
