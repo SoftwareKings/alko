@@ -34,14 +34,14 @@ class NavigationRouter extends Component {
   render() {
     return (
       <Router>
-        <Scene key="introStep1Screen" component={IntroductionStep1Screen} hideNavBar />
+        <Scene initial key="introStep1Screen" component={IntroductionStep1Screen} hideNavBar />
         <Scene key="introStep2Screen" component={IntroductionStep2Screen} hideNavBar />
         <Scene key="introStep3Screen" component={IntroductionStep3Screen} hideNavBar />
         <Scene key="introStep4Screen" component={IntroductionStep4Screen} hideNavBar />
 
         <Scene key="drawer" component={NavigationDrawer} open={false}>
           <Scene key="drawerChildrenWrapper" navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
-            <Scene initial key="presentationScreen" component={PresentationScreen} title="Ignite" renderLeftButton={NavItems.hamburgerButton} />
+            <Scene key="presentationScreen" component={PresentationScreen} title="Ignite" renderLeftButton={NavItems.hamburgerButton} />
             <Scene key="componentExamples" component={AllComponentsScreen} title="Components" />
             <Scene key="usageExamples" component={UsageExamplesScreen} title="Usage" rightTitle="Example" onRight={() => window.alert('Example Pressed')} />
             <Scene key="login" component={LoginScreen} title="Login" hideNavBar />

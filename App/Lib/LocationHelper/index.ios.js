@@ -11,17 +11,17 @@ export default class LocationHelper {
     return instance;
   }
 
-  requestWhenInUsePermission() {
-    this.checkPermission((authorization) => {
-      if (authorization !== 'authorizedWhenInUse') {
-        Location.requestWhenInUseAuthorization();
-      }
-    });
-  }
-
   static checkPermission(cb) {
     Location.getAuthorizationStatus((authorization) => {
       cb(authorization);
+    });
+  }
+
+  requestWhenInUsePermission() {
+    this.constructor.checkPermission((authorization) => {
+      if (authorization !== 'authorizedWhenInUse') {
+        Location.requestWhenInUseAuthorization();
+      }
     });
   }
 

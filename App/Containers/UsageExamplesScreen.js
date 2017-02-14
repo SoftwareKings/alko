@@ -78,17 +78,17 @@ class UsageExamplesScreen extends React.Component {
     const { loggedIn, temperature, city } = this.props;
     return (
       <View>
-        {this.renderHeader(I18n.t('loginLogoutExampleTitle'))}
-        {loggedIn ? this.renderLogoutButton() : this.renderLoginButton()}
-        {this.renderHeader('I18n Locale')}
+        {this.constructor.renderHeader(I18n.t('loginLogoutExampleTitle'))}
+        {loggedIn ? this.constructor.renderLogoutButton() : this.constructor.renderLoginButton()}
+        {this.constructor.renderHeader('I18n Locale')}
         <View style={styles.groupContainer}>
           <Text style={styles.locale}>{I18n.locale}</Text>
         </View>
-        {this.renderHeader(`${I18n.t('api')}: ${city}`)}
+        {this.constructor.renderHeader(`${I18n.t('api')}: ${city}`)}
         <View style={[styles.groupContainer, { height: 50 }]}>
           <Text style={styles.temperature}>{temperature && `${temperature} ${I18n.t('tempIndicator')}`}</Text>
         </View>
-        {this.renderHeader(I18n.t('rnVectorIcons'))}
+        {this.constructor.renderHeader(I18n.t('rnVectorIcons'))}
         <View style={styles.groupContainer}>
           <TouchableOpacity onPress={this.handlePressRocket}>
             <Icon name="rocket" size={Metrics.icons.medium} color={Colors.ember} />
@@ -107,7 +107,7 @@ class UsageExamplesScreen extends React.Component {
             {I18n.t('loginWithFacebook')}
           </Icon.Button>
         </View>
-        {this.renderHeader(I18n.t('rnAnimatable'))}
+        {this.constructor.renderHeader(I18n.t('rnAnimatable'))}
         <View style={styles.groupContainer}>
           <Animatable.Text animation="fadeIn" iterationCount="infinite" direction="alternate" style={styles.subtitle}>{I18n.t('rnAnimatable')}</Animatable.Text>
           <Animatable.Image animation="pulse" iterationCount="infinite" source={Images.logo} />
@@ -115,7 +115,7 @@ class UsageExamplesScreen extends React.Component {
             <Icon name="cab" size={Metrics.icons.medium} color={Colors.snow} />
           </Animatable.View>
         </View>
-        {this.renderHeader(I18n.t('igniteGenerated'))}
+        {this.constructor.renderHeader(I18n.t('igniteGenerated'))}
         <RoundedButton text="Listview" onPress={NavigationActions.listviewExample} />
         <RoundedButton text="Listview Grid" onPress={NavigationActions.listviewGridExample} />
         <RoundedButton text="Listview Sections" onPress={NavigationActions.listviewSectionsExample} />
