@@ -39,7 +39,7 @@
     "import/no-extraneous-dependencies": 0,
     "import/no-named-as-default-member": 0,
     "import/no-named-as-default": 0,
-    "import/no-unresolved": 0,
+    "import/no-unresolved": 2,
     "import/prefer-default-export": 0,
     "indent": [
       2,
@@ -73,7 +73,6 @@
     "react/jsx-closing-bracket-location": 0,
     "require-yield": 0,
     "padded-blocks": 0,
-    "no-return-assign": 0,
-    "import/extensions": 0
+    "no-return-assign": 0
   }
 }
