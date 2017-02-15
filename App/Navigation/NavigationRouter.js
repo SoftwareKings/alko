@@ -6,6 +6,7 @@ import Styles from './Styles/NavigationContainerStyle';
 import NavigationDrawer from './NavigationDrawer';
 import NavItems from './NavItems';
 import CustomNavBar from '../Navigation/CustomNavBar';
+import { slideLeft } from '../Themes/NavigationAnimations';
 
 // screens identified by the router
 import PresentationScreen from '../Containers/PresentationScreen';
@@ -26,18 +27,16 @@ import IntroductionStep2Screen from '../Containers/Introduction/Step2';
 import IntroductionStep3Screen from '../Containers/Introduction/Step3';
 import IntroductionStep4Screen from '../Containers/Introduction/Step4';
 
-/* **************************
-* Documentation: https://github.com/aksonov/react-native-router-flux
-***************************/
-
 class NavigationRouter extends Component {
   render() {
     return (
-      <Router>
-        <Scene initial key="introStep1Screen" component={IntroductionStep1Screen} hideNavBar />
-        <Scene key="introStep2Screen" component={IntroductionStep2Screen} hideNavBar />
-        <Scene key="introStep3Screen" component={IntroductionStep3Screen} hideNavBar />
-        <Scene key="introStep4Screen" component={IntroductionStep4Screen} hideNavBar />
+      <Router animationStyle={slideLeft}>
+        <Scene key="onboard">
+          <Scene initial key="introStep1Screen" component={IntroductionStep1Screen} hideNavBar />
+          <Scene key="introStep2Screen" component={IntroductionStep2Screen} hideNavBar />
+          <Scene key="introStep3Screen" component={IntroductionStep3Screen} hideNavBar />
+          <Scene key="introStep4Screen" component={IntroductionStep4Screen} hideNavBar />
+        </Scene>
 
         <Scene key="drawer" component={NavigationDrawer} open={false}>
           <Scene key="drawerChildrenWrapper" navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>

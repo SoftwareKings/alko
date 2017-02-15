@@ -45,19 +45,19 @@ export default class Step4Screen extends Component {
           <Text style={styles.description}>{I18n.t('Introduction_step4_description')}</Text>
         </View>
         <ScrollView style={[styles.scrollContainer, styles.settingContainer]}>
-            {
-              days.map((item, index) =>
-                <View key={item.name} style={styles.settingRow}>
-                  <Text style={styles.settingName}>{item.name}</Text>
-                  <Text style={[
-                    styles.switcherStatus,
-                    !item.enabled ? styles.switcherStatusOff : null,
-                  ]}>{item.enabled ? I18n.t('ON') : I18n.t('OFF')}</Text>
-                  <Switch value={item.enabled}
-                    onSyncPress={value => this.onUpdateSetting(index, value)} />
-                </View>
-              )
-            }
+          {
+            days.map((item, index) =>
+              <View key={item.name} style={styles.settingRow}>
+                <Text style={styles.settingName}>{item.name}</Text>
+                <Text style={[
+                  styles.switcherStatus,
+                  !item.enabled ? styles.switcherStatusOff : null,
+                ]}>{item.enabled ? I18n.t('ON') : I18n.t('OFF')}</Text>
+                <Switch value={item.enabled}
+                  onSyncPress={value => this.onUpdateSetting(index, value)} />
+              </View>
+            )
+          }
         </ScrollView>
         <View styles={styles.footer}>
           <Button text={I18n.t('Introduction_step4_btn')} />

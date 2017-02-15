@@ -59,7 +59,7 @@ export default StyleSheet.create({
     textShadowOffset: { width: 0, height: 2 },
   },
   settingContainer: {
-    marginBottom: 20, 
+    marginBottom: 20,
   },
   settingRow: {
     borderBottomColor: '#333333',
