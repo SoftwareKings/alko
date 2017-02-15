@@ -6,6 +6,7 @@ import Styles from './Styles/NavigationContainerStyle';
 import NavigationDrawer from './NavigationDrawer';
 import NavItems from './NavItems';
 import CustomNavBar from '../Navigation/CustomNavBar';
+import { slideLeft } from '../Themes/NavigationAnimations';
 
 // screens identified by the router
 import PresentationScreen from '../Containers/PresentationScreen';
@@ -26,69 +27,10 @@ import IntroductionStep2Screen from '../Containers/Introduction/Step2';
 import IntroductionStep3Screen from '../Containers/Introduction/Step3';
 import IntroductionStep4Screen from '../Containers/Introduction/Step4';
 
-/* **************************
-* Documentation: https://github.com/aksonov/react-native-router-flux
-***************************/
-
-const customAnimationStyle = (props) => {
-  const { layout, position, scene } = props;
-
-  const direction = (scene.navigationState && scene.navigationState.direction) ?
-    scene.navigationState.direction : 'horizontal';
-
-  const index = scene.index;
-  const inputRange = [index - 1, index, index + 1];
-  const width = layout.initWidth;
-  const height = layout.initHeight;
-
-  const opacity = position.interpolate({
-    inputRange,
-    //  default: outputRange: [1, 1, 0.3],
-    outputRange: [1, 1, 0.95],
-  });
-
-  const scale = position.interpolate({
-    inputRange,
-    //  default: outputRange: [1, 1, 0.95],
-    outputRange: [1, 1, 1],
-  });
-
-  let translateX = 0;
-  let translateY = 0;
-
-  switch (direction) {
-    case 'horizontal':
-      translateX = position.interpolate({
-        inputRange,
-        //  default: outputRange: [width, 0, -10],
-        outputRange: [width, 0, -width],
-      });
-      break;
-    case 'vertical':
-      translateY = position.interpolate({
-        inputRange,
-        //  default: outputRange: [height, 0, -10],
-        outputRange: [height, 0, 0],
-      });
-      break;
-    default:
-      break;
-  }
-
-  return {
-    opacity,
-    transform: [
-      { scale },
-      { translateX },
-      { translateY },
-    ],
-  };
-};
-
 class NavigationRouter extends Component {
   render() {
     return (
-      <Router animationStyle={customAnimationStyle}>
+      <Router animationStyle={slideLeft}>
         <Scene key="onboard">
           <Scene initial key="introStep1Screen" component={IntroductionStep1Screen} hideNavBar />
           <Scene key="introStep2Screen" component={IntroductionStep2Screen} hideNavBar />
