@@ -23,7 +23,7 @@ const ApplicationStyles = {
     },
     container: {
       flex: 1,
-      paddingTop: Metrics.baseMargin
+      paddingTop: Metrics.baseMargin,
     },
     section: {
       margin: Metrics.section,
