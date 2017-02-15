@@ -57,16 +57,18 @@
 3. Open */ALKO/ios/ALKO.xcodeproj*
 4. Choose menu */Product/Scheme/Edit Scheme*
 5. Change `Build Configuration` to `Release` and click *Close*
-6. Choose your device in click `Run` (you need to generate **certificate** and **provisioning** for **com.ALKO**, more information you can take a look at: [Build iOS app on an iPhone tutorial](http://codewithchris.com/deploy-your-app-on-an-iphone/)) 
+6. If you have a developer account, generate **certificate** and **provisioning** for **com.ALKO**, more information you can take a look at: [Build iOS app on an iPhone tutorial](http://codewithchris.com/deploy-your-app-on-an-iphone/))
+   If you don't, follow the instructions on [Deploying to a Device without an Apple Developer Account](http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-account/)
+6. Choose your device, and click `Run`.
 
 **Android**
 
 1. cd to the repo
 2. Enable Debugging over USB
 3. Plug in your device via USB
-4. Run your app 
+4. Run your app with `react-native run-android`
 
-More information you can take a look at [Running React Native App on Device](http://facebook.github.io/react-native/releases/0.38/docs/running-on-device.html) 
+More information you can take a look at [Running React Native App on Device](http://facebook.github.io/react-native/releases/0.38/docs/running-on-device.html)
 
 ## :no_entry_sign: Standard Compliant
 
