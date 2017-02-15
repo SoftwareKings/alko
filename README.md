@@ -37,7 +37,7 @@
 
 **Step 3:** Install the Application with `yarn install` or `npm install`
 
-## :arrow_forward: How to Run App
+## :arrow_forward: How to Run DEV App
 
 1. cd to the repo
 2. Run Build for either OS
@@ -46,6 +46,27 @@
   * for Android
     * Run Genymotion / Connect your real device
     * run `react-native run-android`
+
+## :arrow_forward: How to Run RELEASE App
+
+**iOS**
+
+1. cd to the repo
+2. Bundle JS source
+  * Run `react-native bundle --platform ios --dev false --entry-file index.ios.js --bundle-output iOS/main.jsbundle`
+3. Open */ALKO/ios/ALKO.xcodeproj*
+4. Choose menu */Product/Scheme/Edit Scheme*
+5. Change `Build Configuration` to `Release` and click *Close*
+6. Choose your device in click `Run` (you need to generate **certificate** and **provisioning** for **com.ALKO**, more information you can take a look at: [Build iOS app on an iPhone tutorial](http://codewithchris.com/deploy-your-app-on-an-iphone/)) 
+
+**Android**
+
+1. cd to the repo
+2. Enable Debugging over USB
+3. Plug in your device via USB
+4. Run your app 
+
+More information you can take a look at [Running React Native App on Device](http://facebook.github.io/react-native/releases/0.38/docs/running-on-device.html) 
 
 ## :no_entry_sign: Standard Compliant
 

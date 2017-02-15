@@ -1062,6 +1062,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ALKO;
 				PRODUCT_NAME = ALKO;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1079,6 +1080,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ALKO;
 				PRODUCT_NAME = ALKO;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
