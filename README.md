@@ -58,6 +58,7 @@
 4. Choose menu */Product/Scheme/Edit Scheme*
 5. Change `Build Configuration` to `Release` and click *Close*
 6. If you have a developer account, generate **certificate** and **provisioning** for **com.ALKO**, more information you can take a look at: [Build iOS app on an iPhone tutorial](http://codewithchris.com/deploy-your-app-on-an-iphone/))
+
    If you don't, follow the instructions on [Deploying to a Device without an Apple Developer Account](http://blog.ionic.io/deploying-to-a-device-without-an-apple-developer-account/)
 6. Choose your device, and click `Run`.
 
