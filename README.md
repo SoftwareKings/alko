@@ -69,7 +69,7 @@
 3. Plug in your device via USB
 4. Run your app with `react-native run-android`
 
-More information you can take a look at [Running React Native App on Device](http://facebook.github.io/react-native/releases/0.38/docs/running-on-device.html)
+For more information you can take a look at [Running React Native App on Device](http://facebook.github.io/react-native/releases/0.38/docs/running-on-device.html)
 
 ## :no_entry_sign: Standard Compliant
 
