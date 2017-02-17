@@ -7,7 +7,7 @@ const images = {
   introStep2: require('../Images/intro_step_2.png'),
   ir: require('../Images/ir.png'),
   logo: require('../Images/logo.png'),
-  sampleAvatar: require('../Images/sample_avatar.png'),
+  sampleAvatar: require('../Images/sample_avatar.jpg'),
   tileBg: require('../Images/tile_bg.png'),
   topLogo: require('../Images/top_logo.png'),
 };
