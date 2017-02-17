@@ -12,6 +12,7 @@ const metrics = {
   baseMargin: 10,
   doubleBaseMargin: 20,
   largeMargin: 30,
+  doubleLargeMargin: 60,
   smallMargin: 5,
   horizontalLineHeight: 1,
   searchBarHeight: 30,
@@ -32,6 +33,7 @@ const metrics = {
     large: 60,
     logo: 300,
   },
+  avatarBorderRadius: 15,
 };
 
 export default metrics;
