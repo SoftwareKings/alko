@@ -12,12 +12,14 @@ const metrics = {
   baseMargin: 10,
   doubleBaseMargin: 20,
   largeMargin: 30,
+  doubleLargeMargin: 60,
   smallMargin: 5,
   horizontalLineHeight: 1,
   searchBarHeight: 30,
   screenWidth: width < height ? width : height,
   screenHeight: width < height ? height : width,
   navBarHeight: (Platform.OS === 'ios') ? 64 : 54,
+  navBarLeftBtnIcon: (Platform.OS === 'ios') ? 30 : 25,
   buttonRadius: 4,
   icons: {
     tiny: 15,
@@ -32,6 +34,7 @@ const metrics = {
     large: 60,
     logo: 300,
   },
+  avatarBorderRadius: 15,
 };
 
 export default metrics;

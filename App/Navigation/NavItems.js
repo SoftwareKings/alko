@@ -4,6 +4,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import IconMaterial from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './Styles/NavItemsStyle';
 import { Colors, Metrics } from '../Themes';
@@ -31,8 +32,8 @@ export default {
   hamburgerButton() {
     return (
       <TouchableOpacity onPress={openDrawer}>
-        <Icon name="bars"
-          size={Metrics.icons.medium}
+        <IconMaterial name="sort"
+          size={Metrics.navBarLeftBtnIcon}
           color={Colors.snow}
           style={styles.navButtonLeft}
         />

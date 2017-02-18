@@ -5,8 +5,10 @@ const colors = {
   dune: '#2B2725',
   blazeOrange: '#FF7604',
   blazeOrangeShadow: 'rgba(186, 84, 0, 50)',
+  blazeOrangeLighten: '#FFA253',
   christine: '#e16204',
   tundora: '#444444',
+  inactive: '#898989',
 
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
