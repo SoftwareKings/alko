@@ -14,20 +14,21 @@ import IntroductionStep4Screen from '../Containers/Introduction/Step4';
 
 import MainScreen from '../Containers/MainScreen';
 
+import CustomNavBar from './CustomNavBar';
+
 class NavigationRouter extends Component {
   render() {
     return (
       <Router animationStyle={slideLeft}>
-        <Scene initial key="onboard">
-          <Scene key="introStep1Screen" component={IntroductionStep1Screen} hideNavBar />
-          <Scene key="introStep2Screen" component={IntroductionStep2Screen} hideNavBar />
-          <Scene key="introStep3Screen" component={IntroductionStep3Screen} hideNavBar />
-          <Scene key="introStep4Screen" component={IntroductionStep4Screen} hideNavBar />
-        </Scene>
-
         <Scene key="drawer" component={NavigationDrawer} open={false}>
-          <Scene key="drawerChildrenWrapper" navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
-            <Scene key="mainScreen" type={ActionConst.RESET} component={MainScreen} title="Home" renderLeftButton={NavItems.hamburgerButton} />
+          <Scene key="drawerChildrenWrapper" navBar={CustomNavBar}>
+            <Scene key="onboard">
+              <Scene key="introStep1Screen" component={IntroductionStep1Screen} hideNavBar />
+              <Scene key="introStep2Screen" component={IntroductionStep2Screen} hideNavBar />
+              <Scene key="introStep3Screen" component={IntroductionStep3Screen} hideNavBar />
+              <Scene key="introStep4Screen" component={IntroductionStep4Screen} hideNavBar />
+            </Scene>
+            <Scene initial key="mainScreen" type={ActionConst.RESET} component={MainScreen} title="ALKO" renderLeftButton={NavItems.hamburgerButton} />
           </Scene>
         </Scene>
       </Router>

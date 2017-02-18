@@ -21,7 +21,7 @@ export default {
     return (
       <TouchableOpacity onPress={NavigationActions.pop}>
         <Icon name="angle-left"
-          size={Metrics.icons.large}
+          size={Metrics.navIcon}
           color={Colors.snow}
           style={styles.backButton}
         />
@@ -33,7 +33,7 @@ export default {
     return (
       <TouchableOpacity onPress={openDrawer}>
         <IconMaterial name="sort"
-          size={Metrics.navBarLeftBtnIcon}
+          size={Metrics.navIcon}
           color={Colors.snow}
           style={styles.navButtonLeft}
         />
@@ -45,7 +45,7 @@ export default {
     return (
       <TouchableOpacity onPress={callback}>
         <Icon name="search"
-          size={Metrics.icons.small}
+          size={Metrics.navIcon}
           color={Colors.snow}
           style={styles.searchButton}
         />
