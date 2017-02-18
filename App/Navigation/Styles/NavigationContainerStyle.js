@@ -1,6 +1,6 @@
 // @flow
 
-import { Colors } from '../../Themes/';
+import { Colors, Fonts } from '../../Themes/';
 
 export default {
   container: {
@@ -11,6 +11,8 @@ export default {
   },
   title: {
     color: Colors.snow,
+    fontFamily: Fonts.type.primary,
+    fontSize: Fonts.size.h6,
   },
   leftButton: {
     tintColor: Colors.snow,

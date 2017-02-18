@@ -4,7 +4,7 @@ const type = {
   base: 'HelveticaNeue',
   bold: 'HelveticaNeue-Bold',
   emphasis: 'HelveticaNeue-Italic',
-  primary: 'Montserrat',
+  primary: 'Montserrat-Regular',
 };
 
 const size = {

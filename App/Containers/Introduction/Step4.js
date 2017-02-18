@@ -5,6 +5,7 @@ import {
   ScrollView,
 } from 'react-native';
 
+import { Actions as NavigationActions } from 'react-native-router-flux';
 import I18n from 'react-native-i18n';
 import Button from '../../Components/Button';
 import Switch from '../../Components/Switch';
@@ -60,8 +61,9 @@ export default class Step4Screen extends Component {
           }
         </ScrollView>
         <View styles={styles.footer}>
-          <Button text={I18n.t('Introduction_step4_btn')} />
-          <Button
+          <Button onPress={NavigationActions.drawer}
+            text={I18n.t('Introduction_step4_btn')} />
+          <Button onPress={NavigationActions.drawer}
             style={styles.btnDisallow}
             textStyle={styles.btnDisallowText}
             gradientColors={[Colors.tundora, Colors.tundora]}
