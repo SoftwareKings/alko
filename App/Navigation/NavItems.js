@@ -33,7 +33,7 @@ export default {
     return (
       <TouchableOpacity onPress={openDrawer}>
         <IconMaterial name="sort"
-          size={Metrics.icons.medium}
+          size={Metrics.navBarLeftBtnIcon}
           color={Colors.snow}
           style={styles.navButtonLeft}
         />
