@@ -28,6 +28,7 @@
 		4778E91ADECA45F68D5491AB /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 448C8CF4C431487BB956EA19 /* SimpleLineIcons.ttf */; };
 		55B89C89A1FB428BA885F4C1 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AF865C1301646189E2A20BB /* EvilIcons.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		7978B4661E59307400D2FB2C /* alko.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7978B4651E59307300D2FB2C /* alko.ttf */; };
 		7AEEB764E4D441E7B86CA99D /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEDC4C18EC31498CA96C69A6 /* Ionicons.ttf */; };
 		7BF9A625502D42DD82668243 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EEA9FDAA5CD4A8FA4AA8A9B /* Octicons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -274,6 +275,7 @@
 		5EEA9FDAA5CD4A8FA4AA8A9B /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		777ADBC1FA1F4C7496E9E3A3 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7978B4651E59307300D2FB2C /* alko.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = alko.ttf; path = alkoFont/alko.ttf; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		A52334E2E44E49A2870A6B31 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		B1F267036D7C4078B0C5988E /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 		3D20DC1A1E51D9E10046BD99 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				7978B4651E59307300D2FB2C /* alko.ttf */,
 				3D20DC1B1E51DA0B0046BD99 /* Montserrat */,
 			);
 			name = Fonts;
@@ -949,6 +952,7 @@
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				BC0D1E3453C345B39CD7022B /* Entypo.ttf in Resources */,
 				55B89C89A1FB428BA885F4C1 /* EvilIcons.ttf in Resources */,
+				7978B4661E59307400D2FB2C /* alko.ttf in Resources */,
 				20FAF3B18E69425797BE8890 /* FontAwesome.ttf in Resources */,
 				A2DE71D462C44F8987169EAA /* Foundation.ttf in Resources */,
 				3D20DC641E51DB800046BD99 /* Montserrat-Regular.ttf in Resources */,
@@ -1202,7 +1206,7 @@
 				00E356F71AD99517003FC87E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ALKO" */ = {
 			isa = XCConfigurationList;
@@ -1211,7 +1215,7 @@
 				13B07F951A680F5B00A75B9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ALKO" */ = {
 			isa = XCConfigurationList;
@@ -1220,7 +1224,7 @@
 				83CBBA211A601CBA00E9B192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

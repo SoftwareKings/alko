@@ -6,8 +6,10 @@ import { Actions as NavigationActions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
 
+import IconAlko from '../Components/IconAlko';
 import styles from './Styles/NavItemsStyle';
-import { Colors, Metrics } from '../Themes';
+import { Colors } from '../Themes';
+
 
 const openDrawer = () => {
   NavigationActions.refresh({
@@ -21,7 +23,7 @@ export default {
     return (
       <TouchableOpacity onPress={NavigationActions.pop}>
         <Icon name="angle-left"
-          size={Metrics.navIcon}
+          size={35}
           color={Colors.snow}
           style={styles.backButton}
         />
@@ -33,7 +35,7 @@ export default {
     return (
       <TouchableOpacity onPress={openDrawer}>
         <IconMaterial name="sort"
-          size={Metrics.navIcon}
+          size={35}
           color={Colors.snow}
           style={styles.navButtonLeft}
         />
@@ -41,11 +43,17 @@ export default {
     );
   },
 
+  brandTitle() {
+    return (
+      <IconAlko name="alko" size={20} color={Colors.snow} />
+    );
+  },
+
   searchButton(callback: Function) {
     return (
       <TouchableOpacity onPress={callback}>
         <Icon name="search"
-          size={Metrics.navIcon}
+          size={35}
           color={Colors.snow}
           style={styles.searchButton}
         />

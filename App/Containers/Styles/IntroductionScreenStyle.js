@@ -31,7 +31,7 @@ export default StyleSheet.create({
   },
   sectionTitle: {
     color: Colors.blazeOrange,
-    fontSize: Fonts.size.h5,
+    fontSize: Fonts.size.h6,
     fontFamily: Fonts.type.primary,
     marginBottom: Metrics.baseMargin,
   },

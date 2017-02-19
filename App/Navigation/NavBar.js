@@ -1,10 +1,18 @@
 import React from 'react';
-import { View, Text, Animated, Platform } from 'react-native';
-import { createIconSetFromFontello } from 'react-native-vector-icons';
+import { View, Text, Animated } from 'react-native';
 
 import Styles from './Styles/CustomNavBarStyle';
 
-export default class CustomNavBar extends React.Component {
+export default class NavBar extends React.Component {
+
+  renderTitle() {
+    if (this.props.renderTitle) {
+      return this.props.renderTitle();
+    }
+    return (
+      <Text style={[Styles.title, this.props.titleStyle]}>{this.props.title}</Text>
+    );
+  }
 
   renderLeftButton() {
     if (this.props.renderLeftButton) {
@@ -26,7 +34,7 @@ export default class CustomNavBar extends React.Component {
         <View style={Styles.buttonContainer}>
           {this.renderLeftButton()}
         </View>
-        <Text style={[Styles.title, this.props.titleStyle]}>{this.props.title}</Text>
+        {this.renderTitle()}
         <View style={Styles.buttonContainer}>
           {this.renderRightButton()}
         </View>

@@ -14,21 +14,22 @@ import IntroductionStep4Screen from '../Containers/Introduction/Step4';
 
 import MainScreen from '../Containers/MainScreen';
 
-import CustomNavBar from './CustomNavBar';
+import NavBar from './NavBar';
 
 class NavigationRouter extends Component {
   render() {
     return (
       <Router animationStyle={slideLeft}>
         <Scene key="drawer" component={NavigationDrawer} open={false}>
-          <Scene key="drawerChildrenWrapper" navBar={CustomNavBar}>
-            <Scene key="onboard">
+          <Scene key="drawerChildrenWrapper" navBar={NavBar}>
+            <Scene initial key="onboard">
               <Scene key="introStep1Screen" component={IntroductionStep1Screen} hideNavBar />
               <Scene key="introStep2Screen" component={IntroductionStep2Screen} hideNavBar />
               <Scene key="introStep3Screen" component={IntroductionStep3Screen} hideNavBar />
               <Scene key="introStep4Screen" component={IntroductionStep4Screen} hideNavBar />
             </Scene>
-            <Scene initial key="mainScreen" type={ActionConst.RESET} component={MainScreen} title="ALKO" renderLeftButton={NavItems.hamburgerButton} />
+            <Scene key="mainScreen" type={ActionConst.RESET} component={MainScreen} title="ALKO" renderTitle={NavItems.brandTitle} renderLeftButton={NavItems.hamburgerButton} />
+            <Scene key="license" component={MainScreen} title="License No 1" renderLeftButton={NavItems.backButton} />
           </Scene>
         </Scene>
       </Router>

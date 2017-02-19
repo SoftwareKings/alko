@@ -61,9 +61,9 @@ export default class Step4Screen extends Component {
           }
         </ScrollView>
         <View styles={styles.footer}>
-          <Button onPress={NavigationActions.drawer}
+          <Button onPress={NavigationActions.mainScreen}
             text={I18n.t('Introduction_step4_btn')} />
-          <Button onPress={NavigationActions.drawer}
+          <Button onPress={NavigationActions.mainScreen}
             style={styles.btnDisallow}
             textStyle={styles.btnDisallowText}
             gradientColors={[Colors.tundora, Colors.tundora]}
