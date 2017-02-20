@@ -6,6 +6,7 @@ import {
   BackAndroid,
   View,
   Text,
+  TouchableOpacity,
 } from 'react-native';
 // import { Actions as NavigationActions } from 'react-native-router-flux';
 import I18n from 'react-native-i18n';
@@ -53,26 +54,27 @@ class DrawerContent extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.avatarContainer}>
             <Image source={Images.sampleAvatar} style={styles.avatar} />
           </View>
           <Text style={styles.name}>{this.props.profile.displayName}</Text>
         </View>
-        <View style={styles.contentContainer}>
+        <ScrollView style={styles.contentContainer}>
           <DrawerButton isActive text={I18n.t('BARS')} />
           <DrawerButton text={I18n.t('PROFILE')} />
           <DrawerButton text={I18n.t('PUSH_NOTIFICATIONS')} />
           <DrawerButton text={I18n.t('TERMS_OF_SERVICE')} />
           <DrawerButton text={I18n.t('PRIVACY_POLICY')} />
           <DrawerButton text={I18n.t('SEND_FEEDBACK')} />
-          <DrawerButton text={I18n.t('LOGOUT')} onPress={this.onLogout} />
-        </View>
+        </ScrollView>
         <View style={styles.footer}>
-          <Text style={styles.copyright}>© 2017 ALKO</Text>
+          <TouchableOpacity onPress={this.onLogout}>
+            <Text style={styles.copyright}>© 2017 ALKO</Text>
+          </TouchableOpacity>
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }
