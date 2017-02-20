@@ -3,19 +3,32 @@ import {
   View,
   Text,
 } from 'react-native';
-import { Actions as NavigationActions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import stringifyObject from 'stringify-object';
 
 import styles from './Styles/MainScreenStyle';
-import Button from '../Components/Button';
 
-export default class MainScreen extends Component {
+class MainScreen extends Component {
+  static defaultProps: {
+    profile: {},
+  };
+
   render() {
     return (
       <View style={styles.mainContainer}>
-        <Text>MainScreen</Text>
-        <Button onPress={NavigationActions.license} text={'Test Another NavBar Style'} />
+        <Text style={{ color: 'white' }}>Profile</Text>
+        <Text style={{ color: 'white' }}>{stringifyObject(this.props.profile)}</Text>
       </View>
     );
   }
-
 }
+
+const mapStateToProps = state => ({
+  profile: state.auth.profile,
+});
+
+const mapDispatchToProps = dispatch => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);

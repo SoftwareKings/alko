@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import { Scene, Router, ActionConst } from 'react-native-router-flux';
-import Styles from './Styles/NavigationContainerStyle';
 import NavigationDrawer from './NavigationDrawer';
 import NavItems from './NavItems';
 import { slideLeft } from '../Themes/NavigationAnimations';
@@ -13,6 +12,7 @@ import IntroductionStep3Screen from '../Containers/Introduction/Step3';
 import IntroductionStep4Screen from '../Containers/Introduction/Step4';
 
 import MainScreen from '../Containers/MainScreen';
+import SplashScreen from '../Containers/SplashScreen';
 
 import NavBar from './NavBar';
 
@@ -22,7 +22,8 @@ class NavigationRouter extends Component {
       <Router animationStyle={slideLeft}>
         <Scene key="drawer" component={NavigationDrawer} open={false}>
           <Scene key="drawerChildrenWrapper" navBar={NavBar}>
-            <Scene initial key="onboard">
+            <Scene initial key="splashScreen" component={SplashScreen} hideNavBar />
+            <Scene key="onboard" type={ActionConst.RESET} >
               <Scene key="introStep1Screen" component={IntroductionStep1Screen} hideNavBar />
               <Scene key="introStep2Screen" component={IntroductionStep2Screen} hideNavBar />
               <Scene key="introStep3Screen" component={IntroductionStep3Screen} hideNavBar />

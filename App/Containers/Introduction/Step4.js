@@ -4,18 +4,21 @@ import {
   Text,
   ScrollView,
 } from 'react-native';
-
 import { Actions as NavigationActions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 import I18n from 'react-native-i18n';
 import Button from '../../Components/Button';
 import Switch from '../../Components/Switch';
 import styles from '../Styles/IntroductionScreenStyle';
 import { Colors } from '../../Themes';
+import AuthActions from '../../Redux/AuthRedux';
 
-export default class Step4Screen extends Component {
+class Step4Screen extends Component {
 
   constructor(...args) {
     super(...args);
+    this.onLaterButtonPress = this.onLaterButtonPress.bind(this);
+    this.onAcceptButtonPress = this.onAcceptButtonPress.bind(this);
     this.state = {
       days: [
         { name: I18n.t('SUNDAY'), enabled: false },
@@ -34,6 +37,16 @@ export default class Step4Screen extends Component {
     let newDays = this.state.days;
     newDays[index].enabled = value;
     this.setState({ days: newDays });
+  }
+
+  onLaterButtonPress() {
+    this.props.setOnboardingComplete();
+    NavigationActions.mainScreen();
+  }
+
+  onAcceptButtonPress() {
+    this.props.setOnboardingComplete();
+    NavigationActions.mainScreen();
   }
 
   render() {
@@ -61,9 +74,9 @@ export default class Step4Screen extends Component {
           }
         </ScrollView>
         <View styles={styles.footer}>
-          <Button onPress={NavigationActions.mainScreen}
+          <Button onPress={this.onAcceptButtonPress}
             text={I18n.t('Introduction_step4_btn')} />
-          <Button onPress={NavigationActions.mainScreen}
+          <Button onPress={this.onLaterButtonPress}
             style={styles.btnDisallow}
             textStyle={styles.btnDisallowText}
             gradientColors={[Colors.tundora, Colors.tundora]}
@@ -73,5 +86,14 @@ export default class Step4Screen extends Component {
       </View>
     );
   }
-
 }
+
+const mapStateToProps = state => ({
+
+});
+
+const mapDispatchToProps = dispatch => ({
+  setOnboardingComplete: () => dispatch(AuthActions.createProfileProperty('onboardingComplete', true)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Step4Screen);

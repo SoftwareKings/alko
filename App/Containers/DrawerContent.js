@@ -1,45 +1,34 @@
 // @flow
-/* eslint-disable */
-
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   ScrollView,
   Image,
   BackAndroid,
   View,
   Text,
-  TouchableOpacity
 } from 'react-native';
-import { Actions as NavigationActions } from 'react-native-router-flux';
+// import { Actions as NavigationActions } from 'react-native-router-flux';
 import I18n from 'react-native-i18n';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { connect } from 'react-redux';
+
+import DrawerButton from '../Components/DrawerButton';
 import styles from './Styles/DrawerContentStyle';
-import { Images, Metrics } from '../Themes';
-
-class DrawerButton extends Component {
-  static propTypes = {
-    text: PropTypes.string,
-    isActive: PropTypes.bool,
-  }
-
-  render() {
-    const {text, isActive} = this.props;
-    const containerStyle = [styles.btnDrawer, isActive ? styles.btnDrawerActive : null];
-    const textStyle = [styles.btnDrawerText, isActive ? styles.btnDrawerTextActive: null];
-    const iconStyle = [styles.btnDrawerIcon, isActive ? styles.btnDrawerIconActive: null];
-
-    return (
-      <TouchableOpacity style={containerStyle}>
-        <Text style={textStyle}>{text}</Text>
-        <Icon name="keyboard-arrow-right"
-          size={Metrics.icons.medium}
-          style={iconStyle} />
-      </TouchableOpacity>
-    );
-  }
-}
+import { Images } from '../Themes';
+import AuthActions from '../Redux/AuthRedux';
 
 class DrawerContent extends Component {
+
+  static defaultProps = {
+    profile: {
+      displayName: '',
+    },
+  }
+
+  constructor(props) {
+    super(props);
+    this.toggleDrawer = this.toggleDrawer.bind(this);
+    this.onLogout = this.onLogout.bind(this);
+  }
 
   componentDidMount() {
     BackAndroid.addEventListener('hardwareBackPress', () => {
@@ -51,10 +40,17 @@ class DrawerContent extends Component {
     });
   }
 
+  onLogout() {
+    this.props.signOut();
+    // Just to test onboard multiple times
+    setTimeout(() => this.toggleDrawer(), 500);
+    setTimeout(() => this.props.signIn(), 1500);
+  }
+
   toggleDrawer() {
     this.context.drawer.toggle();
   }
-  
+
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -62,7 +58,7 @@ class DrawerContent extends Component {
           <View style={styles.avatarContainer}>
             <Image source={Images.sampleAvatar} style={styles.avatar} />
           </View>
-          <Text style={styles.name}>Abby</Text>
+          <Text style={styles.name}>{this.props.profile.displayName}</Text>
         </View>
         <View style={styles.contentContainer}>
           <DrawerButton isActive text={I18n.t('BARS')} />
@@ -71,6 +67,7 @@ class DrawerContent extends Component {
           <DrawerButton text={I18n.t('TERMS_OF_SERVICE')} />
           <DrawerButton text={I18n.t('PRIVACY_POLICY')} />
           <DrawerButton text={I18n.t('SEND_FEEDBACK')} />
+          <DrawerButton text={I18n.t('LOGOUT')} onPress={this.onLogout} />
         </View>
         <View style={styles.footer}>
           <Text style={styles.copyright}>© 2017 ALKO</Text>
@@ -78,11 +75,19 @@ class DrawerContent extends Component {
       </ScrollView>
     );
   }
-
 }
 
 DrawerContent.contextTypes = {
   drawer: React.PropTypes.object,
 };
 
-export default DrawerContent;
+const mapStateToProps = state => ({
+  profile: state.auth.profile,
+});
+
+const mapDispatchToProps = dispatch => ({
+  signOut: () => dispatch(AuthActions.signOut()),
+  signIn: () => dispatch(AuthActions.signIn()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DrawerContent);
