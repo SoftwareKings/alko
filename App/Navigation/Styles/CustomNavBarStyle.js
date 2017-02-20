@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 import { Colors, Metrics, Fonts } from '../../Themes/';
 
 export default {
@@ -6,36 +8,35 @@ export default {
     top: 0,
     left: 0,
     right: 0,
+    paddingTop: (Platform.OS === 'ios') ? 20 : 0,
     height: Metrics.navBarHeight,
-    paddingTop: Metrics.smallMargin,
-    paddingHorizontal: 5,
+    paddingHorizontal: Metrics.baseMargin,
     backgroundColor: Colors.dune,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
+    borderBottomColor: Colors.blazeOrange,
+    borderBottomWidth: 1,
+  },
+  buttonContainer: {
+    width: 35,
+  },
+  leftButton: {
+    // paddingTop: Metrics.baseMargin,
   },
   title: {
     flex: 1,
-    textAlign: 'center',
     color: Colors.snow,
-    marginTop: Metrics.doubleBaseMargin,
-    backgroundColor: Colors.transparent,
-    fontWeight: 'bold',
-    fontSize: Fonts.size.input,
+    fontFamily: Fonts.type.primary,
+    fontSize: 24,
+    textAlign: 'center',
   },
   logo: {
-    alignSelf: 'center',
-    marginTop: Metrics.baseMargin,
-    height: Metrics.icons.large,
-    width: Metrics.icons.large,
+    height: Metrics.navBarHeight - Metrics.doubleBaseMargin,
+    width: Metrics.navBarHeight - Metrics.doubleBaseMargin,
+    resizeMode: 'contain',
   },
-  rightButtons: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    flexDirection: 'row',
-  },
-  leftButtons: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
+  rightButton: {
+    paddingTop: Metrics.baseMargin,
   },
 };

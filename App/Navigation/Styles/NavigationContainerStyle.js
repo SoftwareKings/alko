@@ -9,10 +9,8 @@ export default {
   navBar: {
     backgroundColor: Colors.dune,
   },
-  title: {
-    color: Colors.snow,
-    fontFamily: Fonts.type.primary,
-    fontSize: Fonts.size.h6,
+  brandTitle: {
+    fontSize: 28,
   },
   leftButton: {
     tintColor: Colors.snow,

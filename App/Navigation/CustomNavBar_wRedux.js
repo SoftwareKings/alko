@@ -3,7 +3,7 @@ import { View, Image, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
 
 import NavItems from './NavItems';
-import styles from './Styles/CustomNavBarStyle';
+import styles from './Styles/CustomNavBarStyle_wRedux';
 import SearchBar from '../Components/SearchBar';
 import { Metrics, Images } from '../Themes';
 import SearchActions from '../Redux/SearchRedux';
@@ -31,7 +31,7 @@ class CustomNavBar extends React.Component {
       return <SearchBar onSearch={this.props.performSearch} searchTerm={this.props.searchTerm} onCancel={this.cancelSearch} />;
     }
     return (
-      <Image resizeMode="cover" style={styles.logo} source={Images.clearLogo} />
+      <Image resizeMode="cover" style={styles.logo} source={Images.logo} />
     );
 
   }

@@ -12,6 +12,10 @@ applyConfigSettings();
 // create our store
 const store = createStore();
 
+// initAuth(store.dispatch)
+//   .then(() => null)
+//   .catch(error => console.tron.error(error)); // eslint-disable-line no-console
+
 /**
  * Provides an entry point into our application.  Both index.ios.js and index.android.js
  * call this component first.
