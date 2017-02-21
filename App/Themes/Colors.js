@@ -9,6 +9,7 @@ const colors = {
   christine: '#e16204',
   tundora: '#444444',
   inactive: '#898989',
+  codGray: '#1C1A19',
 
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
