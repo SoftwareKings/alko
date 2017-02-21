@@ -7,19 +7,17 @@ import {
 } from 'react-native';
 
 import styles from './Styles/BarResultStyle';
-import { Colors, Images } from '../Themes/';
+import { Images } from '../Themes/';
 
 export default class Button extends Component {
   static propTypes = {
     style: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
     textStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
     name: PropTypes.string,
+    activeDrinkUp: PropTypes.bool,
+    promotions: PropTypes.arrayOf(PropTypes.string),
+    distance: PropTypes.string,
     onPress: PropTypes.func,
-  }
-
-  static defaultProps = {
-    name: 'Button',
-    gradientColors: [Colors.blazeOrange, Colors.christine],
   }
 
   static renderBarIcon(activeDrinkUp, promotions) {
