@@ -15,4 +15,7 @@ export default StyleSheet.create({
     flex: 1,
     height: 256,
   },
+  barListContainer: {
+    flex: 1,
+  },
 });
