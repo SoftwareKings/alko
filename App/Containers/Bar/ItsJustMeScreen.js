@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import I18n from 'react-native-i18n';
 
 import Styles from '../Styles/BarScreenStyle';
-import Button from '../../Components/DarkButton';
+import Button from '../../Components/Button';
 
 class ItsJustMeScreen extends Component {
 
@@ -20,7 +20,11 @@ class ItsJustMeScreen extends Component {
         </View>
         <View style={Styles.footer}>
           <Text style={Styles.footerText}>{I18n.t('Bar_ItsJustMe_Footer')}</Text>
-          <Button onPress={() => {}} text={I18n.t('Bar_ItsJustMe_Button')} />
+          <Button
+            theme={'dark'}
+            onPress={() => {}}
+            text={I18n.t('Bar_ItsJustMe_Button')}
+          />
         </View>
       </View>
     );

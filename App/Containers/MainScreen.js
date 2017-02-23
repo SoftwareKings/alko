@@ -183,6 +183,7 @@ class MainScreen extends Component {
       activeDrinkUp,
       promotions,
       key,
+      onPress: NavigationActions.bar,
     };
 
     if (this.props.currentPosition) {
@@ -196,8 +197,6 @@ class MainScreen extends Component {
     } else {
       props.distance = '';
     }
-
-    props.onPress = NavigationActions.bar;
 
     return (
       <BarResult {...props}></BarResult>
