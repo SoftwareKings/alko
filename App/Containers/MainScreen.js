@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {
   View,
   ScrollView,
+  Text,
+  Image
 } from 'react-native';
 import { connect } from 'react-redux';
 import MapView from 'react-native-maps';
@@ -14,6 +16,7 @@ import MapCallout from '../Components/MapCallout';
 import BarResult from '../Components/BarResult';
 import Styles from './Styles/MainScreenStyle';
 import LocationActions from '../Redux/LocationRedux';
+import LinearGradient from 'react-native-linear-gradient';
 
 const METRES_TO_MILES_FACTOR = 0.000621371192237;
 
@@ -212,6 +215,12 @@ class MainScreen extends Component {
           >
             {this.state.bars.map((bar, i) => this.renderMapMarkers(bar, i))}
           </MapView>
+          <LinearGradient colors={['#FFB900', '#FFB900', '#FFB900']} style={Styles.linearGradient}>
+            <Image source={Images.shape} style={Styles.shape} />
+            <Text style={Styles.buttonText}>
+              Join the Drink-up & get 2 for 1 drinks
+            </Text>
+          </LinearGradient>
         </View>
         <ScrollView style={Styles.barListContainer}>
           {this.state.bars.map((bar, i) => this.renderBarResult(bar, i))}
