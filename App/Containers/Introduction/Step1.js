@@ -27,7 +27,7 @@ export default class Step1Screen extends Component {
           </View>
         </ScrollView>
         <View styles={styles.footer}>
-          <Button theme={'primary'} onPress={NavigationActions.introStep2Screen} text={I18n.t('Introduction_next')} />
+          <Button onPress={NavigationActions.introStep2Screen} text={I18n.t('Introduction_next')} />
         </View>
       </View>
     );

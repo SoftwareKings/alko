@@ -74,7 +74,6 @@ class Step4Screen extends Component {
         </ScrollView>
         <View styles={styles.footer}>
           <Button
-            theme={'primary'}
             onPress={this.onAcceptButtonPress}
             text={I18n.t('Introduction_step4_btn')}
           />

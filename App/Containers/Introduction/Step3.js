@@ -40,7 +40,7 @@ export default class Step3Screen extends Component {
           </View>
         </ScrollView>
         <View styles={styles.footer}>
-          <Button theme={'primary'} onPress={this.requestLocationPermission} text={I18n.t('Introduction_step3_btn')} />
+          <Button onPress={this.requestLocationPermission} text={I18n.t('Introduction_step3_btn')} />
         </View>
       </View>
     );

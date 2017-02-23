@@ -1,6 +1,6 @@
 // @flow
 
-import { Colors, Fonts } from '../../Themes/';
+import { Colors } from '../../Themes/';
 
 export default {
   container: {
