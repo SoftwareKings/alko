@@ -3,6 +3,7 @@ import {
   View,
   ScrollView,
 } from 'react-native';
+import { Actions as NavigationActions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import MapView from 'react-native-maps';
 import { getDistance } from 'geolib';
@@ -18,6 +19,7 @@ import LocationActions from '../Redux/LocationRedux';
 const METRES_TO_MILES_FACTOR = 0.000621371192237;
 
 class MainScreen extends Component {
+
   /* ***********************************************************
   * This example is only intended to get you started with the basics.
   * There are TONS of options available from traffic to buildings to indoors to compass and more!
@@ -181,6 +183,7 @@ class MainScreen extends Component {
       activeDrinkUp,
       promotions,
       key,
+      onPress: NavigationActions.bar,
     };
 
     if (this.props.currentPosition) {
