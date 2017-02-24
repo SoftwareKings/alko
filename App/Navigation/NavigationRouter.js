@@ -15,6 +15,7 @@ import IntroductionStep4Screen from '../Containers/Introduction/Step4';
 
 import MainScreen from '../Containers/MainScreen';
 import BarScreen from '../Containers/Bar';
+import SponsoredScreen from '../Containers/SponsoredScreen';
 
 import NavBar from './NavBar';
 
@@ -33,6 +34,7 @@ class NavigationRouter extends Component {
             </Scene>
             <Scene key="mainScreen" type={ActionConst.RESET} component={MainScreen} title="ALKO" renderTitle={NavItems.brandTitle} renderLeftButton={NavItems.hamburgerButton} />
             <Scene key="bar" component={BarScreen} title="License No 1" renderLeftButton={NavItems.backButton} />
+            <Scene key="sponsoredScreen" component={SponsoredScreen} />
           </Scene>
         </Scene>
       </Router>
