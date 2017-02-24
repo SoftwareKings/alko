@@ -50,14 +50,6 @@ export default StyleSheet.create({
   stepImage: {
     marginBottom: 50,
   },
-  btnDisallow: {
-    marginTop: Metrics.doubleBaseMargin,
-  },
-  btnDisallowText: {
-    color: '#707070',
-    textShadowColor: 'rgb(50,50,50)',
-    textShadowOffset: { width: 0, height: 2 },
-  },
   settingContainer: {
     marginBottom: 20,
   },

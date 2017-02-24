@@ -10,7 +10,11 @@ const colors = {
   tundora: '#444444',
   inactive: '#898989',
   codGray: '#1C1A19',
+  dustyGray: '#949494',
+  selectiveYellow: '#FFB900',
+  webOrange: '#F0A500',
 
+  black: '#000000',
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
   transparent: 'rgba(0,0,0,0)',
@@ -29,6 +33,7 @@ const colors = {
   ember: 'rgba(164, 0, 48, 0.5)',
   fire: '#e73536',
   drawer: 'rgba(30, 30, 29, 0.95)',
+  doveGray: '#656565',
 };
 
 export default colors;

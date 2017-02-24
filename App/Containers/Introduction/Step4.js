@@ -10,7 +10,6 @@ import I18n from 'react-native-i18n';
 import Button from '../../Components/Button';
 import Switch from '../../Components/Switch';
 import styles from '../Styles/IntroductionScreenStyle';
-import { Colors } from '../../Themes';
 import AuthActions from '../../Redux/AuthRedux';
 
 class Step4Screen extends Component {
@@ -74,12 +73,13 @@ class Step4Screen extends Component {
           }
         </ScrollView>
         <View styles={styles.footer}>
-          <Button onPress={this.onAcceptButtonPress}
-            text={I18n.t('Introduction_step4_btn')} />
-          <Button onPress={this.onLaterButtonPress}
-            style={styles.btnDisallow}
-            textStyle={styles.btnDisallowText}
-            gradientColors={[Colors.tundora, Colors.tundora]}
+          <Button
+            onPress={this.onAcceptButtonPress}
+            text={I18n.t('Introduction_step4_btn')}
+          />
+          <Button
+            theme={'disallow'}
+            onPress={this.onLaterButtonPress}
             text={I18n.t('Introduction_step4_disallow')}
           />
         </View>

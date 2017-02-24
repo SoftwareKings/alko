@@ -28,3 +28,5 @@ export const directionsURL = (address: string) => {
 
   return url;
 };
+
+export const ApplyComponentTheme = (theme, props) => Object.assign({}, theme, props);
