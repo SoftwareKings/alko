@@ -24,7 +24,7 @@ export default class DrinkupScreen extends Component {
   }
 
   static defaultProps = {
-    members: [
+    members: [ // you can pass image property to show avatar with image, if user has avatar
       {
         icon: Icons.martini,
         name: 'Abby',
