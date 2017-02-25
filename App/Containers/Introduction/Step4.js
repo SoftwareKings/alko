@@ -88,12 +88,8 @@ class Step4Screen extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-
-});
-
 const mapDispatchToProps = dispatch => ({
   setOnboardingComplete: () => dispatch(AuthActions.createProfileProperty('onboardingComplete', true)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Step4Screen);
+export default connect(null, mapDispatchToProps)(Step4Screen);

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { PropTypes } from 'react';
 import { View, Image, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
