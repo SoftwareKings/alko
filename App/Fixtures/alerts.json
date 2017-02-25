@@ -1,0 +1,38 @@
+{
+  "1a": {
+    "id": "1a",
+    "title": "License No 1",
+    "body": "Thursday 8p - 2a @ License No 1",
+    "iconFamily": "alko",
+    "iconName": "badge",
+    "read": false,
+    "content": [
+      {
+        "header": "Thursday, 8pm to 2am",
+        "body": "ALKO and License No 1 are throwing a party to celebrate the launch of ALKO. A Drink-up will be going on the whole time, so you\"ll be able to get your 2 for 1 ALKO special anytime that night."
+      },
+      {
+        "header": "Wish I could get 2 free drinks…",
+        "body": "You know what? Me too. And License No 1 is making it happen. On Thursday, you\"ll be able to unlock the 2 for 1 special twice."
+      }
+    ]
+  },
+  "1b": {
+    "id": "1b",
+    "title": "Bohemian Biergarten",
+    "body": "Friday All Night @ Bohemian Biergarten",
+    "iconFamily": "alko",
+    "iconName": "badge",
+    "read": false,
+    "content": [
+      {
+        "header": "Friday All Night",
+        "body": "ALKO and Bohemian Biergarten are throwing a party to celebrate the launch of ALKO. A Drink-up will be going on the whole time, so you\"ll be able to get your 2 for 1 ALKO special anytime that night."
+      },
+      {
+        "header": "Wish I could get 2 free drinks…",
+        "body": "You know what? Me too. And License No 1 is making it happen. On Thursday, you\"ll be able to unlock the 2 for 1 special twice."
+      }
+    ]
+  }
+}

@@ -45,6 +45,8 @@
   "Introduction_step4_btn": "Allow push notifications",
   "Introduction_step4_disallow": "no, maybe later",
 
+  "DrinkUp_MainScreen_Promotion": "Thursday 8p - 2a @ License No 1",
+
   "Bar_StartADrinkUp": "Start a Drink-up",
   "Bar_StartADrinkUpForSpecial": "Start a Drink-Up for a 2-for-1 Special",
   "Bar_OkayLetsDoThis_Header" : "Okay, let's do this.",
@@ -56,6 +58,11 @@
   "Bar_ItsJustMe_2for1_Body": "ALKO has partnered with License No 1 to give you a 2 for 1 special.  Make a new friend with someone already at the bar and tell them about the 2 for 1 ALKO special.  They can download the app, join the Drink-up, and you both will get instant drinks.\n\nWhat’s better than a free drink right at this moment with a new friend? Nothing. Nothing is better.",
   "Bar_ItsJustMe_Footer": "waiting for new friends to join...",
   "Bar_ItsJustMe_Button": "Cancel the Drink-up",
+
+  "Drinkup_JoinDrinkUpAndGet2For1Drinks": "Join the Drink-up and get 2 for 1 drinks",
+  "Drinkup_JoinDrinkUp": "Join the Drink-up",
+  "Drinkup_CancelRequest": "cancel request",
+  "Drinkup_WaitingInvite": "waiting on the invite...",
 
   "SUNDAY": "SUNDAY",
   "MONDAY": "MONDAY",
