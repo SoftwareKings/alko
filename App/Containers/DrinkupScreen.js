@@ -73,7 +73,7 @@ export default class DrinkupScreen extends Component {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
       <View style={[styles.mainContainer, styles.container]}>
-        <Banner text={I18n.t('Drinkup_JoinDrinkUpAndGet2For1Drinks')} />
+        <Banner theme="info" text={I18n.t('Drinkup_JoinDrinkUpAndGet2For1Drinks')} onPress={this.onWaiting} />
         <ListView contentContainerStyle={styles.list}
           dataSource={ds.cloneWithRows(members)}
           renderRow={member =>

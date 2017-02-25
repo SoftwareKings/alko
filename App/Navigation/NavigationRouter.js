@@ -35,7 +35,7 @@ class NavigationRouter extends Component {
             </Scene>
             <Scene key="mainScreen" type={ActionConst.RESET} component={MainScreen} title="ALKO" renderTitle={NavItems.brandTitle} renderLeftButton={NavItems.hamburgerButton} />
             <Scene key="bar" component={BarScreen} title="License No 1" renderLeftButton={NavItems.backButton} />
-            <Scene key="sponsoredScreen" component={SponsoredScreen} />
+            <Scene key="sponsoredScreen" component={SponsoredScreen} renderLeftButton={NavItems.backButton} />
             <Scene key="drinkupScreen" component={DrinkupScreen} />
           </Scene>
         </Scene>

@@ -13,6 +13,10 @@ const colors = {
   dustyGray: '#949494',
   selectiveYellow: '#FFB900',
   webOrange: '#F0A500',
+  bamboo: '#DB6503',
+  sorbus: '#FE7503',
+  tenn: '#ce5e01',
+  gold: '#ffcd4c',
 
   black: '#000000',
   clear: 'rgba(0,0,0,0)',

@@ -15,6 +15,7 @@ const images = {
   seal: require('../Images/seal.png'),
   tileBg: require('../Images/tile_bg.png'),
   topLogo: require('../Images/top_logo.png'),
+  shape: require('../Images/shape.png'),
 };
 
 export default images;

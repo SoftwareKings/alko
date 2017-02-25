@@ -13,8 +13,11 @@ import { Images } from '../Themes';
 import { calculateRegion } from '../Lib/MapHelpers';
 import MapCallout from '../Components/MapCallout';
 import BarResult from '../Components/BarResult';
+import Banner from '../Components/Banner';
 import Styles from './Styles/MainScreenStyle';
+
 import LocationActions from '../Redux/LocationRedux';
+import AlertActions from '../Redux/AlertRedux';
 
 const METRES_TO_MILES_FACTOR = 0.000621371192237;
 
@@ -105,10 +108,13 @@ class MainScreen extends Component {
     };
     this.renderMapMarkers = this.renderMapMarkers.bind(this);
     this.onRegionChange = this.onRegionChange.bind(this);
+    this.handleAlertPress = this.handleAlertPress.bind(this);
+    this.renderAlert = this.renderAlert.bind(this);
   }
 
   componentDidMount() {
     this.props.getCurrentPosition();
+    this.props.getAlerts();
   }
 
   // eslint-disable-next-line class-methods-use-this, no-unused-vars
@@ -147,6 +153,33 @@ class MainScreen extends Component {
     * presses your callout.
     *************************************************************/
     console.tron.log(location);
+  }
+
+  handleAlertPress(alert) {
+    this.props.markAlertAsRead(alert);
+    const { title, content } = alert;
+    NavigationActions.sponsoredScreen({ title, content });
+  }
+
+  renderAlert() {
+    const alerts = Object.entries(this.props.alerts);
+    //eslint-disable-next-line
+    const alertToDisplay = alerts.find(([alertId, alert]) => alert.read === false);
+
+    if (alertToDisplay) {
+      const alert = alertToDisplay[1];
+      return (
+        <Banner
+          theme="alert"
+          text={alert.body}
+          iconFamily={alert.iconFamily}
+          iconName={alert.iconName}
+          onPress={() => this.handleAlertPress(alert)}
+        />
+      );
+    }
+
+    return null;
   }
 
   renderMapMarkers(bar) {
@@ -215,7 +248,13 @@ class MainScreen extends Component {
           >
             {this.state.bars.map((bar, i) => this.renderMapMarkers(bar, i))}
           </MapView>
+          <View style={Styles.bannerContainer}>
+            {
+              this.renderAlert()
+            }
+          </View>
         </View>
+
         <ScrollView style={Styles.barListContainer}>
           {this.state.bars.map((bar, i) => this.renderBarResult(bar, i))}
         </ScrollView>
@@ -225,6 +264,7 @@ class MainScreen extends Component {
 }
 
 const mapStateToProps = state => ({
+  alerts: state.alert.alerts,
   profile: state.auth.profile,
   currentPosition: state.location.position,
 });
@@ -232,6 +272,8 @@ const mapStateToProps = state => ({
 //eslint-disable-next-line
 const mapDispatchToProps = dispatch => ({
   getCurrentPosition: () => dispatch(LocationActions.locationRequest()),
+  getAlerts: () => dispatch(AlertActions.alertsRequest()),
+  markAlertAsRead: alert => dispatch(AlertActions.markAlertAsRead(alert)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);

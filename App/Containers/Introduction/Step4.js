@@ -78,7 +78,7 @@ class Step4Screen extends Component {
             text={I18n.t('Introduction_step4_btn')}
           />
           <Button
-            theme={'disallow'}
+            theme="disallow"
             onPress={this.onLaterButtonPress}
             text={I18n.t('Introduction_step4_disallow')}
           />

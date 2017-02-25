@@ -8,18 +8,31 @@ export default StyleSheet.create({
     height: 40,
     alignSelf: 'stretch',
     alignItems: 'center',
-    justifyContent: 'center',
-    flexGrow: 1,
+    flexDirection: 'row',
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 5,
   },
-  btnText: {
+  body: {
+    flexDirection: 'row',
+  },
+  bodyText: {
     color: Colors.black,
+    flex: 1,
     backgroundColor: Colors.transparent,
     fontFamily: Fonts.type.bold,
     fontSize: 15,
-    textShadowColor: Colors.webOrange,
-    textShadowOffset: { width: 0, height: 1 },
+    textShadowColor: Colors.gold,
+    textShadowOffset: { width: 0, height: 2 },
+    alignSelf: 'center',
+    textAlign: 'center',
+  },
+  alertText: {
+    color: Colors.snow,
+    textShadowColor: Colors.tenn,
+  },
+  icon: {
+    alignSelf: 'center',
+    backgroundColor: Colors.transparent,
   },
 });
