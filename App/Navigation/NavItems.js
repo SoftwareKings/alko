@@ -23,9 +23,9 @@ export default {
     );
   },
 
-  hamburgerButton({ openDrawer }) {
+  hamburgerButton(onPress: Function) {
     return () => (
-      <TouchableOpacity onPress={openDrawer}>
+      <TouchableOpacity onPress={onPress}>
         <IconMaterial name="sort"
           size={35}
           color={Colors.snow}

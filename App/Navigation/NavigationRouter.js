@@ -39,7 +39,7 @@ class NavigationRouter extends Component {
               <Scene key="introStep3Screen" component={IntroductionStep3Screen} hideNavBar />
               <Scene key="introStep4Screen" component={IntroductionStep4Screen} hideNavBar />
             </Scene>
-            <Scene key="map" type={ActionConst.RESET} component={MapScreen} title="ALKO" renderTitle={NavItems.brandTitle} renderLeftButton={NavItems.hamburgerButton(this.props.actions)} />
+            <Scene key="map" type={ActionConst.RESET} component={MapScreen} title="ALKO" renderTitle={NavItems.brandTitle} renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)} />
             <Scene key="bar" component={BarScreen} title="License No 1" renderLeftButton={NavItems.backButton} />
 
             <Scene
@@ -47,7 +47,7 @@ class NavigationRouter extends Component {
               type={ActionConst.RESET}
               component={TermsOfServiceScreen}
               title={I18n.t('TERMS_OF_SERVICE')}
-              renderLeftButton={NavItems.hamburgerButton(this.props.actions)}
+              renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)}
             />
 
             <Scene
@@ -55,7 +55,7 @@ class NavigationRouter extends Component {
               type={ActionConst.RESET}
               component={PrivacyPolicyScreen}
               title={I18n.t('PRIVACY_POLICY')}
-              renderLeftButton={NavItems.hamburgerButton(this.props.actions)}
+              renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)}
             />
 
           </Scene>
