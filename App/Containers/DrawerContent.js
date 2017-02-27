@@ -62,12 +62,38 @@ class DrawerContent extends Component {
           <Text style={styles.name}>{this.props.profile.displayName}</Text>
         </View>
         <ScrollView style={styles.contentContainer}>
-          <DrawerButton isActive text={I18n.t('BARS')} />
-          <DrawerButton text={I18n.t('PROFILE')} />
-          <DrawerButton text={I18n.t('PUSH_NOTIFICATIONS')} />
-          <DrawerButton text={I18n.t('TERMS_OF_SERVICE')} />
-          <DrawerButton text={I18n.t('PRIVACY_POLICY')} />
-          <DrawerButton text={I18n.t('SEND_FEEDBACK')} />
+
+          <DrawerButton
+            isActive
+            text={I18n.t('BARS')}
+            page="map"
+          />
+
+          <DrawerButton
+            text={I18n.t('PROFILE')}
+            page="profile"
+          />
+
+          <DrawerButton
+            text={I18n.t('PUSH_NOTIFICATIONS')}
+            page="pushNotifications"
+          />
+
+          <DrawerButton
+            text={I18n.t('TERMS_OF_SERVICE')}
+            page="termsOfService"
+          />
+
+          <DrawerButton
+            text={I18n.t('PRIVACY_POLICY')}
+            page="privacyPolicy"
+          />
+
+          <DrawerButton
+            text={I18n.t('SEND_FEEDBACK')}
+            page="feedback"
+          />
+
         </ScrollView>
         <View style={styles.footer}>
           <TouchableOpacity onPress={this.onLogout}>

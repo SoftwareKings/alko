@@ -23,5 +23,5 @@ export default StyleSheet.create({
     top: 10,
     left: 25,
     width: Metrics.screenWidth - 50,
-  }
+  },
 });

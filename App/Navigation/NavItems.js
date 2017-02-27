@@ -10,14 +10,6 @@ import IconAlko from '../Components/IconAlko';
 import styles from './Styles/NavItemsStyle';
 import { Colors } from '../Themes';
 
-
-const openDrawer = () => {
-  NavigationActions.refresh({
-    key: 'drawer',
-    open: true,
-  });
-};
-
 export default {
   backButton() {
     return (
@@ -31,8 +23,8 @@ export default {
     );
   },
 
-  hamburgerButton() {
-    return (
+  hamburgerButton({ openDrawer }) {
+    return () => (
       <TouchableOpacity onPress={openDrawer}>
         <IconMaterial name="sort"
           size={35}
