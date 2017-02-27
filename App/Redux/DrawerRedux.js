@@ -5,7 +5,7 @@ import { createReducer, createActions } from 'reduxsauce';
 const { Types, Creators } = createActions({
   openDrawer: null,
   closeDrawer: null,
-  setActiveDrawerButton: ['page'],
+  setActivePage: ['page'],
 });
 
 export const DrawerTypes = Types;
@@ -29,12 +29,12 @@ function mapState(generateNewState) {
 
 export const openDrawer = mapState(() => ({ show: true }));
 export const closeDrawer = mapState(() => ({ show: false }));
-export const setActiveDrawerButton = mapState((state, { page }) => ({ page }));
+export const setActivePage = mapState((state, { page }) => ({ page }));
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.OPEN_DRAWER]: openDrawer,
   [Types.CLOSE_DRAWER]: closeDrawer,
-  [Types.SET_ACTIVE_DRAWER_BUTTON]: setActiveDrawerButton,
+  [Types.SET_ACTIVE_PAGE]: setActivePage,
 });

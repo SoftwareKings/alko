@@ -17,7 +17,7 @@ class DrawerButton extends Component {
   }
 
   navigateTo = page => () => {
-    this.props.actions.setActiveDrawerButton(page);
+    this.props.actions.setActivePage(page);
     NavigationActions[page]();
     this.props.actions.closeDrawer();
   }

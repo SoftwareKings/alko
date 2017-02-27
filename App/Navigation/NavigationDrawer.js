@@ -14,8 +14,6 @@ import Styles from './Styles/NavigationDrawerStyle';
 class NavigationDrawer extends Component {
 
   render() {
-    const state = this.props.navigationState;
-
     return (
       <Drawer
         ref={ref => this.drawer = ref}
@@ -33,7 +31,7 @@ class NavigationDrawer extends Component {
         })}
       >
         <DefaultRenderer
-          navigationState={state.children[0]}
+          navigationState={this.props.navigationState.children[0]}
           onNavigate={this.props.onNavigate}
         />
       </Drawer>
