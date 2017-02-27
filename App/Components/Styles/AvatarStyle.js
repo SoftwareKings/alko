@@ -12,7 +12,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   iconContainer: {
-    backgroundColor: Colors.codGray,
+    backgroundColor: Colors.brand.black,
   },
   name: {
     textAlign: 'center',

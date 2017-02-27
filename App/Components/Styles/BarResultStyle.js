@@ -11,9 +11,9 @@ export default StyleSheet.create({
     borderBottomColor: Colors.tundora,
   },
   btnActiveDrinkUp: {
-    backgroundColor: Colors.codGray,
+    backgroundColor: Colors.brand.black,
     borderBottomWidth: 1,
-    borderBottomColor: Colors.blazeOrange,
+    borderBottomColor: Colors.brand.orange,
   },
   container: {
     flex: 1,

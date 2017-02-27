@@ -47,7 +47,7 @@ const slideLeft = (props) => {
   }
 
   return {
-    backgroundColor: Colors.dune,
+    backgroundColor: Colors.brand.dark,
     opacity,
     transform: [
       { scale },

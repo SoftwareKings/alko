@@ -10,7 +10,7 @@ export default {
   header: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.blazeOrange,
+    backgroundColor: Colors.brand.orange,
     paddingVertical: Metrics.largeMargin,
   },
   avatarContainer: {
@@ -19,7 +19,7 @@ export default {
     borderRadius: Metrics.avatarBorderRadius,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.blazeOrangeLighten,
+    backgroundColor: Colors.brand.lighten.orange,
     marginBottom: Metrics.doubleBaseMargin,
   },
   avatar: {
@@ -35,7 +35,7 @@ export default {
   },
   contentContainer: {
     flex: 1,
-    backgroundColor: Colors.dune,
+    backgroundColor: Colors.brand.dark,
     paddingVertical: 40,
   },
   footer: {
@@ -47,7 +47,7 @@ export default {
   copyright: {
     fontWeight: '600',
     fontFamily: Fonts.type.primary,
-    color: Colors.inactive,
+    color: Colors.brand.gray,
     fontSize: Fonts.size.small,
   },
 };
