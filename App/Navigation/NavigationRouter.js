@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { Scene, Router, ActionConst } from 'react-native-router-flux';
+import I18n from 'react-native-i18n';
 import { Connect } from '../Redux';
 import NavigationDrawer from './NavigationDrawer';
 import NavItems from './NavItems';
@@ -21,6 +22,7 @@ import BarScreen from '../Containers/Bar';
 
 // Drawer
 import TermsOfServiceScreen from '../Containers/Legal/TermsOfServiceScreen';
+import PrivacyPolicyScreen from '../Containers/Legal/PrivacyPolicyScreen';
 
 import NavBar from './NavBar';
 
@@ -39,7 +41,23 @@ class NavigationRouter extends Component {
             </Scene>
             <Scene key="map" type={ActionConst.RESET} component={MapScreen} title="ALKO" renderTitle={NavItems.brandTitle} renderLeftButton={NavItems.hamburgerButton(this.props.actions)} />
             <Scene key="bar" component={BarScreen} title="License No 1" renderLeftButton={NavItems.backButton} />
-            <Scene key="termsOfService" type={ActionConst.RESET} component={TermsOfServiceScreen} title="TERMS OF SERVICE" renderLeftButton={NavItems.hamburgerButton(this.props.actions)} />
+
+            <Scene
+              key="termsOfService"
+              type={ActionConst.RESET}
+              component={TermsOfServiceScreen}
+              title={I18n.t('TERMS_OF_SERVICE')}
+              renderLeftButton={NavItems.hamburgerButton(this.props.actions)}
+            />
+
+            <Scene
+              key="privacyPolicy"
+              type={ActionConst.RESET}
+              component={PrivacyPolicyScreen}
+              title={I18n.t('PRIVACY_POLICY')}
+              renderLeftButton={NavItems.hamburgerButton(this.props.actions)}
+            />
+
           </Scene>
         </Scene>
       </Router>

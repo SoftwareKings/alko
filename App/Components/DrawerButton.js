@@ -13,16 +13,19 @@ class DrawerButton extends Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
     page: PropTypes.string.isRequired,
-    isActive: PropTypes.bool,
+    active: PropTypes.string,
   }
 
   navigateTo = page => () => {
+    this.props.actions.setActiveDrawerButton(page);
     NavigationActions[page]();
     this.props.actions.closeDrawer();
   }
 
   render() {
-    const { text, isActive, page } = this.props;
+    const { text, active, page } = this.props;
+
+    const isActive = active === page;
     const containerStyle = [styles.btnDrawer, isActive ? styles.btnDrawerActive : null];
     const textStyle = [styles.btnDrawerText, isActive ? styles.btnDrawerTextActive : null];
     const iconStyle = [styles.btnDrawerIcon, isActive ? styles.btnDrawerIconActive : null];

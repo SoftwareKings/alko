@@ -217,11 +217,11 @@ class MapScreen extends Component {
           >
             {this.state.bars.map((bar, i) => this.renderMapMarkers(bar, i))}
           </MapView>
-          <View style = {Styles.bannerContainer}>
-            <Banner text = {I18n.t('Main_banner_title')} shape = {Images.shape}/>
+          <View style={Styles.bannerContainer}>
+            <Banner text={I18n.t('Main_banner_title')} shape={Images.shape} />
           </View>
         </View>
-        
+
         <ScrollView style={Styles.barListContainer}>
           {this.state.bars.map((bar, i) => this.renderBarResult(bar, i))}
         </ScrollView>

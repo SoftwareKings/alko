@@ -17,7 +17,6 @@ export default class Markdown extends Component {
       <ScrollView style={style.container}>
         {children}
         {_.map(content, (line, i) => {
-          console.tron.log(line);
           if (line[0] === '#') {
             return <Text key={i} style={style.header}>{line.substr(2)}</Text>;
           } else if (line === '') {

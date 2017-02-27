@@ -10,12 +10,11 @@ import {
 } from 'react-native';
 // import { Actions as NavigationActions } from 'react-native-router-flux';
 import I18n from 'react-native-i18n';
-import { connect } from 'react-redux';
 
+import { Connect } from '../Redux';
 import DrawerButton from '../Components/DrawerButton';
 import styles from './Styles/DrawerContentStyle';
 import { Images } from '../Themes';
-import AuthActions from '../Redux/AuthRedux';
 
 class DrawerContent extends Component {
 
@@ -42,10 +41,10 @@ class DrawerContent extends Component {
   }
 
   onLogout() {
-    this.props.signOut();
+    this.props.actions.signOut();
     // Just to test onboard multiple times
     setTimeout(() => this.toggleDrawer(), 500);
-    setTimeout(() => this.props.signIn(), 1500);
+    setTimeout(() => this.props.actions.signIn(), 1500);
   }
 
   toggleDrawer() {
@@ -53,43 +52,50 @@ class DrawerContent extends Component {
   }
 
   render() {
+    const { auth: { profile }, active } = this.props;
+
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.avatarContainer}>
             <Image source={Images.sampleAvatar} style={styles.avatar} />
           </View>
-          <Text style={styles.name}>{this.props.profile.displayName}</Text>
+          <Text style={styles.name}>{profile.displayName}</Text>
         </View>
         <ScrollView style={styles.contentContainer}>
 
           <DrawerButton
-            isActive
+            active={active}
             text={I18n.t('BARS')}
             page="map"
           />
 
           <DrawerButton
+            active={active}
             text={I18n.t('PROFILE')}
             page="profile"
           />
 
           <DrawerButton
+            active={active}
             text={I18n.t('PUSH_NOTIFICATIONS')}
             page="pushNotifications"
           />
 
           <DrawerButton
+            active={active}
             text={I18n.t('TERMS_OF_SERVICE')}
             page="termsOfService"
           />
 
           <DrawerButton
+            active={active}
             text={I18n.t('PRIVACY_POLICY')}
             page="privacyPolicy"
           />
 
           <DrawerButton
+            active={active}
             text={I18n.t('SEND_FEEDBACK')}
             page="feedback"
           />
@@ -110,12 +116,8 @@ DrawerContent.contextTypes = {
 };
 
 const mapStateToProps = state => ({
-  profile: state.auth.profile,
+  auth: state.auth,
+  active: state.drawer.page,
 });
 
-const mapDispatchToProps = dispatch => ({
-  signOut: () => dispatch(AuthActions.signOut()),
-  signIn: () => dispatch(AuthActions.signIn()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(DrawerContent);
+export default Connect(DrawerContent, mapStateToProps);
