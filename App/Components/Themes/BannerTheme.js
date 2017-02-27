@@ -3,11 +3,11 @@ import { Colors } from '../../Themes';
 
 const BannerStyleThemes = {
   info: {
-    gradientColors: [Colors.selectiveYellow, Colors.webOrange],
-    iconColor: Colors.black,
+    gradientColors: [Colors.brand.yellow, Colors.brand.shadow.yellow],
+    iconColor: Colors.brand.black,
   },
   alert: {
-    gradientColors: [Colors.sorbus, Colors.bamboo],
+    gradientColors: [Colors.brand.orange, Colors.brand.shadow.orange],
     textStyle: style.alertText,
     iconColor: Colors.snow,
   },

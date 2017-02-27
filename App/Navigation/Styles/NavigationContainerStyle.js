@@ -7,7 +7,7 @@ export default {
     flex: 1,
   },
   navBar: {
-    backgroundColor: Colors.dune,
+    backgroundColor: Colors.brand.dark,
   },
   brandTitle: {
     fontSize: 28,

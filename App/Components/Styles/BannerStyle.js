@@ -17,19 +17,19 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   bodyText: {
-    color: Colors.black,
+    color: Colors.brand.black,
     flex: 1,
     backgroundColor: Colors.transparent,
     fontFamily: Fonts.type.bold,
     fontSize: 15,
-    textShadowColor: Colors.gold,
+    textShadowColor: Colors.brand.lighten.yellow,
     textShadowOffset: { width: 0, height: 2 },
     alignSelf: 'center',
     textAlign: 'center',
   },
   alertText: {
     color: Colors.snow,
-    textShadowColor: Colors.tenn,
+    textShadowColor: Colors.brand.shadow.orange,
   },
   icon: {
     alignSelf: 'center',

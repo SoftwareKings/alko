@@ -9,7 +9,7 @@ export default StyleSheet.create({
     flex: 1,
     paddingHorizontal: Metrics.largeMargin,
     paddingBottom: Metrics.largeMargin,
-    backgroundColor: Colors.dune,
+    backgroundColor: Colors.brand.dark,
   },
   contentContainer: {
     paddingTop: Metrics.largeMargin,
@@ -31,7 +31,7 @@ export default StyleSheet.create({
     marginBottom: 20,
   },
   sectionTitle: {
-    color: Colors.blazeOrange,
+    color: Colors.brand.orange,
     fontSize: Fonts.size.h6,
     fontFamily: Fonts.type.primary,
     marginBottom: Metrics.baseMargin,

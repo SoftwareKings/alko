@@ -9,7 +9,7 @@ export default StyleSheet.create({
     flex: 1,
     paddingHorizontal: Metrics.doubleBaseMargin,
     paddingVertical: Metrics.largeMargin,
-    backgroundColor: Colors.dune,
+    backgroundColor: Colors.brand.dark,
   },
   list: {
     flex: 1,
@@ -25,7 +25,7 @@ export default StyleSheet.create({
   },
   waitingInviteText: {
     marginTop: Metrics.largeMargin,
-    color: Colors.blazeOrange,
+    color: Colors.brand.orange,
     fontFamily: Fonts.type.primary,
     fontSize: Fonts.size.h5,
     textAlign: 'center',

@@ -12,16 +12,16 @@ export default {
   },
   btnDrawerText: {
     fontFamily: Fonts.type.primary,
-    color: Colors.inactive,
+    color: Colors.brand.gray,
     fontSize: Fonts.size.regular,
     flex: 1,
   },
   btnDrawerIcon: {
-    color: Colors.inactive,
+    color: Colors.brand.gray,
   },
   btnDrawerActive: {
     borderLeftWidth: 5,
-    borderLeftColor: Colors.blazeOrange,
+    borderLeftColor: Colors.brand.orange,
     backgroundColor: '#1C1A19',
   },
   btnDrawerTextActive: {
