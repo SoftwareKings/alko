@@ -3,8 +3,10 @@ import {
   View,
   Text,
   Image,
+  TouchableOpacity,
 } from 'react-native';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { Metrics, Colors } from '../Themes';
 import styles from './Styles/AvatarStyle';
 
 export default class Avatar extends Component {
@@ -14,6 +16,19 @@ export default class Avatar extends Component {
     icon: PropTypes.number,
     image: PropTypes.number,
     width: PropTypes.number,
+    message: PropTypes.string,
+    onMessage: PropTypes.func,
+  }
+
+  onMessage = () => {
+    const { message, name, image } = this.props;
+    if (this.props.onMessage) {
+      this.props.onMessage({
+        message,
+        name,
+        image,
+      });
+    }
   }
 
   renderIcon() {
@@ -26,10 +41,16 @@ export default class Avatar extends Component {
   }
 
   renderImage() {
-    const { width } = this.props;
+    const { width, message } = this.props;
     return (
       <View style={[styles.innerContainer, styles.iconContainer, { width, height: width }]}>
         <Image source={this.props.image} style={[styles.image, { width, height: width }]} />
+        {
+          message &&
+            <TouchableOpacity onPress={this.onMessage} style={styles.btnMessage}>
+              <Icon name="envelope" size={Metrics.icons.small} color={Colors.snow} />
+            </TouchableOpacity>
+        }
       </View>
     );
   }

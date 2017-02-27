@@ -24,4 +24,13 @@ export default StyleSheet.create({
   image: {
     borderRadius: Metrics.avatarBorderRadius,
   },
+  btnMessage: {
+    position: 'absolute',
+    right: 0,
+    top: -10,
+    width: 30,
+    height: 30,
+    backgroundColor: Colors.transparent,
+    alignItems: 'flex-end',
+  },
 });
