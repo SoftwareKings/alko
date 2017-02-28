@@ -52,7 +52,7 @@ class DrawerContent extends Component {
   }
 
   navigateTo = page => () => {
-    this.props.actions.setActiveDrawerButton(page);
+    this.props.actions.setActivePage(page);
     NavigationActions[page]();
     this.props.actions.closeDrawer();
   }
@@ -73,43 +73,37 @@ class DrawerContent extends Component {
           <DrawerButton
             isActive={active === 'map'}
             text={I18n.t('BARS')}
-            page="map"
-            navigateTo={this.navigateTo}
+            onPress={this.navigateTo('map')}
           />
 
           <DrawerButton
             isActive={active === 'profile'}
             text={I18n.t('PROFILE')}
-            page="profile"
-            navigateTo={this.navigateTo}
+            onPress={() => {}}
           />
 
           <DrawerButton
             isActive={active === 'pushNotifications'}
             text={I18n.t('PUSH_NOTIFICATIONS')}
-            page="pushNotifications"
-            navigateTo={this.navigateTo}
+            onPress={() => {}}
           />
 
           <DrawerButton
             isActive={active === 'termsOfService'}
             text={I18n.t('TERMS_OF_SERVICE')}
-            page="termsOfService"
-            navigateTo={this.navigateTo}
+            onPress={this.navigateTo('termsOfService')}
           />
 
           <DrawerButton
             isActive={active === 'privacyPolicy'}
             text={I18n.t('PRIVACY_POLICY')}
-            page="privacyPolicy"
-            navigateTo={this.navigateTo}
+            onPress={this.navigateTo('privacyPolicy')}
           />
 
           <DrawerButton
             isActive={active === 'feedback'}
             text={I18n.t('SEND_FEEDBACK')}
-            page="feedback"
-            navigateTo={this.navigateTo}
+            onPress={() => {}}
           />
 
         </ScrollView>
