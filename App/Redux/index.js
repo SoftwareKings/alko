@@ -28,7 +28,7 @@ const mapDispatchToProps = dispatch => ({
 
     openDrawer: () => dispatch(DrawerActions.openDrawer()),
     closeDrawer: () => dispatch(DrawerActions.closeDrawer()),
-    setActiveDrawerButton: page => dispatch(DrawerActions.setActiveDrawerButton(page)),
+    setActivePage: page => dispatch(DrawerActions.setActivePage(page)),
 
   },
 });
