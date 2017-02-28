@@ -10,7 +10,7 @@ class SplashScreen extends Component {
   componentDidUpdate() {
     const { onboardingComplete } = this.props.profile;
     if (onboardingComplete) {
-      NavigationActions.mainScreen();
+      NavigationActions.map();
     } else {
       NavigationActions.onboard();
     }

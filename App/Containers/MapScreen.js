@@ -3,7 +3,9 @@ import {
   View,
   ScrollView,
 } from 'react-native';
+import { Actions as NavigationActions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
+import I18n from 'react-native-i18n';
 import MapView from 'react-native-maps';
 import { getDistance } from 'geolib';
 
@@ -12,12 +14,14 @@ import { Images } from '../Themes';
 import { calculateRegion } from '../Lib/MapHelpers';
 import MapCallout from '../Components/MapCallout';
 import BarResult from '../Components/BarResult';
-import Styles from './Styles/MainScreenStyle';
+import Banner from '../Components/Banner';
+import Styles from './Styles/MapScreenStyle';
 import LocationActions from '../Redux/LocationRedux';
 
 const METRES_TO_MILES_FACTOR = 0.000621371192237;
 
-class MainScreen extends Component {
+class MapScreen extends Component {
+
   /* ***********************************************************
   * This example is only intended to get you started with the basics.
   * There are TONS of options available from traffic to buildings to indoors to compass and more!
@@ -181,6 +185,7 @@ class MainScreen extends Component {
       activeDrinkUp,
       promotions,
       key,
+      onPress: NavigationActions.bar,
     };
 
     if (this.props.currentPosition) {
@@ -212,7 +217,11 @@ class MainScreen extends Component {
           >
             {this.state.bars.map((bar, i) => this.renderMapMarkers(bar, i))}
           </MapView>
+          <View style={Styles.bannerContainer}>
+            <Banner text={I18n.t('Main_banner_title')} shape={Images.shape} />
+          </View>
         </View>
+
         <ScrollView style={Styles.barListContainer}>
           {this.state.bars.map((bar, i) => this.renderBarResult(bar, i))}
         </ScrollView>
@@ -231,4 +240,4 @@ const mapDispatchToProps = dispatch => ({
   getCurrentPosition: () => dispatch(LocationActions.locationRequest()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);

@@ -1,7 +1,7 @@
 // @flow
 
 import { StyleSheet } from 'react-native';
-import { ApplicationStyles } from '../../Themes/';
+import { ApplicationStyles, Metrics } from '../../Themes/';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -17,5 +17,11 @@ export default StyleSheet.create({
   },
   barListContainer: {
     flex: 1,
+  },
+  bannerContainer: {
+    position: 'absolute',
+    top: 10,
+    left: 25,
+    width: Metrics.screenWidth - 50,
   },
 });

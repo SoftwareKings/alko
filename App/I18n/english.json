@@ -44,6 +44,20 @@
   "Introduction_step4_btn": "Allow push notifications",
   "Introduction_step4_disallow": "no, maybe later",
 
+  "Main_banner_title": "Join the Drink-up & get 2 for 1 drinks",
+
+  "Bar_StartADrinkUp": "Start a Drink-up",
+  "Bar_StartADrinkUpForSpecial": "Start a Drink-Up for a 2-for-1 Special",
+  "Bar_OkayLetsDoThis_Header" : "Okay, let's do this.",
+  "Bar_OkayLetsDoThis_Body": "See that orange button below? You’re gonna press that and everyone with the ALKO app nearby will know that you’re at License No 1 and ready to meet new people.",
+  "Bar_WheresMyTwoForOne_Header": "Where’s my 2-for-1?",
+  "Bar_WheresMyTwoForOne_Body": "Once the first person joins you at the bar, you’ll both unlock the 2-for-1 ALKO special.  Wanna make a good first impression? Give your free drink to your new buddy. Drink karma will be returned, we promise.",
+
+  "Bar_ItsJustMe_2for1_Header": "Psst… check this out…",
+  "Bar_ItsJustMe_2for1_Body": "ALKO has partnered with License No 1 to give you a 2 for 1 special.  Make a new friend with someone already at the bar and tell them about the 2 for 1 ALKO special.  They can download the app, join the Drink-up, and you both will get instant drinks.\n\nWhat’s better than a free drink right at this moment with a new friend? Nothing. Nothing is better.",
+  "Bar_ItsJustMe_Footer": "waiting for new friends to join...",
+  "Bar_ItsJustMe_Button": "Cancel the Drink-up",
+
   "SUNDAY": "SUNDAY",
   "MONDAY": "MONDAY",
   "TUESDAY": "TUESDAY",
