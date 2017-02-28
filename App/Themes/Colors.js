@@ -19,6 +19,7 @@ const colors = {
   },
   tundora: '#444444',
   transparent: 'rgba(0,0,0,0)',
+  clearShadow: 'rgba(0,0,0,0.7)',
   snow: 'white',
 };
 
