@@ -19,6 +19,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  subcontentContainer: {
+    width: Metrics.screenWidth - 100,
+  },
   backdrop: {
     position: 'absolute',
     top: 0,

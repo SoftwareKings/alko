@@ -19,6 +19,10 @@ export default class Dialog extends Component {
     backdropColor: PropTypes.string,
     visible: PropTypes.bool,
     closeButton: PropTypes.bool,
+    subcontent: React.PropTypes.oneOfType([
+      PropTypes.arrayOf(React.PropTypes.node),
+      PropTypes.node,
+    ]),
   }
 
   static defaultProps = {
@@ -53,7 +57,7 @@ export default class Dialog extends Component {
             style={[Styles.backdrop, { backgroundColor: this.props.backdropColor }]}
             onPress={this.props.closeOnBackdropPress ? this.props.onClose : null}
           >
-            <View />
+            <View></View>
           </TouchableHighlight>
           <View style={Styles.container}>
             {
@@ -61,9 +65,10 @@ export default class Dialog extends Component {
               this.constructor.renderCloseButton(this.props.onClose)
               : null
             }
-            <View style={Styles.section}>
-              {this.props.children}
-            </View>
+            {this.props.children}
+          </View>
+          <View style={Styles.subcontentContainer}>
+            {this.props.subcontent}
           </View>
         </View>
       </Modal>
