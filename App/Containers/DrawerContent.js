@@ -8,7 +8,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-// import { Actions as NavigationActions } from 'react-native-router-flux';
+import { Actions as NavigationActions } from 'react-native-router-flux';
 import I18n from 'react-native-i18n';
 
 import { Connect } from '../Redux';
@@ -51,6 +51,12 @@ class DrawerContent extends Component {
     this.context.drawer.toggle();
   }
 
+  navigateTo = page => () => {
+    this.props.actions.setActiveDrawerButton(page);
+    NavigationActions[page]();
+    this.props.actions.closeDrawer();
+  }
+
   render() {
     const { auth: { profile }, active } = this.props;
 
@@ -65,39 +71,45 @@ class DrawerContent extends Component {
         <ScrollView style={styles.contentContainer}>
 
           <DrawerButton
-            active={active}
+            isActive={active === 'map'}
             text={I18n.t('BARS')}
             page="map"
+            navigateTo={this.navigateTo}
           />
 
           <DrawerButton
-            active={active}
+            isActive={active === 'profile'}
             text={I18n.t('PROFILE')}
             page="profile"
+            navigateTo={this.navigateTo}
           />
 
           <DrawerButton
-            active={active}
+            isActive={active === 'pushNotifications'}
             text={I18n.t('PUSH_NOTIFICATIONS')}
             page="pushNotifications"
+            navigateTo={this.navigateTo}
           />
 
           <DrawerButton
-            active={active}
+            isActive={active === 'termsOfService'}
             text={I18n.t('TERMS_OF_SERVICE')}
             page="termsOfService"
+            navigateTo={this.navigateTo}
           />
 
           <DrawerButton
-            active={active}
+            isActive={active === 'privacyPolicy'}
             text={I18n.t('PRIVACY_POLICY')}
             page="privacyPolicy"
+            navigateTo={this.navigateTo}
           />
 
           <DrawerButton
-            active={active}
+            isActive={active === 'feedback'}
             text={I18n.t('SEND_FEEDBACK')}
             page="feedback"
+            navigateTo={this.navigateTo}
           />
 
         </ScrollView>

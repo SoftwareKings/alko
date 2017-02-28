@@ -1,37 +1,29 @@
 // @flow
 import React, { Component, PropTypes } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-import { Actions as NavigationActions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { Connect } from '../Redux';
 import styles from './Styles/DrawerButtonStyle';
 import { Metrics } from '../Themes';
 
-class DrawerButton extends Component {
+export default class DrawerButton extends Component {
 
   static propTypes = {
     text: PropTypes.string.isRequired,
     page: PropTypes.string.isRequired,
-    active: PropTypes.string,
-  }
-
-  navigateTo = page => () => {
-    this.props.actions.setActiveDrawerButton(page);
-    NavigationActions[page]();
-    this.props.actions.closeDrawer();
+    isActive: PropTypes.bool.isRequired,
+    navigateTo: PropTypes.func.isRequired,
   }
 
   render() {
-    const { text, active, page } = this.props;
+    const { text, isActive, page, navigateTo } = this.props;
 
-    const isActive = active === page;
     const containerStyle = [styles.btnDrawer, isActive ? styles.btnDrawerActive : null];
     const textStyle = [styles.btnDrawerText, isActive ? styles.btnDrawerTextActive : null];
     const iconStyle = [styles.btnDrawerIcon, isActive ? styles.btnDrawerIconActive : null];
 
     return (
-      <TouchableOpacity style={containerStyle} onPress={this.navigateTo(page)} >
+      <TouchableOpacity style={containerStyle} onPress={navigateTo(page)} >
         <Text style={textStyle}>{text}</Text>
         <Icon name="keyboard-arrow-right"
           size={Metrics.icons.medium}
@@ -41,5 +33,3 @@ class DrawerButton extends Component {
   }
 
 }
-
-export default Connect(DrawerButton);
