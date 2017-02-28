@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import I18n from 'react-native-i18n';
+import { Actions as NavigationActions } from 'react-native-router-flux';
 import * as Animatable from 'react-native-animatable';
 import styles from './Styles/DrinkupScreenStyle';
 import Button from '../Components/Button';
@@ -78,6 +79,10 @@ export default class DrinkupScreen extends Component {
     console.log(member);
   }
 
+  onRedeem = () => {
+    NavigationActions.redeem2for1Screen();
+  }
+
   renderWaiting() {
     const { members, column, columnPadding } = this.props;
     const { waiting } = this.state;
@@ -116,7 +121,7 @@ export default class DrinkupScreen extends Component {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
       <View style={[styles.mainContainer, styles.container]}>
-        <Banner theme="info" text={I18n.t('Drinkup_ClickToGet2For1ALKOSpecial')} />
+        <Banner onPress={this.onRedeem} theme="info" text={I18n.t('Drinkup_ClickToGet2For1ALKOSpecial')} />
         <ListView contentContainerStyle={styles.list}
           dataSource={ds.cloneWithRows(members)}
           renderRow={member =>
