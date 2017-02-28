@@ -8,10 +8,12 @@ import rootSaga from '../Sagas/';
 import AuthActions, { reducer as auth } from './AuthRedux';
 import DrawerActions, { reducer as drawer } from './DrawerRedux';
 import { reducer as location } from './LocationRedux';
+import { reducer as alert } from './AlertRedux';
 
 export default () => {
   /* ------------- Assemble The Reducers ------------- */
   const rootReducer = combineReducers({
+    alert,
     auth,
     drawer,
     location,

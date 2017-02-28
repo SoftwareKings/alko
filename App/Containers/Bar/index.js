@@ -1,13 +1,14 @@
 import React from 'react';
 
+import DrinkUpScreen from '../DrinkupScreen';
 import NoDrinkUp from './NoDrinkUpScreen';
 import ItsJustMe from './ItsJustMeScreen';
 
 export default function () {
 
   const config = {
-    drinkUp: false,
-    twoForOne: true,
+    drinkUp: true,
+    twoForOne: false,
     itsJustMe: false, // Only relevant if drinkUp === true
   };
 
@@ -15,7 +16,7 @@ export default function () {
     if (config.itsJustMe) {
       return <ItsJustMe {...config} />;
     }
-    return null;
+    return <DrinkUpScreen />;
   }
 
   return <NoDrinkUp {...config} />;

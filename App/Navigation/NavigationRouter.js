@@ -19,6 +19,8 @@ import IntroductionStep4Screen from '../Containers/Introduction/Step4';
 // Main
 import MapScreen from '../Containers/MapScreen';
 import BarScreen from '../Containers/Bar';
+import DrinkupScreen from '../Containers/DrinkupScreen';
+import SponsoredScreen from '../Containers/SponsoredScreen';
 
 // Drawer
 import TermsOfServiceScreen from '../Containers/Legal/TermsOfServiceScreen';
@@ -58,6 +60,8 @@ class NavigationRouter extends Component {
               renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)}
             />
 
+            <Scene key="sponsoredScreen" component={SponsoredScreen} renderLeftButton={NavItems.backButton} />
+            <Scene key="drinkupScreen" component={DrinkupScreen} />
           </Scene>
         </Scene>
       </Router>

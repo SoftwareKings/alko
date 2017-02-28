@@ -21,7 +21,7 @@ class ItsJustMeScreen extends Component {
         <View style={Styles.footer}>
           <Text style={Styles.footerText}>{I18n.t('Bar_ItsJustMe_Footer')}</Text>
           <Button
-            theme={'dark'}
+            theme="dark"
             onPress={() => {}}
             text={I18n.t('Bar_ItsJustMe_Button')}
           />

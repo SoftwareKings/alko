@@ -17,6 +17,7 @@ import I18n from 'react-native-i18n';
 
 import Styles from './Styles/LoginScreenStyle';
 import { Images, Metrics } from '../Themes';
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import LoginActions from '../Redux/LoginRedux';
 
 

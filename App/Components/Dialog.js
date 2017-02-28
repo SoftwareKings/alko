@@ -1,44 +1,77 @@
 import React, { Component, PropTypes } from 'react';
 import {
+  Modal,
+  View,
+  TouchableHighlight,
   TouchableOpacity,
-  Text,
-  Image,
-  View
 } from 'react-native';
 
-import PopupDialog, { SlideAnimation } from 'react-native-popup-dialog';
-
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 import Styles from './Styles/DialogStyle';
-import { Colors, Images } from '../Themes/';
+import { Colors } from '../Themes';
 
-type DialogProps = {
-    title?: string,
-    show?: bool
-}
+export default class Dialog extends Component {
 
-export default class Dialog extends React.Component {
+  static propTypes = {
+    closeOnBackdropPress: PropTypes.bool,
+    onClose: PropTypes.func.isRequired,
+    animationType: PropTypes.string,
+    backdropColor: PropTypes.string,
+    visible: PropTypes.bool,
+    closeButton: PropTypes.bool,
+    subcontent: React.PropTypes.oneOfType([
+      PropTypes.arrayOf(React.PropTypes.node),
+      PropTypes.node,
+    ]),
+  }
 
-    componentDidMount() {
-        if (this.props.show) {
-            this.popupDialog.show();
-        }
-    }
+  static defaultProps = {
+    closeOnBackdropPress: true,
+    backdropColor: Colors.clearShadow,
+    animationType: 'fade',
+    visible: false,
+  }
 
-    static defaultProps: {title: "", show: boolean}
-    props: DialogProps
+  static renderCloseButton(onPress) {
+    return (
+      <View style={Styles.closeButton}>
+        <TouchableOpacity onPress={onPress}>
+          <IconFontAwesome name="close" color={Colors.snow} size={16} style={Styles.closeIcon} >
+          </IconFontAwesome>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 
-    render() {
-        const DialogComponent = null;
-        if (this.props.show) {
-            return (
-                <View style = {Styles.dialogContainer}>
-                    <PopupDialog
-                        ref={(popupDialog) => { this.popupDialog = popupDialog; }}
-                        dialogAnimation = { new SlideAnimation({ slideFrom: 'bottom' }) }
-                    />
-                </View>
-            );
-        }
-        return DialogComponent;
-    }
+  render() {
+    return (
+      <Modal
+        transparent
+        animationType={this.props.animationType}
+        visible={this.props.visible}
+        onRequestClose={this.props.onClose}
+      >
+        <View style={Styles.modalContainer}>
+          <TouchableHighlight
+            underlayColor={this.props.backdropColor}
+            style={[Styles.backdrop, { backgroundColor: this.props.backdropColor }]}
+            onPress={this.props.closeOnBackdropPress ? this.props.onClose : null}
+          >
+            <View></View>
+          </TouchableHighlight>
+          <View style={Styles.container}>
+            {
+              this.props.closeButton ?
+              this.constructor.renderCloseButton(this.props.onClose)
+              : null
+            }
+            {this.props.children}
+          </View>
+          <View style={Styles.subcontentContainer}>
+            {this.props.subcontent}
+          </View>
+        </View>
+      </Modal>
+    );
+  }
 }

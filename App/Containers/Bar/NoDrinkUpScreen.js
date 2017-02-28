@@ -15,6 +15,7 @@ class NoDrinkUpScreen extends Component {
       <View style={Styles.mainContainer}>
         {twoForOne ? (
           <Banner
+            theme="info"
             text={I18n.t('Bar_StartADrinkUpForSpecial')}
             style={Styles.banner}
           />

@@ -5,6 +5,7 @@ import { takeLatest } from 'redux-saga';
 
 /* ------------- Types ------------- */
 
+import { AlertTypes } from '../Redux/AlertRedux';
 import { AuthTypes } from '../Redux/AuthRedux';
 import { LocationTypes } from '../Redux/LocationRedux';
 import { StartupTypes } from '../Redux/StartupRedux';
@@ -23,6 +24,7 @@ import {
 } from './AuthSagas';
 
 import { getLocation } from './LocationSagas';
+import { getAlerts } from './AlertSagas';
 import { startup } from './StartupSagas';
 import { openScreen } from './OpenScreenSagas';
 
@@ -48,5 +50,7 @@ export default function* root() {
     takeLatest(AuthTypes.CREATE_PROFILE_FULFILLED, getProfile),
     takeLatest(LocationTypes.LOCATION_REQUEST, getLocation),
     takeLatest(OpenScreenTypes.OPEN_SCREEN, openScreen),
+    takeLatest(LocationTypes.LOCATION_REQUEST, getLocation),
+    takeLatest(AlertTypes.ALERTS_REQUEST, getAlerts),
   ];
 }

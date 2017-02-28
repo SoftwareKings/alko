@@ -78,7 +78,7 @@ class Step4Screen extends Component {
             text={I18n.t('Introduction_step4_btn')}
           />
           <Button
-            theme={'disallow'}
+            theme="disallow"
             onPress={this.onLaterButtonPress}
             text={I18n.t('Introduction_step4_disallow')}
           />
@@ -88,12 +88,8 @@ class Step4Screen extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-
-});
-
 const mapDispatchToProps = dispatch => ({
   setOnboardingComplete: () => dispatch(AuthActions.createProfileProperty('onboardingComplete', true)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Step4Screen);
+export default connect(null, mapDispatchToProps)(Step4Screen);

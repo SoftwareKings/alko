@@ -23,6 +23,7 @@
    "deviceDetails": "Device Details",
    "noItems": "No Items",
    "search": "Search",
+   "close": "Close",
 
   "Introduction_welcome": "MEET NEW FRIENDS ON ALKO",
   "Introduction_aboutAlko": "ALKO is about making new friends at your favorite bars. When you open ALKO, you’ll see which bars have Drink-Ups going on. Click on the bar, request an invitation, and share some drinks with new people.",
@@ -44,7 +45,7 @@
   "Introduction_step4_btn": "Allow push notifications",
   "Introduction_step4_disallow": "no, maybe later",
 
-  "Main_banner_title": "Join the Drink-up & get 2 for 1 drinks",
+  "DrinkUp_MainScreen_Promotion": "Thursday 8p - 2a @ License No 1",
 
   "Bar_StartADrinkUp": "Start a Drink-up",
   "Bar_StartADrinkUpForSpecial": "Start a Drink-Up for a 2-for-1 Special",
@@ -58,6 +59,12 @@
   "Bar_ItsJustMe_Footer": "waiting for new friends to join...",
   "Bar_ItsJustMe_Button": "Cancel the Drink-up",
 
+  "Drinkup_JoinDrinkUpAndGet2For1Drinks": "Join the Drink-up and get 2 for 1 drinks",
+  "Drinkup_JoinDrinkUp": "Join the Drink-up",
+  "Drinkup_CancelRequest": "cancel request",
+  "Drinkup_WaitingInvite": "waiting on the invite...",
+
+  "Main_banner_title": "Join the Drink-up & get 2 for 1 drinks",
   "SUNDAY": "SUNDAY",
   "MONDAY": "MONDAY",
   "TUESDAY": "TUESDAY",

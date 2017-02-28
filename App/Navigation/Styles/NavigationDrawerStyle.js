@@ -4,7 +4,7 @@ import { Colors } from '../../Themes/';
 
 export default {
   drawer: {
-    backgroundColor: Colors.dune,
+    backgroundColor: Colors.brand.dark,
     shadowColor: Colors.panther,
     shadowOffset: {
       width: 3,
