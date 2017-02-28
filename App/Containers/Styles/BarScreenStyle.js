@@ -38,7 +38,7 @@ export default StyleSheet.create({
   },
 
   footerText: {
-    color: Colors.gray,
+    color: Colors.brand.gray,
     paddingBottom: Metrics.baseMargin,
     textAlign: 'center',
     fontFamily: Fonts.type.primary,

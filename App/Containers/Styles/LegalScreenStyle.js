@@ -21,14 +21,14 @@ export default StyleSheet.create({
 
   updatedOn: {
     textAlign: 'center',
-    color: Colors.inactive,
+    color: Colors.brand.gray,
     fontSize: 12,
     fontFamily: Fonts.type.primary,
     marginBottom: Metrics.baseMargin,
   },
 
   header: {
-    color: Colors.blazeOrange,
+    color: Colors.brand.orange,
     fontFamily: Fonts.type.primary,
     fontSize: 14,
     marginTop: Metrics.baseMargin,

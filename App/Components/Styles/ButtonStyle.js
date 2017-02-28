@@ -27,8 +27,8 @@ export default StyleSheet.create({
     backgroundColor: Colors.tundora,
   },
   darkBtnText: {
-    color: Colors.doveGray,
-    textShadowColor: Colors.panther,
+    color: Colors.brand.gray,
+    textShadowColor: Colors.brand.black,
   },
   btnDisallow: {
     marginTop: Metrics.doubleBaseMargin,

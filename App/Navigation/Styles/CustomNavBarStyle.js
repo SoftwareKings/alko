@@ -15,7 +15,7 @@ export default {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottomColor: Colors.brand.orange,
+    borderBottomColor: Colors.brand.gray,
     borderBottomWidth: 1,
   },
   buttonContainer: {

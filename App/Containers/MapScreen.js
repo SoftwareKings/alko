@@ -5,7 +5,6 @@ import {
 } from 'react-native';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import I18n from 'react-native-i18n';
 import MapView from 'react-native-maps';
 import { getDistance } from 'geolib';
 
@@ -16,7 +15,9 @@ import MapCallout from '../Components/MapCallout';
 import BarResult from '../Components/BarResult';
 import Banner from '../Components/Banner';
 import Styles from './Styles/MapScreenStyle';
+
 import LocationActions from '../Redux/LocationRedux';
+import AlertActions from '../Redux/AlertRedux';
 
 const METRES_TO_MILES_FACTOR = 0.000621371192237;
 
@@ -107,10 +108,13 @@ class MapScreen extends Component {
     };
     this.renderMapMarkers = this.renderMapMarkers.bind(this);
     this.onRegionChange = this.onRegionChange.bind(this);
+    this.handleAlertPress = this.handleAlertPress.bind(this);
+    this.renderAlert = this.renderAlert.bind(this);
   }
 
   componentDidMount() {
     this.props.getCurrentPosition();
+    this.props.getAlerts();
   }
 
   // eslint-disable-next-line class-methods-use-this, no-unused-vars
@@ -149,6 +153,33 @@ class MapScreen extends Component {
     * presses your callout.
     *************************************************************/
     console.tron.log(location);
+  }
+
+  handleAlertPress(alert) {
+    this.props.markAlertAsRead(alert);
+    const { title, content } = alert;
+    NavigationActions.sponsoredScreen({ title, content });
+  }
+
+  renderAlert() {
+    const alerts = Object.entries(this.props.alerts);
+    //eslint-disable-next-line
+    const alertToDisplay = alerts.find(([alertId, alert]) => alert.read === false);
+
+    if (alertToDisplay) {
+      const alert = alertToDisplay[1];
+      return (
+        <Banner
+          theme="alert"
+          text={alert.body}
+          iconFamily={alert.iconFamily}
+          iconName={alert.iconName}
+          onPress={() => this.handleAlertPress(alert)}
+        />
+      );
+    }
+
+    return null;
   }
 
   renderMapMarkers(bar) {
@@ -218,7 +249,9 @@ class MapScreen extends Component {
             {this.state.bars.map((bar, i) => this.renderMapMarkers(bar, i))}
           </MapView>
           <View style={Styles.bannerContainer}>
-            <Banner text={I18n.t('Main_banner_title')} shape={Images.shape} />
+            {
+              this.renderAlert()
+            }
           </View>
         </View>
 
@@ -231,6 +264,7 @@ class MapScreen extends Component {
 }
 
 const mapStateToProps = state => ({
+  alerts: state.alert.alerts,
   profile: state.auth.profile,
   currentPosition: state.location.position,
 });
@@ -238,6 +272,8 @@ const mapStateToProps = state => ({
 //eslint-disable-next-line
 const mapDispatchToProps = dispatch => ({
   getCurrentPosition: () => dispatch(LocationActions.locationRequest()),
+  getAlerts: () => dispatch(AlertActions.alertsRequest()),
+  markAlertAsRead: alert => dispatch(AlertActions.markAlertAsRead(alert)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);
