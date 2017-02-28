@@ -40,12 +40,12 @@ class Step4Screen extends Component {
 
   onLaterButtonPress() {
     this.props.setOnboardingComplete();
-    NavigationActions.mainScreen();
+    NavigationActions.map();
   }
 
   onAcceptButtonPress() {
     this.props.setOnboardingComplete();
-    NavigationActions.mainScreen();
+    NavigationActions.map();
   }
 
   render() {

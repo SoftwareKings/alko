@@ -22,6 +22,7 @@ import {
   getProfile,
   createProfileProperty,
 } from './AuthSagas';
+
 import { getLocation } from './LocationSagas';
 import { getAlerts } from './AlertSagas';
 import { startup } from './StartupSagas';
@@ -47,6 +48,7 @@ export default function* root() {
     takeLatest(AuthTypes.CREATE_PROFILE, createProfile),
     takeLatest(AuthTypes.CREATE_PROFILE_PROPERTY, createProfileProperty),
     takeLatest(AuthTypes.CREATE_PROFILE_FULFILLED, getProfile),
+    takeLatest(LocationTypes.LOCATION_REQUEST, getLocation),
     takeLatest(OpenScreenTypes.OPEN_SCREEN, openScreen),
     takeLatest(LocationTypes.LOCATION_REQUEST, getLocation),
     takeLatest(AlertTypes.ALERTS_REQUEST, getAlerts),

@@ -15,7 +15,7 @@ export default {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottomColor: Colors.brand.orange,
+    borderBottomColor: Colors.brand.gray,
     borderBottomWidth: 1,
   },
   buttonContainer: {
@@ -28,7 +28,7 @@ export default {
     flex: 1,
     color: Colors.snow,
     fontFamily: Fonts.type.primary,
-    fontSize: 24,
+    fontSize: 16,
     textAlign: 'center',
   },
   logo: {

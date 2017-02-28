@@ -5,7 +5,7 @@ import { Colors } from '../../Themes/';
 export default {
   drawer: {
     backgroundColor: Colors.brand.dark,
-    shadowColor: Colors.panther,
+    shadowColor: Colors.brand.black,
     shadowOffset: {
       width: 3,
       height: 0,
@@ -15,6 +15,6 @@ export default {
     elevation: 2,
   },
   main: {
-    backgroundColor: Colors.clear,
+    backgroundColor: Colors.transparent,
   },
 };

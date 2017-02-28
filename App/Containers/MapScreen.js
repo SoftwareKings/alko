@@ -14,14 +14,14 @@ import { calculateRegion } from '../Lib/MapHelpers';
 import MapCallout from '../Components/MapCallout';
 import BarResult from '../Components/BarResult';
 import Banner from '../Components/Banner';
-import Styles from './Styles/MainScreenStyle';
+import Styles from './Styles/MapScreenStyle';
 
 import LocationActions from '../Redux/LocationRedux';
 import AlertActions from '../Redux/AlertRedux';
 
 const METRES_TO_MILES_FACTOR = 0.000621371192237;
 
-class MainScreen extends Component {
+class MapScreen extends Component {
 
   /* ***********************************************************
   * This example is only intended to get you started with the basics.
@@ -276,4 +276,4 @@ const mapDispatchToProps = dispatch => ({
   markAlertAsRead: alert => dispatch(AlertActions.markAlertAsRead(alert)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);
