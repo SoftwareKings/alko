@@ -20,6 +20,10 @@ export default class Avatar extends Component {
     onPressMessage: PropTypes.func,
   }
 
+  static defaultProps = {
+    width: 100,
+  }
+
   onPressMessage = () => {
     const { message, name, image } = this.props;
     if (this.props.onPressMessage) {
@@ -56,11 +60,11 @@ export default class Avatar extends Component {
   }
 
   render() {
-    const { image, name, width } = this.props;
+    const { image, name, width, style } = this.props;
     return (
-      <View style={{ width }}>
+      <View style={[{ width }, style]}>
         {image ? this.renderImage() : this.renderIcon()}
-        <Text style={styles.name}>{name}</Text>
+        {name && <Text style={styles.name}>{name}</Text>}
       </View>
     );
   }

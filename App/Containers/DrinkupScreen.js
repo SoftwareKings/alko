@@ -21,6 +21,7 @@ import { Icons, Metrics, Images } from '../Themes';
 
 const { width } = Dimensions.get('window');
 
+/* Sample Data */
 const unjoinedMembersData = [
   {
     icon: Icons.martini,
@@ -69,6 +70,14 @@ const joinedMembersData = [
   },
 ];
 
+const requestingMember = {
+  name: 'Abby',
+  avatar: Images.sampleAvatar,
+  distance: '0.4mi away',
+};
+
+
+/* Start for component */
 @connect(
   state => ({
     joined: state.drinkup.joined,
@@ -98,6 +107,7 @@ export default class DrinkupScreen extends Component {
     this.state = {
       waiting: false,
       member: null,
+      joiningMember: requestingMember, // only use for demo
     };
   }
 
@@ -105,6 +115,9 @@ export default class DrinkupScreen extends Component {
     this.props.joinDrinkup(false, unjoinedMembersData);
   }
 
+  /*
+  * these functions for waiting state
+  */
   onWaiting = () => {
     this.setState({ waiting: true });
   }
@@ -113,15 +126,14 @@ export default class DrinkupScreen extends Component {
     this.setState({ waiting: false });
   }
 
-  onRedeem = () => {
-    NavigationActions.redeem2for1Screen();
-  }
-
   // this function is only use for demo
   onDraftJoined = () => {
     this.props.joinDrinkup(true, joinedMembersData);
   }
 
+  /*
+  * these functions for joined state
+  */
   onShowMessage = (member) => {
     this.setState({ member });
   }
@@ -130,9 +142,20 @@ export default class DrinkupScreen extends Component {
     this.setState({ member: null });
   }
 
+  onRedeem = () => {
+    NavigationActions.redeem2for1Screen();
+  }
+
   onLeave = () => {
     this.props.joinDrinkup(false, unjoinedMembersData);
     this.setState({ waiting: false });
+  }
+
+  /*
+  * these functions for requesting state
+  */
+  onCloseJoiningDialog = () => {
+    this.setState({ joiningMember: null });
   }
 
   renderWaiting() {
@@ -186,6 +209,7 @@ export default class DrinkupScreen extends Component {
           } />
         <Button onPress={this.onLeave} theme={'disallow'} text={I18n.t('Drinkup_LeaveTheDrinkUp')} />
         {this.renderMessageDialog()}
+        {this.renderRequestToJoinDialog()}
       </View>
     );
   }
@@ -197,9 +221,24 @@ export default class DrinkupScreen extends Component {
     }
     return (
       <Dialog visible>
-        <Text style={styles.name}>{member.name} says...</Text>
+        <Text style={styles.name}>{member.name} {I18n.t('Drinkup_Says')}</Text>
         <Text style={styles.message}>{member.message}</Text>
         <Button onPress={this.onCloseMessage} text={I18n.t('close')} />
+      </Dialog>
+    );
+  }
+
+  renderRequestToJoinDialog() {
+    const { joiningMember } = this.state;
+    if (!joiningMember) {
+      return null;
+    }
+    return (
+      <Dialog visible>
+        <Text style={styles.joiningName}>{joiningMember.name} {I18n.t('Drinkup_WantToJoin')}</Text>
+        <Avatar style={styles.joiningAvatar} image={joiningMember.avatar} />
+        <Text style={styles.joiningDistance}>{joiningMember.distance}</Text>
+        <Button onPress={this.onCloseJoiningDialog} text={I18n.t('close')} />
       </Dialog>
     );
   }
