@@ -11,7 +11,7 @@ export default StyleSheet.create({
     borderRadius: 15,
     borderColor: Colors.brand.gray,
     borderWidth: 2,
-    padding: 10,
+    padding: Metrics.doubleBaseMargin,
     flexDirection: 'column',
   },
   modalContainer: {

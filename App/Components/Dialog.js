@@ -14,7 +14,7 @@ export default class Dialog extends Component {
 
   static propTypes = {
     closeOnBackdropPress: PropTypes.bool,
-    onClose: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
     animationType: PropTypes.string,
     backdropColor: PropTypes.string,
     visible: PropTypes.bool,

@@ -4,18 +4,80 @@ import {
   Dimensions,
   ListView,
   Text,
+  TouchableOpacity,
 } from 'react-native';
 
 import I18n from 'react-native-i18n';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 import * as Animatable from 'react-native-animatable';
+import { connect } from 'react-redux';
 import styles from './Styles/DrinkupScreenStyle';
 import Button from '../Components/Button';
 import Banner from '../Components/Banner';
 import Avatar from '../Components/Avatar';
+import Dialog from '../Components/Dialog';
+import DrinkupActions from '../Redux/DrinkupRedux';
 import { Icons, Metrics, Images } from '../Themes';
 
 const { width } = Dimensions.get('window');
+
+const unjoinedMembersData = [
+  {
+    icon: Icons.martini,
+    name: 'Abby',
+  },
+  {
+    icon: Icons.beer,
+    name: 'Danny',
+  },
+  {
+    icon: Icons.highball,
+    name: 'Joshua',
+  },
+  {
+    icon: Icons.margarita,
+    name: 'Jarod',
+  },
+  {
+    icon: Icons.tumbler,
+    name: 'Maggie',
+  },
+];
+
+const joinedMembersData = [
+  {
+    name: 'Abby',
+    avatar: Images.sampleAvatar,
+    message: 'Hey! we\'re at the bar, near the kitchen! I\'m wearing a purple shirt and jeans.',
+  },
+  {
+    name: 'Danny',
+    avatar: Images.sampleAvatar,
+    message: 'Hey! we\'re at the bar, near the kitchen! I\'m wearing a purple shirt and jeans.',
+  },
+  {
+    name: 'Joshua',
+    avatar: Images.sampleAvatar,
+  },
+  {
+    name: 'Jarod',
+    avatar: Images.sampleAvatar,
+  },
+  {
+    name: 'Maggie',
+    avatar: Images.sampleAvatar,
+  },
+];
+
+@connect(
+  state => ({
+    joined: state.drinkup.joined,
+    members: state.drinkup.members,
+  }),
+  {
+    joinDrinkup: DrinkupActions.joinDrinkup,
+  }
+)
 export default class DrinkupScreen extends Component {
 
   static propTypes = {
@@ -23,47 +85,24 @@ export default class DrinkupScreen extends Component {
     column: PropTypes.number,
     columnPadding: PropTypes.number,
     joined: PropTypes.bool,
+    joinDrinkup: PropTypes.func,
   }
 
   static defaultProps = {
-    members: [ // you can pass image property to show avatar with image, if user has avatar
-      {
-        icon: Icons.martini, // use for not yet joined
-        name: 'Abby',
-        avatar: Images.sampleAvatar,
-        message: 'Hey! we\'re at the bar, near the kitchen! I\'m wearing a purple shirt and jeans.',
-      },
-      {
-        icon: Icons.beer, // use for not yet joined
-        name: 'Danny',
-        avatar: Images.sampleAvatar,
-      },
-      {
-        icon: Icons.highball, // use for not yet joined
-        name: 'Joshua',
-        avatar: Images.sampleAvatar,
-      },
-      {
-        icon: Icons.margarita, // use for not yet joined
-        name: 'Jarod',
-        avatar: Images.sampleAvatar,
-      },
-      {
-        icon: Icons.tumbler, // use for not yet joined
-        name: 'Maggie',
-        avatar: Images.sampleAvatar,
-      },
-    ],
     column: 3,
     columnPadding: 15,
-    joined: true,
   }
 
   constructor(...props) {
     super(...props);
     this.state = {
       waiting: false,
+      member: null,
     };
+  }
+
+  componentDidMount() {
+    this.props.joinDrinkup(false, unjoinedMembersData);
   }
 
   onWaiting = () => {
@@ -74,13 +113,26 @@ export default class DrinkupScreen extends Component {
     this.setState({ waiting: false });
   }
 
-  onMessage = (member) => {
-    // show dialog at here, need to merge dialog branch
-    console.log(member);
-  }
-
   onRedeem = () => {
     NavigationActions.redeem2for1Screen();
+  }
+
+  // this function is only use for demo
+  onDraftJoined = () => {
+    this.props.joinDrinkup(true, joinedMembersData);
+  }
+
+  onShowMessage = (member) => {
+    this.setState({ member });
+  }
+
+  onCloseMessage = () => {
+    this.setState({ member: null });
+  }
+
+  onLeave = () => {
+    this.props.joinDrinkup(false, unjoinedMembersData);
+    this.setState({ waiting: false });
   }
 
   renderWaiting() {
@@ -106,7 +158,9 @@ export default class DrinkupScreen extends Component {
               <Animatable.View animation="fadeIn" delay={1000} duration={500}>
                 <Button theme={'disallow'} onPress={this.onCancel} text={I18n.t('Drinkup_CancelRequest')} />
               </Animatable.View>
-              <Text style={styles.waitingInviteText}>{I18n.t('Drinkup_WaitingInvite')}</Text>
+              <TouchableOpacity onPress={this.onDraftJoined}>
+                <Text style={styles.waitingInviteText}>{I18n.t('Drinkup_WaitingInvite')}</Text>
+              </TouchableOpacity>
             </View>
             : <Button onPress={this.onWaiting} text={I18n.t('Drinkup_JoinDrinkUp')} />
         }
@@ -127,20 +181,38 @@ export default class DrinkupScreen extends Component {
           renderRow={member =>
             <View style={[styles.memberContainer, { padding: columnPadding }]}>
               <Avatar image={member.avatar} width={avatarWidth}
-                name={member.name} message={member.message} />
+                name={member.name} message={member.message} onPressMessage={this.onShowMessage} />
             </View>
           } />
-        <Button theme={'disallow'} text={I18n.t('Drinkup_LeaveTheDrinkUp')} />
+        <Button onPress={this.onLeave} theme={'disallow'} text={I18n.t('Drinkup_LeaveTheDrinkUp')} />
+        {this.renderMessageDialog()}
       </View>
     );
   }
 
+  renderMessageDialog() {
+    const { member } = this.state;
+    if (!member) {
+      return null;
+    }
+    return (
+      <Dialog visible>
+        <Text style={styles.name}>{member.name} says...</Text>
+        <Text style={styles.message}>{member.message}</Text>
+        <Button onPress={this.onCloseMessage} text={I18n.t('close')} />
+      </Dialog>
+    );
+  }
+
   render() {
-    const { joined } = this.props;
+    const { joined, members } = this.props;
+    if (!members) {
+      return <View />;
+    }
+
     if (joined) {
       return this.renderJoined();
     }
     return this.renderWaiting();
   }
-
 }

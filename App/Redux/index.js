@@ -9,6 +9,7 @@ import AuthActions, { reducer as auth } from './AuthRedux';
 import DrawerActions, { reducer as drawer } from './DrawerRedux';
 import { reducer as location } from './LocationRedux';
 import { reducer as alert } from './AlertRedux';
+import { reducer as drinkup } from './DrinkupRedux';
 
 export default () => {
   /* ------------- Assemble The Reducers ------------- */
@@ -17,6 +18,7 @@ export default () => {
     auth,
     drawer,
     location,
+    drinkup,
   });
 
   return configureStore(rootReducer, rootSaga);
@@ -31,7 +33,6 @@ const mapDispatchToProps = dispatch => ({
     openDrawer: () => dispatch(DrawerActions.openDrawer()),
     closeDrawer: () => dispatch(DrawerActions.closeDrawer()),
     setActivePage: page => dispatch(DrawerActions.setActivePage(page)),
-
   },
 });
 

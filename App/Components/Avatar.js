@@ -17,13 +17,13 @@ export default class Avatar extends Component {
     image: PropTypes.number,
     width: PropTypes.number,
     message: PropTypes.string,
-    onMessage: PropTypes.func,
+    onPressMessage: PropTypes.func,
   }
 
-  onMessage = () => {
+  onPressMessage = () => {
     const { message, name, image } = this.props;
-    if (this.props.onMessage) {
-      this.props.onMessage({
+    if (this.props.onPressMessage) {
+      this.props.onPressMessage({
         message,
         name,
         image,
@@ -47,7 +47,7 @@ export default class Avatar extends Component {
         <Image source={this.props.image} style={[styles.image, { width, height: width }]} />
         {
           message &&
-            <TouchableOpacity onPress={this.onMessage} style={styles.btnMessage}>
+            <TouchableOpacity onPress={this.onPressMessage} style={styles.btnMessage}>
               <Icon name="envelope" size={Metrics.icons.small} color={Colors.snow} />
             </TouchableOpacity>
         }

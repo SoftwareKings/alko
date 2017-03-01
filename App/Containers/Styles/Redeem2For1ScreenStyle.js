@@ -43,13 +43,13 @@ export default StyleSheet.create({
     fontFamily: Fonts.type.primary,
   },
   packName: {
-    color: Colors.inactive,
+    color: Colors.brand.gray,
     fontSize: 24,
     marginBottom: Metrics.smallMargin,
     fontFamily: Fonts.type.primary,
   },
   date: {
-    color: Colors.inactive,
+    color: Colors.brand.gray,
     fontSize: 15,
     fontFamily: Fonts.type.primary,
     marginBottom: Metrics.baseMargin,
@@ -67,7 +67,7 @@ export default StyleSheet.create({
     marginBottom: Metrics.baseMargin,
   },
   guide: {
-    color: Colors.inactive,
+    color: Colors.brand.gray,
     marginBottom: Metrics.baseMargin,
     fontFamily: Fonts.type.primary,
     textAlign: 'center',
