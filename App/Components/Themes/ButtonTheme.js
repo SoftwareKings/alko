@@ -4,7 +4,7 @@ import { Colors } from '../../Themes';
 const ButtonThemes = {
   primary: {
     gradient: true,
-    gradientColors: [Colors.blazeOrange, Colors.christine],
+    gradientColors: [Colors.brand.orange, Colors.brand.shadow.orange],
   },
   dark: {
     style: style.darkBtn,

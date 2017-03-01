@@ -1,10 +1,9 @@
 // @flow
-
 import React, { PropTypes, Component } from 'react';
 import Drawer from 'react-native-drawer';
-import { DefaultRenderer, Actions as NavigationActions } from 'react-native-router-flux';
-import { connect } from 'react-redux';
+import { DefaultRenderer } from 'react-native-router-flux';
 
+import { Connect } from '../Redux';
 import DrawerContent from '../Containers/DrawerContent';
 import Styles from './Styles/NavigationDrawerStyle';
 
@@ -13,16 +12,14 @@ import Styles from './Styles/NavigationDrawerStyle';
 ********************/
 
 class NavigationDrawer extends Component {
+
   render() {
-    const state = this.props.navigationState;
-    const children = state.children;
     return (
       <Drawer
         ref={ref => this.drawer = ref}
         type="displace"
-        open={state.open}
-        onOpen={() => NavigationActions.refresh({ key: state.key, open: true })}
-        onClose={() => NavigationActions.refresh({ key: state.key, open: false })}
+        open={this.props.show}
+        onClose={this.props.actions.closeDrawer}
         content={<DrawerContent />}
         styles={Styles}
         tapToClose
@@ -33,10 +30,14 @@ class NavigationDrawer extends Component {
           main: { opacity: Math.max(0.54, 1 - ratio) },
         })}
       >
-        <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate} />
+        <DefaultRenderer
+          navigationState={this.props.navigationState.children[0]}
+          onNavigate={this.props.onNavigate}
+        />
       </Drawer>
     );
   }
+
 }
 
 NavigationDrawer.propTypes = {
@@ -46,12 +47,6 @@ NavigationDrawer.propTypes = {
   onNavigate: PropTypes.func,
 };
 
-/* eslint no-unused-vars: 0 */
-const mapStateToProps = state => ({
-});
+const mapStateToProps = state => ({ show: state.drawer.show });
 
-/* eslint no-unused-vars: 0 */
-const mapDispatchToProps = dispatch => ({
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationDrawer);
+export default Connect(NavigationDrawer, mapStateToProps);

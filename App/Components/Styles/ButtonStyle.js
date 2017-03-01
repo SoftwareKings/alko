@@ -13,22 +13,22 @@ export default StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 5,
-    backgroundColor: Colors.blazeOrange,
+    backgroundColor: Colors.brand.orange,
   },
   btnText: {
     color: Colors.snow,
     backgroundColor: Colors.transparent,
     fontFamily: Fonts.type.primary,
     fontSize: 15,
-    textShadowColor: Colors.blazeOrangeShadow,
+    textShadowColor: Colors.brand.shadow.orange,
     textShadowOffset: { width: 0, height: 2 },
   },
   darkBtn: {
     backgroundColor: Colors.tundora,
   },
   darkBtnText: {
-    color: Colors.doveGray,
-    textShadowColor: Colors.panther,
+    color: Colors.brand.gray,
+    textShadowColor: Colors.brand.black,
   },
   btnDisallow: {
     marginTop: Metrics.doubleBaseMargin,

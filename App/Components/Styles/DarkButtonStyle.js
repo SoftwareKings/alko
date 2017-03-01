@@ -16,11 +16,11 @@ export default StyleSheet.create({
     backgroundColor: Colors.tundora,
   },
   btnText: {
-    color: Colors.doveGray,
+    color: Colors.brand.gray,
     backgroundColor: Colors.transparent,
     fontFamily: Fonts.type.primary,
     fontSize: 15,
-    textShadowColor: Colors.panther,
+    textShadowColor: Colors.brand.black,
     textShadowOffset: { width: 0, height: 2 },
   },
 });

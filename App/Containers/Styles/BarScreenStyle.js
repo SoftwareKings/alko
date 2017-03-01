@@ -24,7 +24,7 @@ export default StyleSheet.create({
   },
 
   header: {
-    color: Colors.blazeOrange,
+    color: Colors.brand.orange,
     fontSize: Fonts.size.h6,
     fontFamily: Fonts.type.primary,
     marginBottom: Metrics.baseMargin,
@@ -38,7 +38,7 @@ export default StyleSheet.create({
   },
 
   footerText: {
-    color: Colors.dustyGray,
+    color: Colors.brand.gray,
     paddingBottom: Metrics.baseMargin,
     textAlign: 'center',
     fontFamily: Fonts.type.primary,

@@ -11,11 +11,11 @@ export default {
     paddingTop: (Platform.OS === 'ios') ? 20 : 0,
     height: Metrics.navBarHeight,
     paddingHorizontal: Metrics.baseMargin,
-    backgroundColor: Colors.dune,
+    backgroundColor: Colors.brand.dark,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottomColor: Colors.blazeOrange,
+    borderBottomColor: Colors.brand.gray,
     borderBottomWidth: 1,
   },
   buttonContainer: {
@@ -28,7 +28,7 @@ export default {
     flex: 1,
     color: Colors.snow,
     fontFamily: Fonts.type.primary,
-    fontSize: 24,
+    fontSize: 16,
     textAlign: 'center',
   },
   logo: {
