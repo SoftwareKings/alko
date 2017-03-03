@@ -15,6 +15,7 @@ export default class Avatar extends Component {
     name: PropTypes.string,
     icon: PropTypes.number,
     image: PropTypes.number,
+    imageStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
     width: PropTypes.number,
     message: PropTypes.string,
     onPressMessage: PropTypes.func,
@@ -47,10 +48,10 @@ export default class Avatar extends Component {
   }
 
   renderImage() {
-    const { width, message, disabled } = this.props;
+    const { width, message, disabled, imageStyle } = this.props;
     return (
       <View style={[styles.innerContainer, styles.iconContainer, { width, height: width }]}>
-        <Image source={this.props.image} style={[styles.image, { width, height: width }]} />
+        <Image source={this.props.image} style={[styles.image, imageStyle, { width, height: width }]} />
         {
           message &&
             <TouchableOpacity onPress={this.onPressMessage} style={styles.btnMessage}>

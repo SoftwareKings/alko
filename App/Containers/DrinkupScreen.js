@@ -236,9 +236,14 @@ export default class DrinkupScreen extends Component {
           dataSource={ds.cloneWithRows(members)}
           renderRow={member =>
             <View style={[styles.memberContainer, { padding: columnPadding }]}>
-              <Avatar image={member.avatar} width={avatarWidth} name={member.name}
-                message={member.message} onPressMessage={this.onShowMessage}
-                disabled={!member.arrived} />
+              <Avatar
+                image={member.avatar}
+                width={avatarWidth}
+                name={member.name}
+                message={member.message}
+                onPressMessage={this.onShowMessage}
+                disabled={!member.arrived}
+              />
             </View>
           } />
         <Button onPress={this.onLeave} theme={'disallow'} text={I18n.t('Drinkup_LeaveTheDrinkUp')} />
@@ -269,11 +274,25 @@ export default class DrinkupScreen extends Component {
       return null;
     }
     return (
-      <Dialog visible>
+      <Dialog
+        subcontent={
+          <View>
+            <TouchableOpacity onPress={() => {}}>
+              <Text style={styles.reportText}>{I18n.t('report')} {joiningMember.name.toLowerCase()}</Text>
+            </TouchableOpacity>
+          </View>
+        }
+        visible
+      >
         <Text style={styles.title}>{joiningMember.name} {I18n.t('Drinkup_WantToJoin')}</Text>
-        <Avatar style={styles.joiningAvatar} image={joiningMember.avatar} />
+        <Avatar
+          style={styles.joiningAvatar}
+          image={joiningMember.avatar}
+          imageStyle={styles.joiningAvatarImage}
+          width={128}
+        />
         <Text style={styles.joiningDistance}>{joiningMember.distance}</Text>
-        <Button onPress={this.onCloseJoiningDialog} text={I18n.t('close')} />
+        <Button onPress={this.onCloseJoiningDialog} text={I18n.t('Drinkup_SendInvite')} />
       </Dialog>
     );
   }
