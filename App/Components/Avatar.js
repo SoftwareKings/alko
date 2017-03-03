@@ -18,6 +18,7 @@ export default class Avatar extends Component {
     width: PropTypes.number,
     message: PropTypes.string,
     onPressMessage: PropTypes.func,
+    disabled: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -36,16 +37,17 @@ export default class Avatar extends Component {
   }
 
   renderIcon() {
-    const { width } = this.props;
+    const { width, disabled } = this.props;
     return (
       <View style={[styles.innerContainer, styles.iconContainer, { width, height: width }]}>
         <Image source={this.props.icon} />
+        {disabled && <View style={styles.imageBackdrop}></View>}
       </View>
     );
   }
 
   renderImage() {
-    const { width, message } = this.props;
+    const { width, message, disabled } = this.props;
     return (
       <View style={[styles.innerContainer, styles.iconContainer, { width, height: width }]}>
         <Image source={this.props.image} style={[styles.image, { width, height: width }]} />
@@ -55,16 +57,17 @@ export default class Avatar extends Component {
               <Icon name="envelope" size={Metrics.icons.small} color={Colors.snow} />
             </TouchableOpacity>
         }
+        {disabled && <View style={styles.imageBackdrop}></View>}
       </View>
     );
   }
 
   render() {
-    const { image, name, width, style } = this.props;
+    const { image, name, width, style, disabled } = this.props;
     return (
       <View style={[{ width }, style]}>
         {image ? this.renderImage() : this.renderIcon()}
-        {name && <Text style={styles.name}>{name}</Text>}
+        {name && <Text style={[styles.name, disabled && styles.nameDisabled]}>{name}</Text>}
       </View>
     );
   }

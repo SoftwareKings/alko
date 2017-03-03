@@ -11,13 +11,14 @@ import I18n from 'react-native-i18n';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 import * as Animatable from 'react-native-animatable';
 import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './Styles/DrinkupScreenStyle';
 import Button from '../Components/Button';
 import Banner from '../Components/Banner';
 import Avatar from '../Components/Avatar';
 import Dialog from '../Components/Dialog';
 import DrinkupActions from '../Redux/DrinkupRedux';
-import { Icons, Metrics, Images } from '../Themes';
+import { Icons, Metrics, Colors, Images } from '../Themes';
 
 const { width } = Dimensions.get('window');
 
@@ -50,23 +51,33 @@ const joinedMembersData = [
     name: 'Abby',
     avatar: Images.sampleAvatar,
     message: 'Hey! we\'re at the bar, near the kitchen! I\'m wearing a purple shirt and jeans.',
+    arrived: true,
   },
   {
     name: 'Danny',
     avatar: Images.sampleAvatar,
-    message: 'Hey! we\'re at the bar, near the kitchen! I\'m wearing a purple shirt and jeans.',
+    message: 'Hey! I\'m Danny and nice to meet you.',
+    arrived: true,
   },
   {
     name: 'Joshua',
     avatar: Images.sampleAvatar,
+    arrived: true,
   },
   {
     name: 'Jarod',
     avatar: Images.sampleAvatar,
+    arrived: true,
   },
   {
     name: 'Maggie',
     avatar: Images.sampleAvatar,
+    arrived: true,
+  },
+  {
+    name: 'Kenny',
+    avatar: Images.sampleAvatar,
+    arrived: false,
   },
 ];
 
@@ -106,9 +117,22 @@ export default class DrinkupScreen extends Component {
     super(...props);
     this.state = {
       waiting: false,
+      isDirectionDialogShowing: false,
       member: null,
       joiningMember: requestingMember, // only use for demo
     };
+  }
+
+  componentWillMount() {
+    NavigationActions.refresh({
+      renderRightButton: () => { // eslint-disable-line arrow-body-style
+        return (
+          <TouchableOpacity onPress={this.showDirectionDialog}>
+            <Icon name="map" size={Metrics.icons.medium} color={Colors.snow} />
+          </TouchableOpacity>
+        );
+      },
+    });
   }
 
   componentDidMount() {
@@ -158,6 +182,14 @@ export default class DrinkupScreen extends Component {
     this.setState({ joiningMember: null });
   }
 
+  showDirectionDialog = () => {
+    this.setState({ isDirectionDialogShowing: true });
+  }
+
+  closeDirectionDialog = () => {
+    this.setState({ isDirectionDialogShowing: false });
+  }
+
   renderWaiting() {
     const { members, column, columnPadding } = this.props;
     const { waiting } = this.state;
@@ -187,6 +219,7 @@ export default class DrinkupScreen extends Component {
             </View>
             : <Button onPress={this.onWaiting} text={I18n.t('Drinkup_JoinDrinkUp')} />
         }
+        {this.renderDirectionDialog()}
       </View>
     );
   }
@@ -203,13 +236,15 @@ export default class DrinkupScreen extends Component {
           dataSource={ds.cloneWithRows(members)}
           renderRow={member =>
             <View style={[styles.memberContainer, { padding: columnPadding }]}>
-              <Avatar image={member.avatar} width={avatarWidth}
-                name={member.name} message={member.message} onPressMessage={this.onShowMessage} />
+              <Avatar image={member.avatar} width={avatarWidth} name={member.name}
+                message={member.message} onPressMessage={this.onShowMessage}
+                disabled={!member.arrived} />
             </View>
           } />
         <Button onPress={this.onLeave} theme={'disallow'} text={I18n.t('Drinkup_LeaveTheDrinkUp')} />
         {this.renderMessageDialog()}
         {this.renderRequestToJoinDialog()}
+        {this.renderDirectionDialog()}
       </View>
     );
   }
@@ -235,10 +270,20 @@ export default class DrinkupScreen extends Component {
     }
     return (
       <Dialog visible>
-        <Text style={styles.joiningName}>{joiningMember.name} {I18n.t('Drinkup_WantToJoin')}</Text>
+        <Text style={styles.title}>{joiningMember.name} {I18n.t('Drinkup_WantToJoin')}</Text>
         <Avatar style={styles.joiningAvatar} image={joiningMember.avatar} />
         <Text style={styles.joiningDistance}>{joiningMember.distance}</Text>
         <Button onPress={this.onCloseJoiningDialog} text={I18n.t('close')} />
+      </Dialog>
+    );
+  }
+
+  renderDirectionDialog() {
+    return (
+      <Dialog visible={this.state.isDirectionDialogShowing}>
+        <Text style={styles.title}>{I18n.t('Drinkup_NeedDirection')}</Text>
+        <Button style={styles.button} onPress={this.closeDirectionDialog} text={I18n.t('Drinkup_GoogleMap')} />
+        <Button style={styles.button} onPress={this.closeDirectionDialog} text={I18n.t('Drinkup_AppleMap')} />
       </Dialog>
     );
   }

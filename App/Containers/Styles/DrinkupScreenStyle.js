@@ -42,13 +42,6 @@ export default StyleSheet.create({
     fontFamily: Fonts.type.primary,
     marginBottom: Metrics.semiLargeMargin,
   },
-  joiningName: {
-    color: Colors.snow,
-    fontSize: Fonts.size.regular,
-    fontFamily: Fonts.type.primary,
-    marginBottom: Metrics.largeMargin,
-    textAlign: 'center',
-  },
   joiningAvatar: {
     alignSelf: 'center',
     marginBottom: Metrics.doubleBaseMargin,
@@ -58,5 +51,15 @@ export default StyleSheet.create({
     fontFamily: Fonts.type.primary,
     textAlign: 'center',
     marginBottom: Metrics.largeMargin,
+  },
+  title: {
+    color: Colors.snow,
+    fontSize: Fonts.size.regular,
+    fontFamily: Fonts.type.primary,
+    marginBottom: Metrics.largeMargin,
+    textAlign: 'center',
+  },
+  button: {
+    marginBottom: Metrics.doubleBaseMargin,
   },
 });
