@@ -17,6 +17,7 @@ import Button from '../Components/Button';
 import Banner from '../Components/Banner';
 import Avatar from '../Components/Avatar';
 import Dialog from '../Components/Dialog';
+import DirectionsDialog from '../Components/Dialogs/DirectionsDialog';
 import DrinkupActions from '../Redux/DrinkupRedux';
 import { Icons, Metrics, Colors, Images } from '../Themes';
 
@@ -299,11 +300,12 @@ export default class DrinkupScreen extends Component {
 
   renderDirectionDialog() {
     return (
-      <Dialog visible={this.state.isDirectionDialogShowing}>
-        <Text style={styles.title}>{I18n.t('Drinkup_NeedDirection')}</Text>
-        <Button style={styles.button} onPress={this.closeDirectionDialog} text={I18n.t('Drinkup_GoogleMap')} />
-        <Button style={styles.button} onPress={this.closeDirectionDialog} text={I18n.t('Drinkup_AppleMap')} />
-      </Dialog>
+      <DirectionsDialog
+        onClose={this.closeDirectionDialog}
+        onGoogleMapsPress={this.closeDirectionDialog}
+        onAppleMapsPress={this.closeDirectionDialog}
+        visible={this.state.isDirectionDialogShowing}
+      />
     );
   }
 
