@@ -24,4 +24,25 @@ export default StyleSheet.create({
   image: {
     borderRadius: Metrics.avatarBorderRadius,
   },
+  btnMessage: {
+    position: 'absolute',
+    right: 0,
+    top: -10,
+    width: 30,
+    height: 30,
+    backgroundColor: Colors.transparent,
+    alignItems: 'flex-end',
+  },
+  imageBackdrop: {
+    borderRadius: Metrics.avatarBorderRadius,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  nameDisabled: {
+    color: Colors.brand.gray,
+  },
 });

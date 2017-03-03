@@ -12,6 +12,7 @@ const metrics = {
   baseMargin: 10,
   doubleBaseMargin: 20,
   largeMargin: 30,
+  semiLargeMargin: 45,
   doubleLargeMargin: 60,
   smallMargin: 5,
   horizontalLineHeight: 1,
