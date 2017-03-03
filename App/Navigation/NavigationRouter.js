@@ -19,7 +19,6 @@ import IntroductionStep4Screen from '../Containers/Introduction/Step4';
 // Main
 import MapScreen from '../Containers/MapScreen';
 import BarScreen from '../Containers/Bar';
-import DrinkupScreen from '../Containers/DrinkupScreen';
 import Redeem2For1Screen from '../Containers/Redeem2For1Screen';
 import SponsoredScreen from '../Containers/SponsoredScreen';
 
@@ -62,7 +61,6 @@ class NavigationRouter extends Component {
             />
 
             <Scene key="sponsoredScreen" component={SponsoredScreen} renderLeftButton={NavItems.backButton} />
-            <Scene key="drinkupScreen" component={DrinkupScreen} />
             <Scene key="redeem2for1Screen" component={Redeem2For1Screen} hideNavBar />
           </Scene>
         </Scene>

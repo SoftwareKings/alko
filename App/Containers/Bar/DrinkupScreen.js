@@ -12,14 +12,15 @@ import { Actions as NavigationActions } from 'react-native-router-flux';
 import * as Animatable from 'react-native-animatable';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import styles from './Styles/DrinkupScreenStyle';
-import Button from '../Components/Button';
-import Banner from '../Components/Banner';
-import Avatar from '../Components/Avatar';
-import Dialog from '../Components/Dialog';
-import DirectionsDialog from '../Components/Dialogs/DirectionsDialog';
-import DrinkupActions from '../Redux/DrinkupRedux';
-import { Icons, Metrics, Colors, Images } from '../Themes';
+
+import styles from '../Styles/DrinkupScreenStyle';
+import Button from '../../Components/Button';
+import Banner from '../../Components/Banner';
+import Avatar from '../../Components/Avatar';
+import Dialog from '../../Components/Dialog';
+import DirectionsDialog from '../../Components/Dialogs/DirectionsDialog';
+import DrinkupActions from '../../Redux/DrinkupRedux';
+import { Icons, Metrics, Colors, Images } from '../../Themes';
 
 const { width } = Dimensions.get('window');
 
