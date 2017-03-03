@@ -5,13 +5,13 @@ import { Colors, Metrics } from '../../Themes/';
 
 export default StyleSheet.create({
   container: {
-    minHeight: 215,
+    minHeight: 100,
     width: Metrics.screenWidth - 100,
     backgroundColor: Colors.brand.black,
     borderRadius: 15,
     borderColor: Colors.brand.gray,
     borderWidth: 2,
-    padding: Metrics.doubleBaseMargin,
+    padding: Metrics.largeMargin,
     flexDirection: 'column',
   },
   modalContainer: {
