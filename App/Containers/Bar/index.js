@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DrinkUpScreen from '../DrinkupScreen';
+import DrinkUpScreen from './DrinkupScreen';
 import NoDrinkUp from './NoDrinkUpScreen';
 import ItsJustMe from './ItsJustMeScreen';
 
