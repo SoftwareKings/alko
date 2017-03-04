@@ -1,7 +1,7 @@
 // @flow
 
 import { StyleSheet } from 'react-native';
-import { Colors, Fonts, Metrics } from '../../Themes/';
+import { Colors, Fonts } from '../../Themes/';
 
 export default StyleSheet.create({
   btn: {
@@ -31,7 +31,6 @@ export default StyleSheet.create({
     textShadowColor: Colors.brand.black,
   },
   btnDisallow: {
-    marginTop: Metrics.doubleBaseMargin,
     backgroundColor: Colors.tundora,
   },
   btnDisallowText: {
