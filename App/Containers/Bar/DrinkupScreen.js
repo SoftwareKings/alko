@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+import moment from 'moment';
 import I18n from 'react-native-i18n';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 import * as Animatable from 'react-native-animatable';
@@ -169,7 +170,11 @@ export default class DrinkupScreen extends Component {
   }
 
   onRedeem = () => {
-    NavigationActions.redeem2for1Screen();
+    NavigationActions.redeem2for1Screen({
+      bar: 'Bohemian Biergarten',
+      redeemDate: moment(),
+      expiryDate: moment().add(3, 'minutes'),
+    });
   }
 
   onLeave = () => {

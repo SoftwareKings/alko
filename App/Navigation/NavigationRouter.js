@@ -19,7 +19,7 @@ import IntroductionStep4Screen from '../Containers/Introduction/Step4';
 // Main
 import MapScreen from '../Containers/MapScreen';
 import BarScreen from '../Containers/Bar';
-import Redeem2For1Screen from '../Containers/Redeem2For1Screen';
+import Redeem2For1Screen from '../Containers/Bar/Redeem2For1Screen';
 import SponsoredScreen from '../Containers/SponsoredScreen';
 
 // Drawer
