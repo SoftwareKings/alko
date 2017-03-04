@@ -40,6 +40,5 @@ export default StyleSheet.create({
     color: Colors.brand.gray,
     fontSize: Fonts.size.regular,
     fontFamily: Fonts.type.primary,
-    marginBottom: Metrics.semiLargeMargin,
   },
 });
