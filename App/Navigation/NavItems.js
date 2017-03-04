@@ -4,7 +4,6 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import IconMaterial from 'react-native-vector-icons/MaterialIcons';
 
 import IconAlko from '../Components/IconAlko';
 import styles from './Styles/NavItemsStyle';
@@ -13,11 +12,11 @@ import { Colors } from '../Themes';
 export default {
   backButton() {
     return (
-      <TouchableOpacity onPress={NavigationActions.pop}>
+      <TouchableOpacity onPress={NavigationActions.pop} style={styles.backButton}>
         <Icon name="angle-left"
           size={35}
           color={Colors.snow}
-          style={styles.backButton}
+          style={styles.backIcon}
         />
       </TouchableOpacity>
     );
@@ -25,12 +24,16 @@ export default {
 
   hamburgerButton(onPress: Function) {
     return () => (
-      <TouchableOpacity onPress={onPress}>
-        <IconMaterial name="sort"
-          size={35}
-          color={Colors.snow}
-          style={styles.navButtonLeft}
-        />
+      <TouchableOpacity onPress={onPress} style={styles.navButtonLeft}>
+        <IconAlko name="sidebar_toggle" size={20} color={Colors.snow} />
+      </TouchableOpacity>
+    );
+  },
+
+  mapButton(onPress: Function) {
+    return () => (
+      <TouchableOpacity onPress={onPress} style={styles.navButtonRight}>
+        <IconAlko name="map" size={20} color={Colors.snow} style={styles.icon} />
       </TouchableOpacity>
     );
   },
@@ -38,18 +41,6 @@ export default {
   brandTitle() {
     return (
       <IconAlko name="alko" size={20} color={Colors.snow} />
-    );
-  },
-
-  searchButton(callback: Function) {
-    return (
-      <TouchableOpacity onPress={callback}>
-        <Icon name="search"
-          size={35}
-          color={Colors.snow}
-          style={styles.searchButton}
-        />
-      </TouchableOpacity>
     );
   },
 

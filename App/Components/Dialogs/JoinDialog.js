@@ -15,7 +15,7 @@ export default class JoinDialog extends Component {
 
   static propTypes = {
     name: PropTypes.string,
-    avatarSrc: PropTypes.string,
+    avatarSrc: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     distance: PropTypes.number,
     onClose: PropTypes.func,
     visible: PropTypes.bool,
