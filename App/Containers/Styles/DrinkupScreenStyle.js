@@ -42,25 +42,4 @@ export default StyleSheet.create({
     fontFamily: Fonts.type.primary,
     marginBottom: Metrics.semiLargeMargin,
   },
-  joiningAvatar: {
-    alignSelf: 'center',
-    marginBottom: Metrics.doubleBaseMargin,
-  },
-  joiningAvatarImage: {
-    borderWidth: 2,
-    borderColor: Colors.brand.gray,
-    borderRadius: 10,
-  },
-  reportText: {
-    marginTop: 10,
-    color: Colors.brand.gray,
-    fontFamily: Fonts.type.primary,
-    textAlign: 'right',
-  },
-  joiningDistance: {
-    color: Colors.brand.gray,
-    fontFamily: Fonts.type.primary,
-    textAlign: 'center',
-    marginBottom: Metrics.largeMargin,
-  },
 });

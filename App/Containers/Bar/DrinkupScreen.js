@@ -20,6 +20,7 @@ import Banner from '../../Components/Banner';
 import Avatar from '../../Components/Avatar';
 import Dialog from '../../Components/Dialog';
 import DirectionsDialog from '../../Components/Dialogs/DirectionsDialog';
+import JoinDialog from '../../Components/Dialogs/JoinDialog';
 import DrinkupActions from '../../Redux/DrinkupRedux';
 import { Icons, Metrics, Colors, Images } from '../../Themes';
 
@@ -87,7 +88,7 @@ const joinedMembersData = [
 const requestingMember = {
   name: 'Abby',
   avatar: Images.sampleAvatar,
-  distance: '0.4mi away',
+  distance: 0.4,
 };
 
 
@@ -276,32 +277,20 @@ export default class DrinkupScreen extends Component {
   }
 
   renderRequestToJoinDialog() {
-    const { joiningMember } = this.state;
-    if (!joiningMember) {
-      return null;
-    }
-    return (
-      <Dialog
-        subcontent={
-          <View>
-            <TouchableOpacity onPress={() => {}}>
-              <Text style={styles.reportText}>{I18n.t('report')} {joiningMember.name.toLowerCase()}</Text>
-            </TouchableOpacity>
-          </View>
-        }
-        visible
-      >
-        <Text style={styles.title}>{joiningMember.name} {I18n.t('Drinkup_WantToJoin')}</Text>
-        <Avatar
-          style={styles.joiningAvatar}
-          image={joiningMember.avatar}
-          imageStyle={styles.joiningAvatarImage}
-          width={128}
+    if (this.state.joiningMember) {
+      const { name, distance, avatar } = this.state.joiningMember;
+      return (
+        <JoinDialog
+          onClose={this.onCloseJoiningDialog}
+          visible
+          name={name}
+          avatarSrc={avatar}
+          distance={distance}
         />
-        <Text style={styles.joiningDistance}>{joiningMember.distance}</Text>
-        <Button onPress={this.onCloseJoiningDialog} text={I18n.t('Drinkup_SendInvite')} />
-      </Dialog>
-    );
+      );
+    }
+
+    return null;
   }
 
   renderDirectionDialog() {
