@@ -75,4 +75,7 @@ export default StyleSheet.create({
   switcherStatusOff: {
     color: '#999999',
   },
+  secondaryButton: {
+    marginTop: Metrics.doubleBaseMargin,
+  },
 });

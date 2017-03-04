@@ -1,8 +1,9 @@
 // @flow
 
 // Utility functions
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import R from 'ramda';
+import _ from 'lodash';
 
 // useful cleaning functions
 const nullToEmpty = R.defaultTo('');
@@ -29,4 +30,25 @@ export const directionsURL = (address: string) => {
   return url;
 };
 
-export const ApplyComponentTheme = (theme, props) => Object.assign({}, theme, props);
+export const ApplyComponentTheme = (theme, props) => {
+  const flatTheme = {};
+  const flatProps = {};
+
+  Object.keys(theme).forEach((key) => {
+    if (typeof theme[key] === 'number' && key.toLowerCase().indexOf('style') > -1) {
+      flatTheme[key] = StyleSheet.flatten(theme[key]);
+    } else {
+      flatTheme[key] = theme[key];
+    }
+  });
+
+  Object.keys(props).forEach((key) => {
+    if (typeof props[key] === 'number' && key.toLowerCase().indexOf('style') > -1) {
+      flatProps[key] = StyleSheet.flatten(props[key]);
+    } else {
+      flatProps[key] = props[key];
+    }
+  });
+
+  return _.merge({}, flatTheme, flatProps);
+};

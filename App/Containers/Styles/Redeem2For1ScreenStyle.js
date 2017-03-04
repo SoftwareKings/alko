@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flex: 1,
     paddingBottom: Metrics.largeMargin,
     paddingTop: (Platform.OS === 'ios') ? Metrics.largeMargin : 0,
-    paddingHorizontal: Metrics.doubleBaseMargin,
+    paddingHorizontal: Metrics.baseMargin,
     backgroundColor: Colors.dune,
   },
   contentContainer: {
@@ -54,7 +54,7 @@ export default StyleSheet.create({
     fontFamily: Fonts.type.primary,
     marginBottom: Metrics.baseMargin,
   },
-  guideContainer: {
+  timeoutContainer: {
     alignItems: 'center',
     paddingHorizontal: Metrics.largeMargin,
     marginTop: Metrics.doubleLargeMargin,
@@ -63,13 +63,21 @@ export default StyleSheet.create({
     color: Colors.snow,
     fontFamily: Fonts.type.primary,
     fontWeight: '600',
+    fontSize: 16,
     textAlign: 'center',
     marginBottom: Metrics.baseMargin,
+  },
+  guideContainer: {
+    alignItems: 'center',
+    paddingHorizontal: Metrics.largeMargin,
   },
   guide: {
     color: Colors.brand.gray,
     marginBottom: Metrics.baseMargin,
     fontFamily: Fonts.type.primary,
     textAlign: 'center',
+  },
+  closeButton: {
+    marginHorizontal: Metrics.baseMargin,
   },
 });
