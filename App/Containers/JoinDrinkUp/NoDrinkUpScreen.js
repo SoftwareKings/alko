@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import I18n from 'react-native-i18n';
+import { connect } from 'react-redux';
+import { Actions as NavigationActions } from 'react-native-router-flux';
 
 import Styles from '../Styles/BarScreenStyle';
 import Button from '../../Components/Button';
 import Banner from '../../Components/Banner';
+import DrinkupActions from '../../Redux/DrinkupRedux';
+import { requestingMember } from '../../Fixtures/drinkupMembers';
 
 class NoDrinkUpScreen extends Component {
+
+  componentDidUpdate() {
+    if (this.props.joined) {
+      NavigationActions.drinkUp();
+    }
+  }
+
+  // this function is only use for demo
+  onDraftJoined = () => {
+    this.props.joinDrinkup(requestingMember);
+  }
 
   render() {
     const { twoForOne } = this.props;
@@ -18,6 +33,7 @@ class NoDrinkUpScreen extends Component {
             theme="info"
             text={I18n.t('Bar_StartADrinkUpForSpecial')}
             style={Styles.banner}
+            onPress={this.onDraftJoined}
           />
         ) : null}
         <View style={Styles.contentContainer}>
@@ -36,7 +52,7 @@ class NoDrinkUpScreen extends Component {
 
         </View>
         <View style={Styles.footer}>
-          <Button onPress={() => {}} text={I18n.t('Bar_StartADrinkUp')} />
+          <Button onPress={this.onDraftJoined} text={I18n.t('Bar_StartADrinkUp')} />
         </View>
       </View>
     );
@@ -44,4 +60,14 @@ class NoDrinkUpScreen extends Component {
 
 }
 
-export default NoDrinkUpScreen;
+
+const mapStateToProps = state => ({
+  joined: state.drinkup.joined,
+});
+
+//eslint-disable-next-line
+const mapDispatchToProps = dispatch => ({
+  joinDrinkup: member => dispatch(DrinkupActions.joinDrinkup(member)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoDrinkUpScreen);

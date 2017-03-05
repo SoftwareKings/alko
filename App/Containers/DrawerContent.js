@@ -58,7 +58,7 @@ class DrawerContent extends Component {
   }
 
   render() {
-    const { auth: { profile }, active } = this.props;
+    const { auth: { profile }, active, joined } = this.props;
 
     return (
       <View style={styles.container}>
@@ -70,11 +70,20 @@ class DrawerContent extends Component {
         </View>
         <ScrollView style={styles.contentContainer}>
 
-          <DrawerButton
-            isActive={active === 'map'}
-            text={I18n.t('BARS')}
-            onPress={this.navigateTo('map')}
-          />
+          {
+            joined ?
+              <DrawerButton
+                isActive={active === 'drinkUp'}
+                text={I18n.t('DRINK_UP')}
+                onPress={this.navigateTo('drinkUp')}
+              />
+            :
+              <DrawerButton
+                isActive={active === 'map'}
+                text={I18n.t('BARS')}
+                onPress={this.navigateTo('map')}
+              />
+          }
 
           <DrawerButton
             isActive={active === 'profile'}
@@ -124,6 +133,7 @@ DrawerContent.contextTypes = {
 const mapStateToProps = state => ({
   auth: state.auth,
   active: state.drawer.page,
+  joined: state.drinkup.joined,
 });
 
 export default Connect(DrawerContent, mapStateToProps);

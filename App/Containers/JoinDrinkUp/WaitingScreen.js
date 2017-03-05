@@ -9,18 +9,15 @@ import {
 import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
 import * as Animatable from 'react-native-animatable';
+import { Actions as NavigationActions } from 'react-native-router-flux';
 
-import styles from '../../Styles/DrinkupScreenStyle';
-import Button from '../../../Components/Button';
-import Banner from '../../../Components/Banner';
-import Avatar from '../../../Components/Avatar';
-import { Metrics } from '../../../Themes';
-import DrinkupActions from '../../../Redux/DrinkupRedux';
-import {
-  unjoinedMembersData,
-  requestingMember,
-  joinedMembersData,
-} from '../../../Fixtures/drinkupMembers';
+import styles from '../Styles/DrinkupScreenStyle';
+import Button from '../../Components/Button';
+import Banner from '../../Components/Banner';
+import Avatar from '../../Components/Avatar';
+import { Metrics } from '../../Themes';
+import DrinkupActions from '../../Redux/DrinkupRedux';
+import { requestingMember } from '../../Fixtures/drinkupMembers';
 
 const { width } = Dimensions.get('window');
 
@@ -49,13 +46,15 @@ class WaitingScreen extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.joinDrinkup(false, unjoinedMembersData);
+  componentDidUpdate() {
+    if (this.props.joined) {
+      NavigationActions.drinkUp({ barId: this.props.bar.id });
+    }
   }
 
   // this function is only use for demo
   onDraftJoined = () => {
-    this.props.joinDrinkup(true, joinedMembersData);
+    this.props.joinDrinkup(requestingMember);
   }
 
   onWaiting = () => {
@@ -67,16 +66,22 @@ class WaitingScreen extends Component {
   }
 
   render() {
-    console.tron.log(this.props);
-    const { members, column, columnPadding } = this.props;
+    const { members, column, columnPadding, bar } = this.props;
     const { waiting } = this.state;
+    const twoForOne = bar.promotions.includes('twoForOne');
     // eslint-disable-next-line no-mixed-operators
     const avatarWidth = (width - Metrics.doubleBaseMargin * 2) / column - columnPadding * 2;
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
       <View style={[styles.mainContainer, styles.container]}>
-        <Banner theme="info" text={I18n.t('Drinkup_JoinDrinkUpAndGet2For1Drinks')} onPress={this.onWaiting} />
-        <ListView contentContainerStyle={styles.list}
+        {
+          twoForOne ?
+            <Banner theme="info" text={I18n.t('Drinkup_JoinDrinkUpAndGet2For1Drinks')} onPress={this.onWaiting} />
+            : null
+        }
+        <ListView
+          enableEmptySections
+          contentContainerStyle={styles.list}
           dataSource={ds.cloneWithRows(members)}
           renderRow={member =>
             <View style={[styles.memberContainer, { padding: columnPadding }]}>
@@ -104,11 +109,12 @@ class WaitingScreen extends Component {
 const mapStateToProps = state => ({
   joined: state.drinkup.joined,
   members: state.drinkup.members,
+  bar: state.drinkup.bar,
 });
 
 //eslint-disable-next-line
 const mapDispatchToProps = dispatch => ({
-  joinDrinkup: (joined, members) => dispatch(DrinkupActions.joinDrinkup(joined, members)),
+  joinDrinkup: member => dispatch(DrinkupActions.joinDrinkup(member)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WaitingScreen);

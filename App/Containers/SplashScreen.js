@@ -8,8 +8,11 @@ import { Actions as NavigationActions } from 'react-native-router-flux';
 class SplashScreen extends Component {
 
   componentDidUpdate() {
+    const { joined } = this.props;
     const { onboardingComplete } = this.props.profile;
-    if (onboardingComplete) {
+    if (joined) {
+      NavigationActions.drinkUp();
+    } else if (onboardingComplete) {
       NavigationActions.map();
     } else {
       NavigationActions.onboard();
@@ -25,6 +28,7 @@ class SplashScreen extends Component {
 
 const mapStateToProps = state => ({
   profile: state.auth.profile,
+  joined: state.drinkup.joined,
 });
 
 // eslint-disable-next-line
