@@ -73,42 +73,42 @@ class DrawerContent extends Component {
           <DrawerButton
             isActive={active === 'map'}
             text={I18n.t('BARS')}
-            navigateTo={this.navigateTo('map')}
+            onPress={this.navigateTo('map')}
           />
 
           <DrawerButton
             isActive={active === 'editProfile'}
             text={I18n.t('PROFILE')}
-            navigateTo={this.navigateTo('editProfile')}
+            onPress={this.navigateTo('editProfile')}
           />
 
           <DrawerButton
             isActive={active === 'pushNotifications'}
             text={I18n.t('PUSH_NOTIFICATIONS')}
-            navigateTo={() => {}}
+            onPress={() => {}}
           />
 
           <DrawerButton
             isActive={active === 'termsOfService'}
             text={I18n.t('TERMS_OF_SERVICE')}
-            navigateTo={this.navigateTo('termsOfService')}
+            onPress={this.navigateTo('termsOfService')}
           />
 
           <DrawerButton
             isActive={active === 'privacyPolicy'}
             text={I18n.t('PRIVACY_POLICY')}
-            navigateTo={this.navigateTo('privacyPolicy')}
+            onPress={this.navigateTo('privacyPolicy')}
           />
 
           <DrawerButton
             isActive={active === 'feedback'}
             text={I18n.t('SEND_FEEDBACK')}
-            navigateTo={() => {}}
+            onPress={() => {}}
           />
 
         </ScrollView>
         <View style={styles.footer}>
-          <TouchableOpacity navigateTo={this.onLogout}>
+          <TouchableOpacity onPress={this.onLogout}>
             <Text style={styles.copyright}>© 2017 ALKO</Text>
           </TouchableOpacity>
         </View>
