@@ -10,6 +10,7 @@ import DrawerActions, { reducer as drawer } from './DrawerRedux';
 import { reducer as location } from './LocationRedux';
 import { reducer as alert } from './AlertRedux';
 import { reducer as drinkup } from './DrinkupRedux';
+import { reducer as bar } from './BarRedux';
 
 export default () => {
   /* ------------- Assemble The Reducers ------------- */
@@ -18,6 +19,7 @@ export default () => {
     auth,
     drawer,
     location,
+    bar,
     drinkup,
   });
 
@@ -26,7 +28,6 @@ export default () => {
 
 const mapDispatchToProps = dispatch => ({
   actions: {
-
     signOut: () => dispatch(AuthActions.signOut()),
     signIn: () => dispatch(AuthActions.signIn()),
 

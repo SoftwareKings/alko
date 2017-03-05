@@ -10,9 +10,9 @@ import moment from 'moment';
 import momentPropTypes from 'react-moment-proptypes';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 
-import styles from '../Styles/Redeem2For1ScreenStyle';
-import Button from '../../Components/Button';
-import { Images } from '../../Themes';
+import styles from './Styles/Redeem2For1ScreenStyle';
+import Button from '../Components/Button';
+import { Images } from '../Themes';
 
 export default class Redeem2For1Screen extends Component {
 

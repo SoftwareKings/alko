@@ -6,6 +6,8 @@ import { takeLatest } from 'redux-saga';
 /* ------------- Types ------------- */
 
 import { AlertTypes } from '../Redux/AlertRedux';
+import { BarTypes } from '../Redux/BarRedux';
+import { DrinkupTypes } from '../Redux/DrinkupRedux';
 import { AuthTypes } from '../Redux/AuthRedux';
 import { LocationTypes } from '../Redux/LocationRedux';
 import { StartupTypes } from '../Redux/StartupRedux';
@@ -23,6 +25,8 @@ import {
   createProfileProperty,
 } from './AuthSagas';
 
+import { getMembers, getBar } from './DrinkupSagas';
+import { getBars } from './BarSagas';
 import { getLocation } from './LocationSagas';
 import { getAlerts } from './AlertSagas';
 import { startup } from './StartupSagas';
@@ -49,6 +53,9 @@ export default function* root() {
     takeLatest(AuthTypes.CREATE_PROFILE_PROPERTY, createProfileProperty),
     takeLatest(AuthTypes.CREATE_PROFILE_FULFILLED, getProfile),
     takeLatest(LocationTypes.LOCATION_REQUEST, getLocation),
+    takeLatest(BarTypes.BARS_REQUEST, getBars),
+    takeLatest(DrinkupTypes.BAR_REQUEST, getBar),
+    takeLatest(DrinkupTypes.MEMBERS_REQUEST, getMembers),
     takeLatest(OpenScreenTypes.OPEN_SCREEN, openScreen),
     takeLatest(LocationTypes.LOCATION_REQUEST, getLocation),
     takeLatest(AlertTypes.ALERTS_REQUEST, getAlerts),

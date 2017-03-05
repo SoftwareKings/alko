@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Mountain Sun",
+    "location": {
+      "latitude": 37.785484,
+      "longitude": -122.408709,
+    },
+    "activeDrinkUp": false,
+    "promotions": [],
+  },
+  {
+    "id": 2,
+    "name": "Bohemian Biergarten",
+    "location": {
+      "latitude": 37.789782,
+      "longitude": -122.407192,
+    },
+    "activeDrinkUp": true,
+    "promotions": ["twoForOne"],
+  },
+  {
+    "id": 3,
+    "name": "Bitter Bar",
+    "location": {
+      "latitude": 37.788038,
+      "longitude": -122.404612,
+    },
+    "activeDrinkUp": false,
+    "promotions": [],
+  },
+  {
+    "id": 4,
+    "name": "Kitchen Next Door",
+    "location": {
+      "latitude": 37.782860,
+      "longitude": -122.409341,
+    },
+    "activeDrinkUp": false,
+    "promotions": ["twoForOne"],
+  },
+  {
+    "id": 5,
+    "name": "Licence No 1",
+    "location": {
+      "latitude": 37.783211,
+      "longitude": -122.402859,
+    },
+    "activeDrinkUp": true,
+    "promotions": [],
+  },
+  {
+    "id": 6,
+    "name": "Jill\"s at the St Julian",
+    "location": {
+      "latitude": 37.781183,
+      "longitude": -122.406475,
+    },
+    "activeDrinkUp": false,
+    "promotions": [],
+  },
+];
