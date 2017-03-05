@@ -76,6 +76,8 @@ class DrawerContent extends Component {
                 isActive={active === 'drinkUp'}
                 text={I18n.t('DRINK_UP')}
                 onPress={this.navigateTo('drinkUp')}
+                iconFamily="alko"
+                iconName="mug"
               />
             :
               <DrawerButton
