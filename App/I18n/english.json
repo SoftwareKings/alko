@@ -59,6 +59,13 @@
   "Bar_ItsJustMe_Footer": "waiting for new friends to join...",
   "Bar_ItsJustMe_Button": "Cancel the Drink-up",
 
+  "Profile_Saving": "Saving...",
+  "Profile_Saved": "Saved!",
+  "Profile_Edit": "Edit Profile",
+  "Profile_TapToAddPhoto": "Tap to add photo",
+  "Profile_FirstName": "FIRST NAME",
+  "Profile_FavoriteDrink": "FAVORITE DRINK",
+
   "Drinkup_JoinDrinkUpAndGet2For1Drinks": "Join the Drink-up and get 2 for 1 drinks",
   "Drinkup_JoinDrinkUp": "Join the Drink-up",
   "Drinkup_CancelRequest": "cancel request",

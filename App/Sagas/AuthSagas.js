@@ -97,3 +97,13 @@ export function* createProfileProperty({ key, value }) {
     yield put(authActions.createProfileFailed(error));
   }
 }
+
+export function* updateProfileProperty({ key, value }) {
+  try {
+    const authData = firebaseAuth.currentUser;
+    User.path = `users/${authData.uid}/${key}`;
+    yield call(write, User, User.set, authActions.updateProfilePropertyFailed, value);
+  } catch (error) {
+    yield put(authActions.updateProfilePropertyFailed(error));
+  }
+}

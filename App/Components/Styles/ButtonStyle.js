@@ -18,8 +18,8 @@ export default StyleSheet.create({
   btnText: {
     color: Colors.snow,
     backgroundColor: Colors.transparent,
-    fontFamily: Fonts.type.primary,
-    fontSize: 15,
+    fontFamily: Fonts.type.bold,
+    fontSize: 14,
     textShadowColor: Colors.brand.shadow.orange,
     textShadowOffset: { width: 0, height: 2 },
   },

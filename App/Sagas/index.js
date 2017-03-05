@@ -21,6 +21,7 @@ import {
   createProfile,
   getProfile,
   createProfileProperty,
+  updateProfileProperty,
 } from './AuthSagas';
 
 import { getLocation } from './LocationSagas';
@@ -48,6 +49,7 @@ export default function* root() {
     takeLatest(AuthTypes.CREATE_PROFILE, createProfile),
     takeLatest(AuthTypes.CREATE_PROFILE_PROPERTY, createProfileProperty),
     takeLatest(AuthTypes.CREATE_PROFILE_FULFILLED, getProfile),
+    takeLatest(AuthTypes.UPDATE_PROFILE_PROPERTY, updateProfileProperty),
     takeLatest(LocationTypes.LOCATION_REQUEST, getLocation),
     takeLatest(OpenScreenTypes.OPEN_SCREEN, openScreen),
     takeLatest(LocationTypes.LOCATION_REQUEST, getLocation),

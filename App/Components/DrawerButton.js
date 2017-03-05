@@ -11,18 +11,18 @@ export default class DrawerButton extends Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
     isActive: PropTypes.bool.isRequired,
-    onPress: PropTypes.func.isRequired,
+    navigateTo: PropTypes.func.isRequired,
   }
 
   render() {
-    const { text, isActive, onPress } = this.props;
+    const { text, isActive, navigateTo } = this.props;
 
     const containerStyle = [styles.btnDrawer, isActive ? styles.btnDrawerActive : null];
     const textStyle = [styles.btnDrawerText, isActive ? styles.btnDrawerTextActive : null];
     const iconStyle = [styles.btnDrawerIcon, isActive ? styles.btnDrawerIconActive : null];
 
     return (
-      <TouchableOpacity style={containerStyle} onPress={onPress} >
+      <TouchableOpacity style={containerStyle} onPress={navigateTo} >
         <Text style={textStyle}>{text}</Text>
         <Icon name="keyboard-arrow-right"
           size={Metrics.icons.medium}

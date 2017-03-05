@@ -7,8 +7,6 @@ export default StyleSheet.create({
   btnContainer: {
     height: 60,
     flex: 1,
-    borderBottomWidth: 0.5,
-    borderBottomColor: Colors.tundora,
   },
   btnActiveDrinkUp: {
     backgroundColor: Colors.brand.black,
