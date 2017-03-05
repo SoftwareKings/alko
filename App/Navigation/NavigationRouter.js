@@ -44,8 +44,8 @@ class NavigationRouter extends Component {
               <Scene key="introStep4Screen" component={IntroductionStep4Screen} hideNavBar />
             </Scene>
             <Scene key="map" type={ActionConst.RESET} component={MapScreen} title="ALKO" renderTitle={NavItems.brandTitle} renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)} />
-            <Scene key="joinDrinkUp" component={JoinDrinkUp} renderLeftButton={NavItems.backButton} />
-            <Scene key="drinkUp" type={ActionConst.RESET} component={DrinkUp} renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)} />
+            <Scene key="joinDrinkUp" component={JoinDrinkUp} title="Join DrinkUp" renderLeftButton={NavItems.backButton} />
+            <Scene key="drinkUp" type={ActionConst.RESET} component={DrinkUp} title="DrinkUp" renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)} />
 
             <Scene
               key="editProfile"
