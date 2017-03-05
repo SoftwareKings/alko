@@ -30,4 +30,11 @@ export default {
   btnDrawerIconActive: {
     color: Colors.snow,
   },
+  titleContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  icon: {
+    marginRight: Metrics.baseMargin,
+  },
 };

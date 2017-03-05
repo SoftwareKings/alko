@@ -18,8 +18,9 @@ import IntroductionStep4Screen from '../Containers/Introduction/Step4';
 
 // Main
 import MapScreen from '../Containers/MapScreen';
-import BarScreen from '../Containers/Bar';
-import Redeem2For1Screen from '../Containers/Bar/Redeem2For1Screen';
+import JoinDrinkUp from '../Containers/JoinDrinkUp';
+import DrinkUp from '../Containers/DrinkUp';
+import Redeem2For1Screen from '../Containers/Redeem2For1Screen';
 import SponsoredScreen from '../Containers/SponsoredScreen';
 
 // Drawer
@@ -35,7 +36,7 @@ class NavigationRouter extends Component {
       <Router animationStyle={slideLeft}>
         <Scene key="drawer" component={NavigationDrawer}>
           <Scene key="drawerChildrenWrapper" navBar={NavBar}>
-            <Scene initial key="splashScreen" component={SplashScreen} hideNavBar />
+            <Scene initial key="splashScreen" type={ActionConst.RESET} component={SplashScreen} hideNavBar />
             <Scene key="onboard" type={ActionConst.RESET} >
               <Scene key="introStep1Screen" component={IntroductionStep1Screen} hideNavBar />
               <Scene key="introStep2Screen" component={IntroductionStep2Screen} hideNavBar />
@@ -43,7 +44,8 @@ class NavigationRouter extends Component {
               <Scene key="introStep4Screen" component={IntroductionStep4Screen} hideNavBar />
             </Scene>
             <Scene key="map" type={ActionConst.RESET} component={MapScreen} title="ALKO" renderTitle={NavItems.brandTitle} renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)} />
-            <Scene key="bar" component={BarScreen} title="License No 1" renderLeftButton={NavItems.backButton} />
+            <Scene key="joinDrinkUp" component={JoinDrinkUp} renderLeftButton={NavItems.backButton} />
+            <Scene key="drinkUp" type={ActionConst.RESET} component={DrinkUp} renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)} />
 
             <Scene
               key="editProfile"

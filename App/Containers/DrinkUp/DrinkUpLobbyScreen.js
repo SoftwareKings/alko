@@ -10,15 +10,15 @@ import { connect } from 'react-redux';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 import moment from 'moment';
 
-import styles from '../../Styles/DrinkupScreenStyle';
-import Button from '../../../Components/Button';
-import Dialog from '../../../Components/Dialog';
-import JoinDialog from '../../../Components/Dialogs/JoinDialog';
-import Banner from '../../../Components/Banner';
-import Avatar from '../../../Components/Avatar';
-import { Metrics } from '../../../Themes';
-import { unjoinedMembersData } from '../../../Fixtures/drinkupMembers';
-import DrinkupActions from '../../../Redux/DrinkupRedux';
+import styles from '../Styles/DrinkupScreenStyle';
+import Button from '../../Components/Button';
+import Dialog from '../../Components/Dialog';
+import JoinDialog from '../../Components/Dialogs/JoinDialog';
+import Banner from '../../Components/Banner';
+import Avatar from '../../Components/Avatar';
+import { Metrics } from '../../Themes';
+import DrinkupActions from '../../Redux/DrinkupRedux';
+import { requestingMember } from '../../Fixtures/drinkupMembers';
 
 const { width } = Dimensions.get('window');
 
@@ -40,7 +40,15 @@ class DrinkupLobbyScreen extends Component {
     super(...props);
     this.state = {
       member: null,
+      joiningMember: requestingMember,
     };
+    this.onCloseJoiningDialog = this.onCloseJoiningDialog.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (!this.props.joined) {
+      NavigationActions.map();
+    }
   }
 
   onShowMessage = (member) => {
@@ -53,15 +61,19 @@ class DrinkupLobbyScreen extends Component {
 
   onRedeem = () => {
     NavigationActions.redeem2for1Screen({
-      bar: 'Bohemian Biergarten',
+      bar: this.props.bar.name,
       redeemDate: moment(),
       expiryDate: moment().add(3, 'minutes'),
     });
   }
 
   onLeave = () => {
-    this.props.joinDrinkup(false, unjoinedMembersData);
+    this.props.leaveDrinkup(requestingMember);
     this.setState({ waiting: false });
+  }
+
+  onCloseJoiningDialog() {
+    this.setState({ joiningMember: null });
   }
 
   renderMessageDialog() {
@@ -95,14 +107,21 @@ class DrinkupLobbyScreen extends Component {
   }
 
   render() {
-    const { members, column, columnPadding } = this.props;
+    const { members, column, columnPadding, bar } = this.props;
+    const twoForOne = bar.promotions.includes('twoForOne');
     // eslint-disable-next-line no-mixed-operators
     const avatarWidth = (width - Metrics.doubleBaseMargin * 2) / column - columnPadding * 2;
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     return (
       <View style={[styles.mainContainer, styles.container]}>
-        <Banner onPress={this.onRedeem} theme="info" text={I18n.t('Drinkup_ClickToGet2For1ALKOSpecial')} />
-        <ListView contentContainerStyle={styles.list}
+        {
+          twoForOne ?
+            <Banner onPress={this.onRedeem} theme="info" text={I18n.t('Drinkup_ClickToGet2For1ALKOSpecial')} />
+          : null
+        }
+        <ListView
+          enableEmptySections
+          contentContainerStyle={styles.list}
           dataSource={ds.cloneWithRows(members)}
           renderRow={member =>
             <View style={[styles.memberContainer, { padding: columnPadding }]}>
@@ -126,13 +145,14 @@ class DrinkupLobbyScreen extends Component {
 }
 
 const mapStateToProps = state => ({
+  bar: state.drinkup.bar,
   joined: state.drinkup.joined,
   members: state.drinkup.members,
 });
 
 //eslint-disable-next-line
 const mapDispatchToProps = dispatch => ({
-  joinDrinkup: (joined, members) => dispatch(DrinkupActions.joinDrinkup(joined, members)),
+  leaveDrinkup: member => dispatch(DrinkupActions.leaveDrinkup(member)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrinkupLobbyScreen);
