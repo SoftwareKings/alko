@@ -28,6 +28,7 @@ const { Types, Creators } = createActions({
   // Update Profile Propery Actions
   updateProfileProperty: ['key', 'value'],
   updateProfilePropertyFulfilled: ['diff'],
+  updateProfilePropertyFailed: [],
   // Delete Profile Propery Actions
   deleteProfilePropertyFulfilled: ['diff'],
 });

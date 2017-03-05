@@ -88,9 +88,9 @@ class DrawerContent extends Component {
           }
 
           <DrawerButton
-            isActive={active === 'profile'}
+            isActive={active === 'editProfile'}
             text={I18n.t('PROFILE')}
-            onPress={() => {}}
+            onPress={this.navigateTo('editProfile')}
           />
 
           <DrawerButton

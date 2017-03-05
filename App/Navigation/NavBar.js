@@ -10,7 +10,7 @@ export default class NavBar extends React.Component {
       return this.props.renderTitle();
     }
     return (
-      <Text style={[Styles.title, this.props.titleStyle]}>{this.props.title}</Text>
+      <Text style={[Styles.title, this.props.titleStyle]}>{this.props.title.toUpperCase()}</Text>
     );
   }
 

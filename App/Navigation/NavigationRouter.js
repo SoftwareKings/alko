@@ -24,6 +24,7 @@ import Redeem2For1Screen from '../Containers/Redeem2For1Screen';
 import SponsoredScreen from '../Containers/SponsoredScreen';
 
 // Drawer
+import EditProfileScreen from '../Containers/EditProfileScreen';
 import TermsOfServiceScreen from '../Containers/Legal/TermsOfServiceScreen';
 import PrivacyPolicyScreen from '../Containers/Legal/PrivacyPolicyScreen';
 
@@ -45,6 +46,14 @@ class NavigationRouter extends Component {
             <Scene key="map" type={ActionConst.RESET} component={MapScreen} title="ALKO" renderTitle={NavItems.brandTitle} renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)} />
             <Scene key="joinDrinkUp" component={JoinDrinkUp} renderLeftButton={NavItems.backButton} />
             <Scene key="drinkUp" type={ActionConst.RESET} component={DrinkUp} renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)} />
+
+            <Scene
+              key="editProfile"
+              type={ActionConst.RESET}
+              component={EditProfileScreen}
+              title={I18n.t('Profile_Edit')}
+              renderLeftButton={NavItems.hamburgerButton(this.props.actions.openDrawer)}
+            />
 
             <Scene
               key="termsOfService"

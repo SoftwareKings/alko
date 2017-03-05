@@ -23,6 +23,7 @@ import {
   createProfile,
   getProfile,
   createProfileProperty,
+  updateProfileProperty,
 } from './AuthSagas';
 
 import { getMembers, getBar } from './DrinkupSagas';
@@ -52,6 +53,7 @@ export default function* root() {
     takeLatest(AuthTypes.CREATE_PROFILE, createProfile),
     takeLatest(AuthTypes.CREATE_PROFILE_PROPERTY, createProfileProperty),
     takeLatest(AuthTypes.CREATE_PROFILE_FULFILLED, getProfile),
+    takeLatest(AuthTypes.UPDATE_PROFILE_PROPERTY, updateProfileProperty),
     takeLatest(LocationTypes.LOCATION_REQUEST, getLocation),
     takeLatest(BarTypes.BARS_REQUEST, getBars),
     takeLatest(DrinkupTypes.BAR_REQUEST, getBar),

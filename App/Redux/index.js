@@ -30,6 +30,7 @@ const mapDispatchToProps = dispatch => ({
   actions: {
     signOut: () => dispatch(AuthActions.signOut()),
     signIn: () => dispatch(AuthActions.signIn()),
+    updateProfileProperty: (key, value) => dispatch(AuthActions.updateProfileProperty(key, value)),
 
     openDrawer: () => dispatch(DrawerActions.openDrawer()),
     closeDrawer: () => dispatch(DrawerActions.closeDrawer()),
