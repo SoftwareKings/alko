@@ -44,12 +44,16 @@ class JoinDrinkUp extends Component {
   }
 
   renderScreen() {
-    if (this.props.bar && this.props.bar.activeDrinkUp) {
-      return <WaitingScreen />;
+    if (this.props.bar) {
+      if (this.props.bar.activeDrinkUp) {
+        return <WaitingScreen />;
+      }
+
+      const twoForOne = this.props.bar.promotions.includes('twoForOne');
+      return <NoDrinkUp twoForOne={twoForOne} />;
     }
 
-    const twoForOne = this.props.bar.promotions.includes('twoForOne');
-    return <NoDrinkUp twoForOne={twoForOne} />;
+    return null;
   }
 
   renderDirectionDialog() {
