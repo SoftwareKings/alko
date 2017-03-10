@@ -30,7 +30,7 @@ export default class SponsoredScreen extends Component {
           }
         </ScrollView>
         <View style={styles.footer}>
-          <Button text={I18n.t('close')} onPress={NavigationActions.mainScreen} />
+          <Button text={I18n.t('close')} onPress={NavigationActions.pop} />
         </View>
       </View>
     );
