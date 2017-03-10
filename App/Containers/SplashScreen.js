@@ -8,8 +8,11 @@ import { Actions as NavigationActions } from 'react-native-router-flux';
 class SplashScreen extends Component {
 
   componentDidUpdate() {
-    const { joined } = this.props;
-    const { onboardingComplete } = this.props.profile;
+    this.redirect();
+  }
+
+  redirect() {
+    const { joined, profile: { onboardingComplete } } = this.props;
     if (joined) {
       NavigationActions.drinkUp();
     } else if (onboardingComplete) {

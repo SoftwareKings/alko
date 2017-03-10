@@ -58,7 +58,7 @@ class DrawerContent extends Component {
   }
 
   render() {
-    const { auth: { profile }, active, joined } = this.props;
+    const { auth: { profile: { displayName } }, active, joined } = this.props;
 
     return (
       <View style={styles.container}>
@@ -66,7 +66,7 @@ class DrawerContent extends Component {
           <View style={styles.avatarContainer}>
             <Image source={Images.sampleAvatar} style={styles.avatar} />
           </View>
-          <Text style={styles.name}>{profile.displayName}</Text>
+          <Text style={styles.name}>{displayName}</Text>
         </View>
         <ScrollView style={styles.contentContainer}>
 
