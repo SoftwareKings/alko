@@ -15,6 +15,7 @@ import Button from '../../Components/Button';
 import Dialog from '../../Components/Dialog';
 import AlkoSpecialWarningDialog from '../../Components/Dialogs/AlkoSpecialWarningDialog';
 import JoinDialog from '../../Components/Dialogs/JoinDialog';
+import ComposeMessageDialog from '../../Components/Dialogs/ComposeMessageDialog';
 import Banner from '../../Components/Banner';
 import Avatar from '../../Components/Avatar';
 import { Metrics } from '../../Themes';
@@ -43,10 +44,14 @@ class DrinkupLobbyScreen extends Component {
       member: null,
       joiningMember: requestingMember,
       showRedeemWarning: false,
+      showComposeMessage: false,
+      composedMessage: '',
     };
     this.onCloseJoiningDialog = this.onCloseJoiningDialog.bind(this);
     this.onCloseRedeemWarningDialog = this.onCloseRedeemWarningDialog.bind(this);
+    this.onCloseComposeMessageDialog = this.onCloseComposeMessageDialog.bind(this);
     this.onAcceptRedeemWarning = this.onAcceptRedeemWarning.bind(this);
+    this.onComposedMessageChange = this.onComposedMessageChange.bind(this);
   }
 
   componentDidUpdate() {
@@ -80,15 +85,24 @@ class DrinkupLobbyScreen extends Component {
 
   onCloseJoiningDialog() {
     this.setState({ joiningMember: null });
+    this.setState({ showComposeMessage: true });
   }
 
   onCloseRedeemWarningDialog() {
     this.setState({ showRedeemWarning: false });
   }
 
+  onCloseComposeMessageDialog() {
+    this.setState({ showComposeMessage: false });
+  }
+
   onAcceptRedeemWarning() {
     this.setState({ showRedeemWarning: false });
     this.redeem();
+  }
+
+  onComposedMessageChange(message) {
+    this.setState({ composedMessage: message });
   }
 
   redeem() {
@@ -105,6 +119,18 @@ class DrinkupLobbyScreen extends Component {
         onButtonPress={this.onAcceptRedeemWarning}
         onClose={this.onCloseRedeemWarningDialog}
         visible={this.state.showRedeemWarning}
+      />
+    );
+  }
+
+  renderComposeMessageDialog() {
+    return (
+      <ComposeMessageDialog
+        message={this.state.composedMessage}
+        messagePlaceholder={`How will ${requestingMember.name} find you?`}
+        onChangeMessage={this.onComposedMessageChange}
+        onClose={this.onCloseComposeMessageDialog}
+        visible={this.state.showComposeMessage}
       />
     );
   }
@@ -173,6 +199,7 @@ class DrinkupLobbyScreen extends Component {
         {this.renderMessageDialog()}
         {this.renderRequestToJoinDialog()}
         {this.renderRedeemWarningDialog()}
+        {this.renderComposeMessageDialog()}
       </View>
     );
   }

@@ -81,6 +81,8 @@
   "Drinkup_GoogleMap": "Google maps",
   "Drinkup_AppleMap": "Apple maps",
   "Drinkup_SendInvite": "Send an invite",
+  "Drinkup_SendMessage": "Send message",
+  "Drinkup_SendPreviousMessage": "Or send a previous message:",
 
   "report": "report",
   "Redeem_ALKO": "ALKO",
