@@ -26,7 +26,7 @@ export default class AlkoSpecialWarningDialog extends Component {
       >
         <Text style={styles.title}>{I18n.t('Redeem_WarningTitle')}</Text>
         <Text style={styles.body}>{I18n.t('Redeem_WarningBody')}</Text>
-        <Button style={styles.button} onPress={this.props.onButtonPress} text={I18n.t('Redeem_WarningDismiss')} />
+        <Button onPress={this.props.onButtonPress} text={I18n.t('Redeem_WarningDismiss')} />
       </Dialog>
     );
   }

@@ -11,9 +11,6 @@ export default StyleSheet.create({
     marginBottom: Metrics.baseMargin,
     textAlign: 'center',
   },
-  button: {
-    marginTop: Metrics.doubleBaseMargin,
-  },
   imageWrapper: {
     flex: 1,
     flexDirection: 'row',
@@ -22,6 +19,7 @@ export default StyleSheet.create({
   overlay: {
     flexDirection: 'row',
     alignItems: 'stretch',
+    marginBottom: Metrics.doubleBaseMargin,
   },
   image: {
     flex: 1,

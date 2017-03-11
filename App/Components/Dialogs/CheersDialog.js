@@ -43,7 +43,6 @@ export default class CheersDialog extends Component {
           />
         </View>
         <Button
-          style={styles.button}
           text={I18n.t('Drinkup_MeetNewPeople')}
           onPress={this.props.onClose}
         />

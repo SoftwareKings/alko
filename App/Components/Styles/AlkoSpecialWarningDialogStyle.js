@@ -15,8 +15,6 @@ export default StyleSheet.create({
     color: Colors.brand.gray,
     fontSize: Fonts.size.medium,
     fontFamily: Fonts.type.primary,
-  },
-  button: {
-    marginTop: Metrics.doubleBaseMargin,
+    marginBottom: Metrics.doubleBaseMargin,
   },
 });
