@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions as NavigationActions } from 'react-native-router-flux';
 
+import NavItems from '../../Navigation/NavItems';
 import styles from '../Styles/BarScreenStyle';
 import DrinkUpLobby from './DrinkUpLobbyScreen';
 import ItsJustMe from './ItsJustMeScreen';
@@ -29,6 +30,7 @@ class DrinkUp extends Component {
     if (this.props.bar) {
       NavigationActions.refresh({
         title: this.props.bar.name,
+        renderRightButton: NavItems.mapButton(this.showDirectionDialog),
       });
     }
   }
@@ -38,6 +40,7 @@ class DrinkUp extends Component {
       this.props.getMembers(this.props.barId);
       NavigationActions.refresh({
         title: this.props.bar.name,
+        renderRightButton: NavItems.mapButton(this.showDirectionDialog),
       });
     }
   }
