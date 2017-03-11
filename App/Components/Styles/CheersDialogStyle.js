@@ -14,4 +14,17 @@ export default StyleSheet.create({
   button: {
     marginTop: Metrics.doubleBaseMargin,
   },
+  imageWrapper: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'stretch',
+  },
+  overlay: {
+    flexDirection: 'row',
+    alignItems: 'stretch',
+  },
+  image: {
+    flex: 1,
+    height: 100,
+  },
 });
