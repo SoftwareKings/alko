@@ -84,6 +84,9 @@
 
   "report": "report",
   "Redeem_ALKO": "ALKO",
+  "Redeem_WarningTitle": "ONLY 3 MINUTES!!",
+  "Redeem_WarningBody": "You'll need to show your phone to the bartender within 3 minutes of opening the special.",
+  "Redeem_WarningDismiss": "Shut up, drink me",
   "Redeem_2For1Special": "2 FOR 1 SPECIAL",
   "Redeem_ThisDealWillDisappear": "this deal will disappear in",
   "Redeem_GuideToRedeem": "Show this to the bartender to receive a free drink for a new friend when you purchase on for yourself.",

@@ -13,6 +13,7 @@ import moment from 'moment';
 import styles from '../Styles/DrinkupScreenStyle';
 import Button from '../../Components/Button';
 import Dialog from '../../Components/Dialog';
+import AlkoSpecialWarningDialog from '../../Components/Dialogs/AlkoSpecialWarningDialog';
 import JoinDialog from '../../Components/Dialogs/JoinDialog';
 import Banner from '../../Components/Banner';
 import Avatar from '../../Components/Avatar';
@@ -41,8 +42,11 @@ class DrinkupLobbyScreen extends Component {
     this.state = {
       member: null,
       joiningMember: requestingMember,
+      showRedeemWarning: false,
     };
     this.onCloseJoiningDialog = this.onCloseJoiningDialog.bind(this);
+    this.onCloseRedeemWarningDialog = this.onCloseRedeemWarningDialog.bind(this);
+    this.onAcceptRedeemWarning = this.onAcceptRedeemWarning.bind(this);
   }
 
   componentDidUpdate() {
@@ -60,11 +64,13 @@ class DrinkupLobbyScreen extends Component {
   }
 
   onRedeem = () => {
-    NavigationActions.redeem2for1Screen({
-      bar: this.props.bar.name,
-      redeemDate: moment(),
-      expiryDate: moment().add(3, 'minutes'),
-    });
+    // Draft only
+    const firstTime = true;
+    if (firstTime) {
+      this.setState({ showRedeemWarning: true });
+    } else {
+      this.redeem();
+    }
   }
 
   onLeave = () => {
@@ -74,6 +80,33 @@ class DrinkupLobbyScreen extends Component {
 
   onCloseJoiningDialog() {
     this.setState({ joiningMember: null });
+  }
+
+  onCloseRedeemWarningDialog() {
+    this.setState({ showRedeemWarning: false });
+  }
+
+  onAcceptRedeemWarning() {
+    this.setState({ showRedeemWarning: false });
+    this.redeem();
+  }
+
+  redeem() {
+    NavigationActions.redeem2for1Screen({
+      bar: this.props.bar.name,
+      redeemDate: moment(),
+      expiryDate: moment().add(3, 'minutes'),
+    });
+  }
+
+  renderRedeemWarningDialog() {
+    return (
+      <AlkoSpecialWarningDialog
+        onButtonPress={this.onAcceptRedeemWarning}
+        onClose={this.onCloseRedeemWarningDialog}
+        visible={this.state.showRedeemWarning}
+      />
+    );
   }
 
   renderMessageDialog() {
@@ -139,6 +172,7 @@ class DrinkupLobbyScreen extends Component {
         <Button onPress={this.onLeave} theme={'disallow'} text={I18n.t('Drinkup_LeaveTheDrinkUp')} />
         {this.renderMessageDialog()}
         {this.renderRequestToJoinDialog()}
+        {this.renderRedeemWarningDialog()}
       </View>
     );
   }
