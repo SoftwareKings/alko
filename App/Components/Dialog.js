@@ -23,6 +23,7 @@ export default class Dialog extends Component {
       PropTypes.arrayOf(React.PropTypes.node),
       PropTypes.node,
     ]),
+    dialogStyle: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   }
 
   static defaultProps = {
@@ -59,7 +60,7 @@ export default class Dialog extends Component {
           >
             <View></View>
           </TouchableHighlight>
-          <View style={Styles.container}>
+          <View style={[Styles.container, this.props.dialogStyle]}>
             {
               this.props.closeButton ?
               this.constructor.renderCloseButton(this.props.onClose)
