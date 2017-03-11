@@ -6,10 +6,18 @@ import { Actions as NavigationActions } from 'react-native-router-flux';
 
 import Styles from '../Styles/BarScreenStyle';
 import Button from '../../Components/Button';
+import CheersDialog from '../../Components/Dialogs/CheersDialog';
 import DrinkupActions from '../../Redux/DrinkupRedux';
 import { requestingMember } from '../../Fixtures/drinkupMembers';
 
 class ItsJustMeScreen extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      showDialog: true,
+    };
+  }
 
   componentDidUpdate() {
     if (!this.props.joined) {
@@ -17,9 +25,22 @@ class ItsJustMeScreen extends Component {
     }
   }
 
+  onCloseDialog = () => {
+    this.setState({ showDialog: false });
+  }
+
   // this function is only use for demo
   onDraftLeave = () => {
     this.props.leaveDrinkup(requestingMember);
+  }
+
+  renderCheersDialog() {
+    return (
+      <CheersDialog
+        onClose={this.onCloseDialog}
+        visible={this.state.showDialog}
+      />
+    );
   }
 
   render() {
@@ -44,6 +65,7 @@ class ItsJustMeScreen extends Component {
             text={I18n.t('Bar_ItsJustMe_Button')}
           />
         </View>
+        {this.renderCheersDialog()}
       </View>
     );
   }

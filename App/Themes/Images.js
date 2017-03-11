@@ -4,6 +4,8 @@
 const images = {
   bg: require('../Images/BG.png'),
   abby: require('../Images/abby.png'),
+  cheers: require('../Images/cheers.gif'),
+  cheers_static: require('../Images/cheers_static.jpg'),
   danny: require('../Images/danny.png'),
   igniteLogo: require('../Images/ignite_logo.png'),
   introStep2: require('../Images/intro_step_2.png'),
